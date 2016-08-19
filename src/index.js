@@ -1,3 +1,1 @@
-function foo() {
-    return 'bar';
-}
+export { Table } from './table';

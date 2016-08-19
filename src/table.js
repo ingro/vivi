@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { FlexTable, FlexColumn } from 'react-virtualized';
+import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
 
 export default class Table extends Component {
 
@@ -91,35 +91,42 @@ export default class Table extends Component {
         const tableHeight =  expectedHeight < height ? expectedHeight : height;
 
         return (
-            <FlexTable
-                headerHeight={headerHeight}
-                height={tableHeight}
-                rowCount={rowCount}
-                rowGetter={rowGetter}
-                rowHeight={rowHeight}
-                width={width}
-                rowStyle={this.getRowStyle}
-                sort={onSort}
-                sortBy={sortBy}
-                sortDirection={sortDirection}
-            >
-                {selectable &&
-                    <FlexColumn
-                        width={36}
-                        dataKey={'_select'}
-                        cellRenderer={this.renderCheckColumn}
-                        headerRenderer={this.renderCheckHeader}
-                    />
-                }
-                {columns.map((col, i) =>
-                    <FlexColumn
-                        key={i}
-                        width={col.width}
-                        label={col.label}
-                        dataKey={col.dataKey}
-                    />
+            <AutoSizer>
+                {(auto) => (
+                    <FlexTable
+                        headerHeight={headerHeight}
+                        height={tableHeight}
+                        rowCount={rowCount}
+                        rowGetter={rowGetter}
+                        rowHeight={rowHeight}
+                        width={width ? width : auto.width}
+                        rowStyle={this.getRowStyle}
+                        sort={onSort}
+                        sortBy={sortBy}
+                        sortDirection={sortDirection}
+                    >
+                        {selectable &&
+                            <FlexColumn
+                                width={36}
+                                disableSort
+                                dataKey={'_select'}
+                                cellRenderer={this.renderCheckColumn}
+                                headerRenderer={this.renderCheckHeader}
+                                flexGrow={0}
+                            />
+                        }
+                        {columns.map((col, i) =>
+                            <FlexColumn
+                                key={i}
+                                width={col.width}
+                                label={col.label}
+                                dataKey={col.dataKey}
+                                flexGrow={1}
+                            />
+                        )}
+                    </FlexTable>
                 )}
-            </FlexTable>
+            </AutoSizer>
         );
     }
 }
@@ -127,7 +134,7 @@ export default class Table extends Component {
 Table.propTypes = {
     columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
-    height: PropTypes.number,
+    height: PropTypes.number.isRequired,
     onRowSelectChange: PropTypes.func,
     onSort: PropTypes.func,
     rowCount: PropTypes.number.isRequired,

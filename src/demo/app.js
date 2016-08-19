@@ -6,17 +6,65 @@ import Table from '../table';
 
 const cols = [
     {
-        width: 200,
+        width: 100,
         label: 'ID',
         dataKey: 'id'
     }, {
-        width: 788,
+        width: 200,
         label: 'Name',
         dataKey: 'name'
     }
 ];
 
 const list = [
+    {
+        id: 1,
+        name: 'Bracco Baldo'
+    },
+    {
+        id: 2,
+        name: 'Scooby Doo'
+    },
+    {
+        id: 3,
+        name: 'Pongo'
+    },
+    {
+        id: 4,
+        name: 'Bolt'
+    },
+    {
+        id: 1,
+        name: 'Bracco Baldo'
+    },
+    {
+        id: 2,
+        name: 'Scooby Doo'
+    },
+    {
+        id: 3,
+        name: 'Pongo'
+    },
+    {
+        id: 4,
+        name: 'Bolt'
+    },
+    {
+        id: 1,
+        name: 'Bracco Baldo'
+    },
+    {
+        id: 2,
+        name: 'Scooby Doo'
+    },
+    {
+        id: 3,
+        name: 'Pongo'
+    },
+    {
+        id: 4,
+        name: 'Bolt'
+    },
     {
         id: 1,
         name: 'Bracco Baldo'
@@ -75,10 +123,10 @@ class App extends Component {
                 <Table
                     ref="table"
                     columns={cols}
-                    height={800}
+                    height={400}
                     rowCount={list.length}
                     rowGetter={({ index }) => list[index]}
-                    width={1024}
+                    width={600}
                     selectable={true}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
                     onSort={this.handleSort}
