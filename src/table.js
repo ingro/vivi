@@ -154,7 +154,6 @@ Table.propTypes = {
 Table.defaultProps = {
     headerHeight: 40,
     onRowSelectChange: () => {},
-    onSort: () => {},
     rowHeight: 40,
     selectable: false
 };

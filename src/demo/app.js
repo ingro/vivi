@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import lodashSortBy from 'lodash/sortBy';
 
-import Table from '../table';
+import Table from '../Table';
 
 const cols = [
     {
@@ -127,7 +127,7 @@ class App extends Component {
                     height={400}
                     rowCount={list.length}
                     rowGetter={({ index }) => list[index]}
-                    width={600}
+                    widthhh={600}
                     selectable={true}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
                     onSort={this.handleSort}

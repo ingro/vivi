@@ -7,8 +7,9 @@
 - Decidere se creare un bundle con le varie dipendenze o mantenerle come peer depedencies e compilare semplicemente i files sorgenti con babel.
 - Definire nomenclatura unica nomi componenti, callbacks etc.
 - Inserire qualche info nel readme.
-- Valutare se utilizzare lodash per intero o piccoli moduli separati
+- Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
 
 ## Componenti
 
 ### Table
+- Prevedere proprieta per mostrare elemento di notifica in caso di assenza di dati.
