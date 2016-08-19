@@ -64,7 +64,7 @@ export default class Table extends Component {
         }
 
         if (index > -1) {
-            return index % 2 ? { backgroundColor: '#eee' } : { backgroundColor: '#fff' };
+            return index % 2 ? { backgroundColor: '#f9f9f9' } : { backgroundColor: '#fff' };
         }
 
         return {};
@@ -85,21 +85,27 @@ export default class Table extends Component {
     }
 
     render() {
-        const { columns, headerHeight, height, rowCount, rowGetter, rowHeight, selectable, width } = this.props;
+        const { columns, headerHeight, height, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
+
+        const expectedHeight = headerHeight + (rowHeight * rowCount);
+        const tableHeight =  expectedHeight < height ? expectedHeight : height;
 
         return (
             <FlexTable
                 headerHeight={headerHeight}
-                height={height}
+                height={tableHeight}
                 rowCount={rowCount}
                 rowGetter={rowGetter}
                 rowHeight={rowHeight}
                 width={width}
                 rowStyle={this.getRowStyle}
+                sort={onSort}
+                sortBy={sortBy}
+                sortDirection={sortDirection}
             >
                 {selectable &&
                     <FlexColumn
-                        width={20}
+                        width={36}
                         dataKey={'_select'}
                         cellRenderer={this.renderCheckColumn}
                         headerRenderer={this.renderCheckHeader}
@@ -119,18 +125,24 @@ export default class Table extends Component {
 }
 
 Table.propTypes = {
-    columns: PropTypes.array,
+    columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
     height: PropTypes.number,
     onRowSelectChange: PropTypes.func,
-    rowCount: PropTypes.number,
-    rowGetter: PropTypes.func,
+    onSort: PropTypes.func,
+    rowCount: PropTypes.number.isRequired,
+    rowGetter: PropTypes.func.isRequired,
     rowHeight: React.PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
     selectable: PropTypes.bool,
+    sortBy: PropTypes.string,
+    sortDirection: PropTypes.string,
     width: PropTypes.number
 };
 
 Table.defaultProps = {
+    headerHeight: 40,
     onRowSelectChange: () => {},
+    onSort: () => {},
+    rowHeight: 40,
     selectable: false
 };

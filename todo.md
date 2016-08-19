@@ -11,6 +11,5 @@
 ## Componenti
 
 ### Table
-- Styling tabella per renderla piu simile a Bootstrap.
 - Gestione opzione autosize.
 - Gestione sorting.

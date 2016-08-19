@@ -9,7 +9,7 @@ const cols = [
         label: 'ID',
         dataKey: 'id'
     }, {
-        width: 400,
+        width: 788,
         label: 'Name',
         dataKey: 'name'
     }
@@ -50,14 +50,13 @@ class App extends Component {
                 <Table
                     ref="table"
                     columns={cols}
-                    headerHeight={50}
-                    height={600}
+                    height={800}
                     rowCount={list.length}
                     rowGetter={({ index }) => list[index]}
-                    rowHeight={100}
                     width={1024}
                     selectable={true}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
+                    onSort={(data) => console.warn(data)}
                 />
             </div>
         );
