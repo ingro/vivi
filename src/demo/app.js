@@ -8,7 +8,8 @@ const cols = [
     {
         width: 100,
         label: 'ID',
-        dataKey: 'id'
+        dataKey: 'id',
+        flexGrow: 0
     }, {
         width: 200,
         label: 'Name',
@@ -34,51 +35,51 @@ const list = [
         name: 'Bolt'
     },
     {
-        id: 1,
+        id: 5,
         name: 'Bracco Baldo'
     },
     {
-        id: 2,
+        id: 6,
         name: 'Scooby Doo'
     },
     {
-        id: 3,
+        id: 7,
         name: 'Pongo'
     },
     {
-        id: 4,
+        id: 8,
         name: 'Bolt'
     },
     {
-        id: 1,
+        id: 9,
         name: 'Bracco Baldo'
     },
     {
-        id: 2,
+        id: 10,
         name: 'Scooby Doo'
     },
     {
-        id: 3,
+        id: 11,
         name: 'Pongo'
     },
     {
-        id: 4,
+        id: 12,
         name: 'Bolt'
     },
     {
-        id: 1,
+        id: 13,
         name: 'Bracco Baldo'
     },
     {
-        id: 2,
+        id: 14,
         name: 'Scooby Doo'
     },
     {
-        id: 3,
+        id: 15,
         name: 'Pongo'
     },
     {
-        id: 4,
+        id: 16,
         name: 'Bolt'
     }
 ];

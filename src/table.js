@@ -1,5 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
+import _ from 'lodash';
+
+const defaultColumnProps = {
+    flexGrow: 1,
+    width: 50
+};
 
 export default class Table extends Component {
 
@@ -90,6 +96,8 @@ export default class Table extends Component {
         const expectedHeight = headerHeight + (rowHeight * rowCount);
         const tableHeight =  expectedHeight < height ? expectedHeight : height;
 
+        columns.map(column => _.defaults(column, defaultColumnProps));
+
         return (
             <AutoSizer>
                 {(auto) => (
@@ -115,13 +123,10 @@ export default class Table extends Component {
                                 flexGrow={0}
                             />
                         }
-                        {columns.map((col, i) =>
+                        {columns.map((column, i) =>
                             <FlexColumn
                                 key={i}
-                                width={col.width}
-                                label={col.label}
-                                dataKey={col.dataKey}
-                                flexGrow={1}
+                                {...column}
                             />
                         )}
                     </FlexTable>
