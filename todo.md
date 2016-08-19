@@ -12,4 +12,3 @@
 
 ### Table
 - Gestione opzione autosize.
-- Gestione sorting.

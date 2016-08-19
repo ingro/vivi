@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
+import lodashSortBy from 'lodash/sortBy';
 
 import Table from '../table';
 
@@ -36,11 +37,35 @@ const list = [
 
 class App extends Component {
 
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            sortBy: null,
+            sortDirection: null,
+            list
+        };
+    }
+
     getSelectedItems = () => {
         console.log(this.refs.table.getSelectedItems());
     }
 
+    handleSort = (data) => {
+        const { sortBy, sortDirection } = data;
+
+        const newList = lodashSortBy(this.state.list, sortBy);
+
+        this.setState({
+            sortBy,
+            sortDirection,
+            list: sortDirection === 'ASC' ? newList : newList.reverse()
+        });
+    }
+
     render() {
+        const { sortBy, sortDirection, list } = this.state;
+
         return (
             <div>
                 <h1>Welcome to Vivi!</h1>
@@ -56,7 +81,9 @@ class App extends Component {
                     width={1024}
                     selectable={true}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
-                    onSort={(data) => console.warn(data)}
+                    onSort={this.handleSort}
+                    sortBy={sortBy}
+                    sortDirection={sortDirection}
                 />
             </div>
         );
