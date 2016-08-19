@@ -4,10 +4,10 @@
   "description": "Ui Components for Dashboards",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cross-env NODE_ENV=production babel src --out-dir dist",
+    "build": "cross-env NODE_ENV=production babel src --out-dir dist --ignore demo/*",
     "lint": "eslint src",
-    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline"
+    "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Emanuele Ingrosso <ingro85@gmail.com>",
   "license": "MIT",
@@ -32,11 +32,16 @@
     "eslint-plugin-import": "^1.13.0",
     "eslint-plugin-react": "^6.1.2",
     "html-webpack-plugin": "^2.22.0",
+    "react": "^15.3.0",
+    "react-addons-shallow-compare": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-virtualized": "^7.19.4",
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.14.1"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0",
+    "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "react-dom": "^0.14.0 || ^15.0.0"
   }
 }
