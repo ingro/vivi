@@ -131,6 +131,12 @@ class App extends Component {
                 <Switch
                     onChange={(status) => console.warn(status)}
                 />
+                <h3>Here it is disabled</h3>
+                <Switch
+                    disabled
+                    defaultChecked={true}
+                    onChange={(status) => console.warn(status)}
+                />
                 <h3>Here is a table!</h3>
                 <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
                 <Table

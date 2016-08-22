@@ -67,3 +67,6 @@
 .Switch__tgl-switch:checked + .Switch__tgl-btn:active:after {
   margin-left: -.8em;
 }
+.Switch__tgl-switch[disabled] + .Switch__tgl-btn {
+  cursor: not-allowed;
+}

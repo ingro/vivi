@@ -10,13 +10,14 @@ export default class Switch extends Component {
     }
 
     render() {
-        const { checked, defaultChecked, onChange, onClick } = this.props;
+        const { checked, defaultChecked, disabled, onChange, onClick } = this.props;
 
         const controlled = typeof checked === 'boolean' ? { checked } : { defaultChecked };
 
         return (
             <span>
                 <input
+                    disabled={disabled}
                     ref="checkbox"
                     onClick={onClick}
                     id={this.checkboxId}
@@ -37,12 +38,14 @@ export default class Switch extends Component {
 Switch.propTypes = {
     checked: PropTypes.bool,
     defaultChecked: PropTypes.bool,
+    disabled: PropTypes.bool,
     onChange: PropTypes.func,
     onClick: PropTypes.func
 };
 
 Switch.defaultProps = {
     defaultChecked: false,
+    disabled: false,
     onChange: () => {},
     onClick: () => {}
 };
