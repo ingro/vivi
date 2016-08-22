@@ -12,4 +12,4 @@
 ## Componenti
 
 ### Table
-- Prevedere proprieta per mostrare elemento di notifica in caso di assenza di dati.
+

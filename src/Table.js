@@ -91,9 +91,9 @@ export default class Table extends Component {
     }
 
     render() {
-        const { columns, headerHeight, height, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
+        const { columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
 
-        const expectedHeight = headerHeight + (rowHeight * rowCount);
+        const expectedHeight = rowCount > 0 ? headerHeight + (rowHeight * rowCount) : headerHeight + rowHeight;
         const tableHeight =  expectedHeight < height ? expectedHeight : height;
 
         columns.map(column => _.defaults(column, defaultColumnProps));
@@ -104,10 +104,11 @@ export default class Table extends Component {
                     <FlexTable
                         headerHeight={headerHeight}
                         height={tableHeight}
-                        rowCount={rowCount}
+                        rowCount={0}
                         rowGetter={rowGetter}
                         rowHeight={rowHeight}
                         width={width ? width : auto.width}
+                        noRowsRenderer={noRowsRenderer}
                         rowStyle={this.getRowStyle}
                         sort={onSort}
                         sortBy={sortBy}
@@ -140,6 +141,7 @@ Table.propTypes = {
     columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
     height: PropTypes.number.isRequired,
+    noRowsRenderer: PropTypes.func,
     onRowSelectChange: PropTypes.func,
     onSort: PropTypes.func,
     rowCount: PropTypes.number.isRequired,
@@ -153,6 +155,7 @@ Table.propTypes = {
 
 Table.defaultProps = {
     headerHeight: 40,
+    noRowsRenderer: () => <div className="alert alert-warning text-center">No items to show</div>,
     onRowSelectChange: () => {},
     rowHeight: 40,
     selectable: false

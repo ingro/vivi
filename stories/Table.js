@@ -83,6 +83,8 @@ const list = [
     }
 ];
 
+const emptyList = [];
+
 storiesOf('Table', module)
     .add('Simple example', () =>
         <Table
@@ -124,5 +126,24 @@ storiesOf('Table', module)
             onSort={action('Sort Header')}
             sortBy={'name'}
             sortDireaction={'asc'}
+        />
+    )
+    .add('No item (default)', () =>
+        <Table
+            columns={cols}
+            height={400}
+            rowCount={emptyList.length}
+            rowGetter={({ index }) => list[index]}
+            width={600}
+        />
+    )
+    .add('No item (custom)', () =>
+        <Table
+            columns={cols}
+            height={400}
+            noRowsRenderer={() => <div style={{ backgroundColor: 'yellow',  fontSize: 20 }}>Nessun personaggio da mostrare!</div>}
+            rowCount={emptyList.length}
+            rowGetter={({ index }) => list[index]}
+            width={600}
         />
     );
