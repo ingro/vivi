@@ -104,7 +104,7 @@ export default class Table extends Component {
                     <FlexTable
                         headerHeight={headerHeight}
                         height={tableHeight}
-                        rowCount={0}
+                        rowCount={rowCount}
                         rowGetter={rowGetter}
                         rowHeight={rowHeight}
                         width={width ? width : auto.width}
