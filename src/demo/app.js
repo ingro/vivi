@@ -93,7 +93,8 @@ class App extends Component {
         this.state = {
             sortBy: null,
             sortDirection: null,
-            list
+            list,
+            checked: true
         };
     }
 
@@ -122,8 +123,13 @@ class App extends Component {
                 <p>A new Adrias Online interface collection</p>
                 <h3>Here is a switch</h3>
                 <Switch
-                    checked={true}
-                    onChange={(e) => console.warn(e.target.checked)}
+                    checked={this.state.checked}
+                    onClick={(e) => this.setState({ checked: ! this.state.checked })}
+                    onChange={(status) => console.warn(status)}
+                />
+                <h3>Here it is uncontrolled</h3>
+                <Switch
+                    onChange={(status) => console.warn(status)}
                 />
                 <h3>Here is a table!</h3>
                 <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
@@ -133,7 +139,7 @@ class App extends Component {
                     height={400}
                     rowCount={list.length}
                     rowGetter={({ index }) => list[index]}
-                    widthhh={600}
+                    width={600}
                     selectable={true}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
                     onSort={this.handleSort}

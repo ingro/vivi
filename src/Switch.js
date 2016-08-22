@@ -10,12 +10,25 @@ export default class Switch extends Component {
     }
 
     render() {
-        const { checked, onChange } = this.props;
+        const { checked, defaultChecked, onChange, onClick } = this.props;
+
+        const controlled = typeof checked === 'boolean' ? { checked } : { defaultChecked };
 
         return (
             <span>
-                <input onClick={() => console.warn('ON CLICK')} id={this.checkboxId} type="checkbox" className="Switch__tgl Switch__tgl-switch" onChange={onChange} defaultChecked={checked} />
-                <label htmlFor={this.checkboxId} className="Switch__tgl-btn"  />
+                <input
+                    ref="checkbox"
+                    onClick={onClick}
+                    id={this.checkboxId}
+                    type="checkbox"
+                    className="Switch__tgl Switch__tgl-switch"
+                    onChange={() => onChange(this.refs.checkbox.checked)}
+                    {...controlled}
+                />
+                <label
+                    htmlFor={this.checkboxId}
+                    className="Switch__tgl-btn"
+                />
             </span>
         );
     }
@@ -23,10 +36,13 @@ export default class Switch extends Component {
 
 Switch.propTypes = {
     checked: PropTypes.bool,
-    onChange: PropTypes.func
+    defaultChecked: PropTypes.bool,
+    onChange: PropTypes.func,
+    onClick: PropTypes.func
 };
 
 Switch.defaultProps = {
-    checked: false,
-    onChange: () => {}
+    defaultChecked: false,
+    onChange: () => {},
+    onClick: () => {}
 };

@@ -12,5 +12,8 @@
 
 ## Componenti
 
+### Switch
+- Gestire stato disabled
+
 ### Table
 
