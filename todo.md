@@ -8,6 +8,7 @@
 - Definire nomenclatura unica nomi componenti, callbacks etc.
 - Inserire qualche info nel readme.
 - Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
+- Come gestire tutte le peer dependencies???
 
 ## Componenti
 

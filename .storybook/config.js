@@ -1,6 +1,6 @@
 import { configure } from '@kadira/storybook';
 
-import '../src/Table.css';
+import '../src/style.css';
 
 function loadStories() {
 	require('../stories/Table');
