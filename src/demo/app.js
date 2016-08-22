@@ -4,6 +4,7 @@ import lodashSortBy from 'lodash/sortBy';
 
 import Table from '../Table';
 import Switch from '../Switch';
+import LoadingButton from '../LoadingButton';
 
 const cols = [
     {
@@ -94,6 +95,7 @@ class App extends Component {
             sortBy: null,
             sortDirection: null,
             list,
+            isLoading: false,
             checked: true
         };
     }
@@ -114,13 +116,33 @@ class App extends Component {
         });
     }
 
+    handleLoading = () => {
+        this.setState({
+            isLoading: true
+        });
+
+        setTimeout(() => {
+            this.setState({
+                isLoading: false
+            });
+        }, 3000);
+    }
+
     render() {
-        const { sortBy, sortDirection, list } = this.state;
+        const { sortBy, sortDirection, list, isLoading } = this.state;
 
         return (
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
+                <h3>Here is a LoadingButton</h3>
+                <LoadingButton
+                    bsClass="info"
+                    loading={isLoading}
+                    onClick={this.handleLoading}
+                >
+                    <i className="fa fa-check"></i> Save
+                </LoadingButton>
                 <h3>Here is a switch</h3>
                 <Switch
                     checked={this.state.checked}
