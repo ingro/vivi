@@ -11,11 +11,11 @@ module.exports = {
         path: 'dist',
         filename: '[name].js'
     },
-    externals: {
-        'react': 'React',
-        'react-dom': 'ReactDOM',
-        'react-addons-shallow-compare': 'var React.addons.shallowCompare'
-    },
+    // externals: {
+    //     'react': 'React',
+    //     'react-dom': 'ReactDOM',
+    //     'react-addons-shallow-compare': 'var React.addons.shallowCompare'
+    // },
     plugins: [
         new ExtractTextPlugin('vivi.css', {
             allChunks: false,

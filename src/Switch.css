@@ -1,0 +1,69 @@
+.Switch__tgl {
+  display: none;
+}
+.Switch__tgl, .Switch__tgl:after, .Switch__tgl:before, .Switch__tgl *, .Switch__tgl *:after, .Switch__tgl *:before, .Switch__tgl + .Switch__tgl-btn {
+  box-sizing: border-box;
+}
+.Switch__tgl::-moz-selection, .Switch__tgl:after::-moz-selection, .Switch__tgl:before::-moz-selection, .Switch__tgl *::-moz-selection, .Switch__tgl *:after::-moz-selection, .Switch__tgl *:before::-moz-selection, .Switch__tgl + .Switch__tgl-btn::-moz-selection {
+  background: none;
+}
+.Switch__tgl::selection, .Switch__tgl:after::selection, .Switch__tgl:before::selection, .Switch__tgl *::selection, .Switch__tgl *:after::selection, .Switch__tgl *:before::selection, .Switch__tgl + .Switch__tgl-btn::selection {
+  background: none;
+}
+
+.Switch__tgl + .Switch__tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 2em;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+.Switch__tgl + .Switch__tgl-btn:after, .Switch__tgl + .Switch__tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+.Switch__tgl + .Switch__tgl-btn:after {
+  left: 0;
+}
+.Switch__tgl + .Switch__tgl-btn:before {
+  display: none;
+}
+.Switch__tgl:checked + .Switch__tgl-btn:after {
+  left: 50%;
+}
+.Switch__tgl-switch + .Switch__tgl-btn {
+  background: #fbfbfb;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all .4s ease;
+  border: 1px solid #e8eae9;
+}
+.Switch__tgl-switch + .Switch__tgl-btn:after {
+  border-radius: 2em;
+  background: #fbfbfb;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), padding 0.3s ease, margin 0.3s ease;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+.Switch__tgl-switch + .Switch__tgl-btn:hover:after {
+  will-change: padding;
+}
+.Switch__tgl-switch + .Switch__tgl-btn:active {
+  box-shadow: inset 0 0 0 2em #e8eae9;
+}
+.Switch__tgl-switch + .Switch__tgl-btn:active:after {
+  padding-right: .8em;
+}
+.Switch__tgl-switch:checked + .Switch__tgl-btn {
+  background: #86d993;
+}
+.Switch__tgl-switch:checked + .Switch__tgl-btn:active {
+  box-shadow: none;
+}
+.Switch__tgl-switch:checked + .Switch__tgl-btn:active:after {
+  margin-left: -.8em;
+}

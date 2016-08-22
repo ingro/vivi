@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
-import _ from 'lodash';
+import defaults from 'lodash/defaults';
 
 const defaultColumnProps = {
     flexGrow: 1,
@@ -96,7 +96,7 @@ export default class Table extends Component {
         const expectedHeight = rowCount > 0 ? headerHeight + (rowHeight * rowCount) : headerHeight + rowHeight;
         const tableHeight =  expectedHeight < height ? expectedHeight : height;
 
-        columns.map(column => _.defaults(column, defaultColumnProps));
+        columns.map(column => defaults(column, defaultColumnProps));
 
         return (
             <AutoSizer>

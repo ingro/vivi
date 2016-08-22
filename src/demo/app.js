@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import lodashSortBy from 'lodash/sortBy';
 
 import Table from '../Table';
+import Switch from '../Switch';
 
 const cols = [
     {
@@ -119,6 +120,11 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
+                <h3>Here is a switch</h3>
+                <Switch
+                    checked={true}
+                    onChange={(e) => console.warn(e.target.checked)}
+                />
                 <h3>Here is a table!</h3>
                 <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
                 <Table
