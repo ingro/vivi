@@ -70,10 +70,10 @@ storiesOf('LoadingButton', module)
         () =>
             <LoadingButton
                 loading={true}
-                loadingMsg={<span>zZzZzZZzzZ...</span>}
+                loadingMsg={<span><i className="fa fa-spin fa-refresh" /> zZzZzZZzzZ...</span>}
                 onClick={action('Change')}
             >
                 Save
             </LoadingButton>
     )
-    .add('Working', () => <Wrapper />);
+    .add('Working (with a wrapper)', () => <Wrapper />);

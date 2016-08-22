@@ -3,12 +3,31 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import Switch from '../src/Switch';
 
+class Wrapper extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            isChecked: false
+        };
+    }
+
+    handleClick() {
+        action('Click')();
+
+        this.setState({
+            isChecked: ! this.state.isChecked
+        });
+    }
+
+    render() {
+        return <Switch checked={this.state.isChecked} onClick={this.handleClick.bind(this)} />
+    }
+}
+
 storiesOf('Switch', module)
-    .add('Controlled', () =>
-        <Switch
-            checked={false}
-            onClick={action('Click')}
-        />
+    .add('Controlled (with a wrapper)', () =>
+        <Wrapper />
     )
     .add('Uncontrolled', () =>
         <Switch
