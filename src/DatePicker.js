@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { SingleDatePicker } from 'react-dates';
 
-export default class Calendar extends Component {
+export default class DatePicker extends Component {
 
     constructor(props) {
         super(props);
 
         this.state = {
-            date: null,
+            date: props.date,
             focused: false
         };
     }
@@ -36,10 +36,10 @@ export default class Calendar extends Component {
     }
 }
 
-Calendar.propTypes = {
-
+DatePicker.propTypes = {
+    date: PropTypes.any
 };
 
-Calendar.defaultProps = {
+DatePicker.defaultProps = {
 
 };

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
+import moment from 'moment';
 import lodashSortBy from 'lodash/sortBy';
 
 import 'react-dates/lib/css/_datepicker.css';
@@ -9,6 +10,8 @@ import Checkbox from '../Checkbox';
 import Table from '../Table';
 import Switch from '../Switch';
 import LoadingButton from '../LoadingButton';
+
+moment.locale('it');
 
 const cols = [
     {
@@ -140,7 +143,9 @@ class App extends Component {
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
                 <h3>Here is a Calendar</h3>
-                <Calendar />
+                <Calendar
+                    date={moment().add(10, 'days')}
+                />
                 <h3>Here is a LoadingButton</h3>
                 <LoadingButton
                     bsClass="info"
