@@ -11,6 +11,7 @@
 - Come gestire tutte le peer dependencies???
 
 ## Componenti
+- Unificare componente base per Checkbox e Switch che hanno lo stesso comportamento
 
 ### Calendar
 - Attendere che react-dates rimuova dipendenza da jquery
@@ -21,4 +22,3 @@
 - Gestire stato disabled
 
 ### Table
-

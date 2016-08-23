@@ -1,7 +1,10 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { render } from 'react-dom';
 import lodashSortBy from 'lodash/sortBy';
 
+import 'react-dates/lib/css/_datepicker.css';
+
+import Calendar from '../Calendar';
 import Checkbox from '../Checkbox';
 import Table from '../Table';
 import Switch from '../Switch';
@@ -136,6 +139,8 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
+                <h3>Here is a Calendar</h3>
+                <Calendar />
                 <h3>Here is a LoadingButton</h3>
                 <LoadingButton
                     bsClass="info"
