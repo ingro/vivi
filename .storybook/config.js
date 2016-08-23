@@ -4,6 +4,7 @@ import infoAddon from '@kadira/react-storybook-addon-info';
 import '../src/style.css';
 
 function loadStories() {
+	require('../stories/Checkbox');
 	require('../stories/LoadingButton');
 	require('../stories/Switch');
 	require('../stories/Table');

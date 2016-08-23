@@ -10,13 +10,15 @@
     "build-webpack": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
     "lint": "eslint src",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --config webpack.config.dev.js",
-    "test": "cross-env NODE_ENV=test ava",
+    "test": "cross-env NODE_ENV=test ava --verbose",
     "storybook": "start-storybook -p 9001"
   },
   "author": "Emanuele Ingrosso <ingro85@gmail.com>",
   "license": "MIT",
   "ava": {
-    "require": ["babel-register"],
+    "require": [
+      "babel-register"
+    ],
     "babel": "inherit"
   },
   "dependencies": {},
@@ -55,6 +57,7 @@
     "react": "^15.3.1",
     "react-addons-shallow-compare": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
+    "react-dates": "^1.0.0",
     "react-dom": "^15.3.1",
     "react-virtualized": "^7.19.4",
     "style-loader": "^0.13.1",

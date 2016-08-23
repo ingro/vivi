@@ -141,7 +141,7 @@ storiesOf('Table', module)
         <Table
             columns={cols}
             height={400}
-            noRowsRenderer={() => <div style={{ backgroundColor: 'yellow',  fontSize: 20 }}>Nessun personaggio da mostrare!</div>}
+            noRowsRenderer={() => <div style={{ backgroundColor: 'purple',  fontSize: 20, color: '#fff' }}>Nessun personaggio da mostrare!</div>}
             rowCount={emptyList.length}
             rowGetter={({ index }) => list[index]}
             width={600}

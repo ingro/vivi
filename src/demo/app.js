@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import lodashSortBy from 'lodash/sortBy';
 
+import Checkbox from '../Checkbox';
 import Table from '../Table';
 import Switch from '../Switch';
 import LoadingButton from '../LoadingButton';
@@ -143,6 +144,8 @@ class App extends Component {
                 >
                     <i className="fa fa-check"></i> Save
                 </LoadingButton>
+                <h3>Here is a checkbox</h3>
+                <Checkbox onChange={(status) => console.warn(status)} />
                 <h3>Here is a switch</h3>
                 <Switch
                     checked={this.state.checked}

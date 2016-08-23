@@ -4,38 +4,18 @@ import { shallow } from 'enzyme';
 
 import Switch from '../src/Switch';
 
-// const Foo = ({children}) =>
-//     <div className="Foo">
-//         <span className="bar">bar</span>
-//         {children}
-//         <span className="bar">bar</span>
-//     </div>;
-
-// Foo.propTypes = {
-//     children: React.PropTypes.any
-// };
-
-// test('has a .Foo class name', t => {
-//     const wrapper = shallow(<Foo/>);
-//     t.true(wrapper.hasClass('Foo'));
-// });
-
-// test('renders two `.Bar`', t => {
-//     const wrapper = shallow(<Foo/>);
-//     t.is(wrapper.find('.bar').length, 2);
-// });
-
-// test('renders children when passed in', t => {
-//     const wrapper = shallow(
-//         <Foo>
-//             <div className="unique"/>
-//         </Foo>
-//     );
-//     t.true(wrapper.contains(<div className="unique"/>));
-// });
-
-test('custom component', t => {
+test('<Switch />', t => {
     const wrapper = shallow(<Switch />);
 
-    t.is(wrapper.find('input').length, 1);
+    const input = wrapper.find('input[type="checkbox"]');
+
+    // console.log(input.first().is('[checked=false]'));
+
+    t.is(input.length, 1);
+
+    // TODO: non posso chiamare l'evento change dato che all'interno del componente uso ref, dovrei usare il metodo
+    // mount di enzyme ma questo richiederebbe instanziare un document globale con jsdom
+    // input.first().simulate('change');
+
+    // console.log(input.first().is('[checked=true]'));
 });

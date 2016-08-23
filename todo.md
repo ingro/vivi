@@ -12,9 +12,13 @@
 
 ## Componenti
 
+### Calendar
+- Attendere che react-dates rimuova dipendenza da jquery
+
+### LoadingButton
+
 ### Switch
 - Gestire stato disabled
 
 ### Table
 
-### LoadingButton
