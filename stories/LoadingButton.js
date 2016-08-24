@@ -40,7 +40,8 @@ storiesOf('LoadingButton', module)
                 onClick={action('Change')}
             >
                 Save
-            </LoadingButton>
+            </LoadingButton>,
+        // { inline: true, propTables: false, header: false }
     )
     .addWithInfo(
         'With bootstrap classes',
