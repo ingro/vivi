@@ -13,12 +13,16 @@
 ## Componenti
 - Unificare componente base per Checkbox e Switch che hanno lo stesso comportamento
 
-### Calendar
+### Checkbox
+
+### Datepicker & DateRangePicker
 - Attendere che react-dates rimuova dipendenza da jquery
+- Passare piu props come numberofmonths, placeholders input etc.
+- Integrare il CSS di react-dates in quello di Vivi o lasciare che sia l'applicazione esterna ad occuparsene?
 
 ### LoadingButton
 
 ### Switch
-- Gestire stato disabled
 
 ### Table
+- Usare componente Checkbox (o Switch?) al posto degli input vanilla per selezione rows

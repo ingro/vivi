@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { SingleDatePicker } from 'react-dates';
+import uniqueId from 'lodash/uniqueId';
 
 export default class DatePicker extends Component {
 
@@ -10,10 +11,14 @@ export default class DatePicker extends Component {
             date: props.date,
             focused: false
         };
+
+        this.datepickerId = uniqueId('datepicker');
     }
 
     onDateChange = (date) => {
         this.setState({ date });
+
+        this.props.onChange(date);
     }
 
     onFocusChange = ({ focused }) => {
@@ -26,9 +31,10 @@ export default class DatePicker extends Component {
 
         return (
             <SingleDatePicker
-                id="c01"
+                id={this.datepickerId}
                 date={date}
                 focused={focused}
+                numberOfMonths={1}
                 onDateChange={this.onDateChange}
                 onFocusChange={this.onFocusChange}
             />
@@ -37,9 +43,10 @@ export default class DatePicker extends Component {
 }
 
 DatePicker.propTypes = {
-    date: PropTypes.any
+    date: PropTypes.any,
+    onChange: PropTypes.func
 };
 
 DatePicker.defaultProps = {
-
+    onChange: () => {}
 };

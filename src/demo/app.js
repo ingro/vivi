@@ -5,7 +5,8 @@ import lodashSortBy from 'lodash/sortBy';
 
 import 'react-dates/lib/css/_datepicker.css';
 
-import Calendar from '../Calendar';
+import DatePicker from '../DatePicker';
+import DateRangePicker from '../DateRangePicker';
 import Checkbox from '../Checkbox';
 import Table from '../Table';
 import Switch from '../Switch';
@@ -142,9 +143,16 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
-                <h3>Here is a Calendar</h3>
-                <Calendar
+                <h3>Here is a DatePicker</h3>
+                <DatePicker
                     date={moment().add(10, 'days')}
+                    onChange={(date) => console.warn('New date!', date)}
+                />
+                <h3>Here is a DateRangePicker</h3>
+                <DateRangePicker
+                    startDate={moment().add(10, 'days')}
+                    endDate={moment().add(23, 'days')}
+                    onChange={(range) => console.warn('New range!', range)}
                 />
                 <h3>Here is a LoadingButton</h3>
                 <LoadingButton
@@ -160,16 +168,6 @@ class App extends Component {
                 <Switch
                     checked={this.state.checked}
                     onClick={(e) => this.setState({ checked: ! this.state.checked })}
-                    onChange={(status) => console.warn(status)}
-                />
-                <h3>Here it is uncontrolled</h3>
-                <Switch
-                    onChange={(status) => console.warn(status)}
-                />
-                <h3>Here it is disabled</h3>
-                <Switch
-                    disabled
-                    defaultChecked={true}
                     onChange={(status) => console.warn(status)}
                 />
                 <h3>Here is a table!</h3>
