@@ -117,7 +117,8 @@ class App extends Component {
             sortDirection: null,
             list,
             isLoading: false,
-            checked: true
+            checked: true,
+            selectValue: null
         };
     }
 
@@ -149,8 +150,14 @@ class App extends Component {
         }, 3000);
     }
 
+    onChangeSelect = (option) => {
+        this.setState({
+            selectValue: option ? option.value : null
+        });
+    }
+
     render() {
-        const { sortBy, sortDirection, list, isLoading } = this.state;
+        const { sortBy, sortDirection, list, isLoading, selectValue } = this.state;
 
         return (
             <div>
@@ -158,7 +165,9 @@ class App extends Component {
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
                 <h3>Here is a SelectAsync</h3>
                 <SelectAsync
+                    value={selectValue}
                     loadOptions={loadPosts}
+                    onChange={this.onChangeSelect}
                 />
                 <h3>Here is a Paginator</h3>
                 <Paginator

@@ -24,7 +24,7 @@ export default class SelectAsync extends Component {
     // }
 
     render() {
-        const { loadOptions, placeholder } = this.props;
+        const { loadOptions, onChange, placeholder, value } = this.props;
         // const { focused, date } = this.state;
 
         return (
@@ -33,7 +33,8 @@ export default class SelectAsync extends Component {
                 loadingPlaceholder="Attendere..."
                 placeholder={placeholder}
                 loadOptions={loadOptions}
-                onChange={value => console.warn(value)}
+                onChange={onChange}
+                value={value}
                 optionRenderer={option => {
                     return <Highlight search={this.select._lastInput}>{option.label}</Highlight>;
                 }}
@@ -44,7 +45,9 @@ export default class SelectAsync extends Component {
 
 SelectAsync.propTypes = {
     loadOptions: PropTypes.func.isRequired,
-    placeholder: PropTypes.string
+    onChange: PropTypes.func.isRequired,
+    placeholder: PropTypes.string,
+    value: PropTypes.any
 };
 
 SelectAsync.defaultProps = {
