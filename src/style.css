@@ -4,5 +4,6 @@
 /* Custom styles */
 @import 'Checkbox.css';
 @import 'DatePicker.css';
+@import 'Paginator.css';
 @import 'Table.css';
 @import 'Switch.css';

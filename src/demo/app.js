@@ -5,9 +5,10 @@ import lodashSortBy from 'lodash/sortBy';
 
 // import 'react-dates/lib/css/_datepicker.css';
 
+import Checkbox from '../Checkbox';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
-import Checkbox from '../Checkbox';
+import Paginator from '../Paginator';
 import Table from '../Table';
 import Switch from '../Switch';
 import LoadingButton from '../LoadingButton';
@@ -143,6 +144,17 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection</p>
+                <h3>Here is a Paginator</h3>
+                <Paginator
+                    current={1}
+                    total={50}
+                    pageSize={10}
+                    showStatusText={true}
+                    showSizeChanger={true}
+                    sizeOptions={[10, 20, 50]}
+                    onChanges={p => console.warn(p)}
+                    onSizeChange={s => console.warn(s)}
+                />
                 <h3>Here is a DatePicker</h3>
                 <DatePicker
                     date={moment().add(10, 'days')}
@@ -162,9 +174,9 @@ class App extends Component {
                 >
                     <i className="fa fa-check"></i> Save
                 </LoadingButton>
-                <h3>Here is a checkbox</h3>
+                <h3>Here is a Checkbox</h3>
                 <Checkbox onChange={(status) => console.warn(status)} />
-                <h3>Here is a switch</h3>
+                <h3>Here is a Switch</h3>
                 <Switch
                     checked={this.state.checked}
                     onClick={(e) => this.setState({ checked: ! this.state.checked })}
