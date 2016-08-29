@@ -33,12 +33,14 @@ export default class Paginator extends Component {
         const { sizeOptions } = this.props;
 
         return (
-            <select
-                value={10}
-                onChange={this.onSizeChange}
-            >
-                {sizeOptions.map((o, key) => <option key={key} value={o}>{o}</option>)}
-            </select>
+            <div>
+                <select
+                    value={10}
+                    onChange={this.onSizeChange}
+                >
+                    {sizeOptions.map((o, key) => <option key={key} value={o}>{o}</option>)}
+                </select>
+            </div>
         );
     }
 
@@ -62,7 +64,7 @@ export default class Paginator extends Component {
         };
 
         return (
-            <div>
+            <div className="container-fluid">
                 <Pagination
                     className="pagination"
                     locale={locale}
@@ -71,8 +73,10 @@ export default class Paginator extends Component {
                     {...controller}
                 />
                 {' '}
-                {showSizeChanger && this.getSizer()}
-                {showStatusText && this.getStatusText()}
+                <div className="paginator-info pull-right" style={{ margin: 20 }}>
+                    {showSizeChanger && this.getSizer()}
+                    {showStatusText && this.getStatusText()}
+                </div>
             </div>
         );
     }

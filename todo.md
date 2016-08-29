@@ -21,6 +21,9 @@
 
 ### LoadingButton
 
+### Paginator
+- Migliorare aspetto select change size e info text (renderlo personalizzabile???)
+
 ### Switch
 
 ### Table
