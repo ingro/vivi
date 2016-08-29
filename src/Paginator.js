@@ -21,9 +21,9 @@ const locale = {
 
 export default class Paginator extends Component {
 
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
     onSizeChange = (e) => {
         this.props.onSizeChange(e.target.value);
