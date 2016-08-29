@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import moment from 'moment';
 import lodashSortBy from 'lodash/sortBy';
 
-import 'react-dates/lib/css/_datepicker.css';
+// import 'react-dates/lib/css/_datepicker.css';
 
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';

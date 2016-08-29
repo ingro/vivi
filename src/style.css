@@ -1,3 +1,7 @@
+/* External styles */
+@import 'react-dates/lib/css/_datepicker.css';
+
+/* Custom styles */
 @import 'Checkbox.css';
 @import 'DatePicker.css';
 @import 'Table.css';

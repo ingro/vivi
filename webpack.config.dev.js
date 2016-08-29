@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const postssImport = require('postcss-import');
 // const autoprefixer = require('autoprefixer')
 const path = require('path');
 // const webpack = require('webpack')
@@ -30,7 +31,7 @@ module.exports = {
         },
         {
             test: /\.css$/,
-            loaders: ['style', 'css'],
+            loaders: ['style', 'css', 'postcss'],
             include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')]
         }
         /*, {
@@ -43,9 +44,9 @@ module.exports = {
             include: path.join(__dirname, 'styles.css')
         }*/]
     },
-    // postcss: function() {
-    //     return [autoprefixer]
-    // },
+    postcss: function() {
+        return [postssImport]
+    },
     devServer: {
         contentBase: 'build',
         port: 3001

@@ -18,11 +18,10 @@
 ### Datepicker & DateRangePicker
 - Attendere che react-dates rimuova dipendenza da jquery
 - Passare piu props come numberofmonths, placeholders input etc.
-- Integrare il CSS di react-dates in quello di Vivi o lasciare che sia l'applicazione esterna ad occuparsene?
 
 ### LoadingButton
 
 ### Switch
 
 ### Table
-- Usare componente Checkbox (o Switch?) al posto degli input vanilla per selezione rows
+- Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)

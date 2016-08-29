@@ -74,6 +74,11 @@
 .FlexTable__rowColumn:first-of-type {
   /*margin-left: 10px;*/
 }
+
+.FlexTable__selectColumn {
+  padding: 0 0 0 10px;
+}
+
 .FlexTable__sortableHeaderColumn {
   cursor: pointer;
 }

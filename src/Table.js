@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
 import defaults from 'lodash/defaults';
 
+import Checkbox from './Checkbox';
+
 const defaultColumnProps = {
     flexGrow: 1,
     width: 50
@@ -18,9 +20,7 @@ export default class Table extends Component {
         };
     }
 
-    handleHeaderCheckClick = (e) => {
-        const checked = e.target.checked;
-
+    handleHeaderCheckClick = (checked) => {
         const selectedRows = [];
 
         if (checked) {
@@ -35,9 +35,7 @@ export default class Table extends Component {
         });
     }
 
-    handleRowCheckClick = (rowData, rowIndex, e) => {
-        const checked = e.target.checked;
-
+    handleRowCheckClick = (rowData, rowIndex, checked) => {
         if (checked) {
             this.state.selectedRows.push(rowIndex);
         } else {
@@ -83,11 +81,11 @@ export default class Table extends Component {
 
         const checked = index > -1;
 
-        return <input type="checkbox" checked={checked} onChange={this.handleRowCheckClick.bind(this, rowData, rowIndex)} />;
+        return <Checkbox checked={checked} onChange={this.handleRowCheckClick.bind(this, rowData, rowIndex)}/>;
     }
 
     renderCheckHeader = () => {
-        return <input type="checkbox" checked={this.state.globalSelectStatus} onChange={this.handleHeaderCheckClick} />;
+        return <Checkbox checked={this.state.globalSelectStatus} onChange={this.handleHeaderCheckClick}/>;
     }
 
     render() {
@@ -122,6 +120,8 @@ export default class Table extends Component {
                                 cellRenderer={this.renderCheckColumn}
                                 headerRenderer={this.renderCheckHeader}
                                 flexGrow={0}
+                                className='FlexTable__selectColumn'
+                                headerClassName='FlexTable__selectColumn'
                             />
                         }
                         {columns.map((column, i) =>
