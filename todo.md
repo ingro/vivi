@@ -9,6 +9,7 @@
 - Inserire qualche info nel readme.
 - Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
 - Come gestire tutte le peer dependencies???
+- React highlighter dipendenza strutturale o peer?
 
 ## Componenti
 - Unificare componente base per Checkbox e Switch che hanno lo stesso comportamento
@@ -23,6 +24,9 @@
 
 ### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
+
+### SelectAsync
+- Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
 
 ### Switch
 

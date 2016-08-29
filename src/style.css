@@ -1,5 +1,8 @@
 /* External styles */
 @import 'react-dates/lib/css/_datepicker.css';
+@import 'react-select/dist/react-select.css';
+/* @import 'react-selectize/themes/base.css';
+ @import 'react-selectize/themes/bootstrap3.css'; */
 
 /* Custom styles */
 @import 'Checkbox.css';
@@ -7,3 +10,9 @@
 @import 'Paginator.css';
 @import 'Table.css';
 @import 'Switch.css';
+
+/* Highlight Text */
+.highlight {
+    background-color: yellow;
+    color: red;
+}

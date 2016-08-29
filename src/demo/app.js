@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import moment from 'moment';
 import lodashSortBy from 'lodash/sortBy';
-
-// import 'react-dates/lib/css/_datepicker.css';
+import axios from 'axios';
 
 import Checkbox from '../Checkbox';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
-import Paginator from '../Paginator';
-import Table from '../Table';
-import Switch from '../Switch';
 import LoadingButton from '../LoadingButton';
+import Paginator from '../Paginator';
+import SelectAsync from '../SelectAsync';
+import Switch from '../Switch';
+import Table from '../Table';
 
 moment.locale('it');
 
@@ -95,6 +95,18 @@ const list = [
     }
 ];
 
+function loadPosts(q) {
+    return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
+        .then(res => {
+            const options = res.data.map(post => ({ value: post.id, label: post.title }));
+
+            return {
+                options,
+                complete: false
+            };
+        });
+}
+
 class App extends Component {
 
     constructor(props) {
@@ -143,7 +155,11 @@ class App extends Component {
         return (
             <div>
                 <h1>Welcome to Vivi!</h1>
-                <p>A new Adrias Online interface collection</p>
+                <p>A new Adrias Online interface collection based on React and Bootstrap</p>
+                <h3>Here is a SelectAsync</h3>
+                <SelectAsync
+                    loadOptions={loadPosts}
+                />
                 <h3>Here is a Paginator</h3>
                 <Paginator
                     current={1}
