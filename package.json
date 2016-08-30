@@ -59,6 +59,7 @@
     "postcss-cli": "^2.5.2",
     "postcss-import": "^8.1.2",
     "rc-pagination": "^1.5.4",
+    "rc-tooltip": "^3.4.2",
     "react": "^15.3.1",
     "react-addons-shallow-compare": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
@@ -74,6 +75,7 @@
   "peerDependencies": {
     "lodash": "^4.0.0",
     "rc-pagination": "^1.0.0",
+    "rc-tooltip": "^3.0.0",
     "react": "^0.14.0 || ^15.0.0",
     "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "react-dates": "^2.0.0",

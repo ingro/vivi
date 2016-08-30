@@ -7,3 +7,4 @@ export { Select } from './Select';
 export { SelectAsync } from './SelectAsync';
 export { Switch } from './Switch';
 export { Table } from './Table';
+export { Tooltip } from './Tooltip';

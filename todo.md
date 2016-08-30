@@ -27,13 +27,17 @@
 ### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
-### Select
-- Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
-
-### SelectAsync
+### Select & SelectAsync
 - Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
 
 ### Switch
 
 ### Table
 - Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)
+
+### Tooltip
+- Scrivere stories
+
+## Componenti da sviluppare
+- TimeAgo
+- Modal

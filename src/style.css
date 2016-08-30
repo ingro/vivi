@@ -1,6 +1,7 @@
 /* External styles */
 @import 'react-dates/lib/css/_datepicker.css';
 @import 'react-select/dist/react-select.css';
+@import 'rc-tooltip/assets/bootstrap.css';
 /* @import 'react-selectize/themes/base.css';
  @import 'react-selectize/themes/bootstrap3.css'; */
 
@@ -15,4 +16,8 @@
 .highlight {
     background-color: yellow;
     color: #aaa;
+}
+
+.rc-tooltip {
+  opacity: 1;
 }

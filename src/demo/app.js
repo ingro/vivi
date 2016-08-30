@@ -13,6 +13,7 @@ import Select from '../Select';
 import SelectAsync from '../SelectAsync';
 import Switch from '../Switch';
 import Table from '../Table';
+import Tooltip from '../Tooltip';
 
 moment.locale('it');
 
@@ -168,6 +169,14 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
+                <h3>Here some tooltips</h3>
+                <Tooltip
+                    content={'Im a tooltip!!!'}
+                    position="right"
+                    trigger={['click']}
+                >
+                    <a>Top</a>
+                </Tooltip>
                 <h3>Here is a SelectAsync</h3>
                 <SelectAsync
                     value={selectAsyncValue}
