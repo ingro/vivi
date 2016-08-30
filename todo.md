@@ -11,6 +11,8 @@
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
 - React highlighter dipendenza strutturale o peer?
+- Riorganizzare struttura interna cartella src (cartella per ogni componente?)
+- Studiare modo migliore export singoli componenti
 
 ## Componenti
 - Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento

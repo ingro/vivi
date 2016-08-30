@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import Select from 'react-select';
 import Highlight from 'react-highlighter';
 
-export default class SelectAsync extends Component {
+export class SelectAsync extends Component {
     render() {
-        const { disabled, labelKey, loadOptions, minimumInput, multi, onChange, placeholder, value, valueKey } = this.props;
+        const { disabled, labelKey, loadOptions, minimumInput, multi, name, onChange, placeholder, value, valueKey } = this.props;
 
         return (
             <Select.Async
@@ -20,6 +20,7 @@ export default class SelectAsync extends Component {
                 value={value}
                 multi={multi}
                 minimumInput={minimumInput}
+                name={name}
                 valueKey={valueKey}
                 labelKey={labelKey}
                 backspaceRemoves={false}
@@ -41,10 +42,11 @@ SelectAsync.propTypes = {
     loadOptions: PropTypes.func.isRequired,
     minimumInput: PropTypes.number,
     multi: PropTypes.bool,
+    name: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.any,
-    valueKey: PropTypes.string,
+    valueKey: PropTypes.string
 };
 
 SelectAsync.defaultProps = {
