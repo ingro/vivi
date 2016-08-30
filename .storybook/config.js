@@ -9,6 +9,8 @@ function loadStories() {
 	require('../stories/DateRangePicker');
 	require('../stories/LoadingButton');
 	require('../stories/Paginator');
+	require('../stories/Select');
+	require('../stories/SelectAsync');
 	require('../stories/Switch');
 	require('../stories/Table');
 }
