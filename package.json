@@ -77,6 +77,7 @@
     "react-addons-shallow-compare": "^0.14.0 || ^15.0.0",
     "react-dates": "^2.0.0",
     "react-dom": "^0.14.0 || ^15.0.0",
+    "react-select": "^1.0.0-beta14",
     "react-virtualized": "^7.0.0"
   }
 }
