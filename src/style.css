@@ -5,11 +5,11 @@
  @import 'react-selectize/themes/bootstrap3.css'; */
 
 /* Custom styles */
-@import 'Checkbox.css';
-@import 'DatePicker.css';
-@import 'Paginator.css';
-@import 'Table.css';
-@import 'Switch.css';
+@import 'Checkbox/Checkbox.css';
+@import 'Datepicker/DatePicker.css';
+@import 'Paginator/Paginator.css';
+@import 'Table/Table.css';
+@import 'Switch/Switch.css';
 
 /* Highlight Text */
 .highlight {

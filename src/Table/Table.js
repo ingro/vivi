@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
 import defaults from 'lodash/defaults';
 
-import Checkbox from './Checkbox';
+import Checkbox from '../Checkbox';
 
 const defaultColumnProps = {
     flexGrow: 1,

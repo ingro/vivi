@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import Select from 'react-select';
 import Highlight from 'react-highlighter';
 
-export class SelectAsync extends Component {
+export default class SelectAsync extends Component {
     render() {
         const { disabled, labelKey, loadOptions, minimumInput, multi, name, onChange, placeholder, value, valueKey } = this.props;
 

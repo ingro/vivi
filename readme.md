@@ -4,7 +4,13 @@ Vivi è una collezione di componenti per l'interfaccia delle aree riservate di A
 
 ## Installazione
 
+Installare tramite npm: `$ npm install git+ssh://git@bitbucket.org:ingro/vivi.git --save`
+
 ## Utilizzo
+
+Vivi richiede l'utilizzo di un bundler come Webpack o Browserify. Utilizzando la sintassi ES6 si possono richiedere i singoli componenti nei seguenti modi:
+- `import { Select } from 'vivi'`;
+- `import Select from 'vivi/Select'`;
 
 ## Sviluppo
 
