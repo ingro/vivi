@@ -1,21 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import Select from 'react-select';
+import ReactSelect from 'react-select';
 import Highlight from 'react-highlighter';
 
-export default class SelectAsync extends Component {
+export default class Select extends Component {
     render() {
-        const { labelKey, loadOptions, minimumInput, multi, onChange, placeholder, value, valueKey } = this.props;
+        const { labelKey, minimumInput, multi, onChange, options, placeholder, value, valueKey } = this.props;
 
         return (
-            <Select.Async
+            <ReactSelect
                 ref={ref => this.select = ref}
-                loadingPlaceholder="Attendere..."
-                searchingText="Ricerca in corso..."
-                searchPromptText="Digita per ricercare"
                 noResultsText="Nessun risultato trovato"
                 placeholder={placeholder}
-                loadOptions={loadOptions}
                 onChange={onChange}
+                options={options}
                 value={value}
                 multi={multi}
                 minimumInput={minimumInput}
@@ -24,7 +21,7 @@ export default class SelectAsync extends Component {
                 backspaceRemoves={false}
                 optionRenderer={option => {
                     if (this.select) {
-                        return <Highlight search={this.select._lastInput}>{option[labelKey]}</Highlight>;
+                        return <Highlight search={this.select.state.inputValue}>{option[labelKey]}</Highlight>;
                     }
 
                     return <span>{option[labelKey]}</span>;
@@ -34,18 +31,18 @@ export default class SelectAsync extends Component {
     }
 }
 
-SelectAsync.propTypes = {
+Select.propTypes = {
     labelKey: PropTypes.string,
-    loadOptions: PropTypes.func.isRequired,
     minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     onChange: PropTypes.func.isRequired,
+    options: PropTypes.array.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.any,
     valueKey: PropTypes.string,
 };
 
-SelectAsync.defaultProps = {
+Select.defaultProps = {
     labelKey: 'name',
     minimumInput: 0,
     multi: false,

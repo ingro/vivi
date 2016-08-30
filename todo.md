@@ -12,7 +12,8 @@
 - React highlighter dipendenza strutturale o peer?
 
 ## Componenti
-- Unificare componente base per Checkbox e Switch che hanno lo stesso comportamento
+- Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
+- Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
 
 ### Checkbox
 
@@ -24,6 +25,9 @@
 
 ### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
+
+### Select
+- Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
 
 ### SelectAsync
 - Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente

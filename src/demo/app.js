@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import moment from 'moment';
-import lodashSortBy from 'lodash/sortBy';
+import _ from 'lodash';
 import axios from 'axios';
 
 import Checkbox from '../Checkbox';
@@ -9,6 +9,7 @@ import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
 import LoadingButton from '../LoadingButton';
 import Paginator from '../Paginator';
+import Select from '../Select';
 import SelectAsync from '../SelectAsync';
 import Switch from '../Switch';
 import Table from '../Table';
@@ -31,7 +32,7 @@ const cols = [
 const list = [
     {
         id: 1,
-        name: 'Bracco Baldo'
+        name: 'Braccobaldo'
     },
     {
         id: 2,
@@ -47,63 +48,60 @@ const list = [
     },
     {
         id: 5,
-        name: 'Bracco Baldo'
+        name: 'Peggy'
     },
     {
         id: 6,
-        name: 'Scooby Doo'
+        name: 'Rex'
     },
     {
         id: 7,
-        name: 'Pongo'
+        name: 'Lassie'
     },
     {
         id: 8,
-        name: 'Bolt'
+        name: 'Marley'
     },
     {
         id: 9,
-        name: 'Bracco Baldo'
+        name: 'Snoopy'
     },
     {
         id: 10,
-        name: 'Scooby Doo'
+        name: 'Santa\'s Little helper'
     },
     {
         id: 11,
-        name: 'Pongo'
+        name: 'Pluto'
     },
     {
         id: 12,
-        name: 'Bolt'
+        name: 'Lilly'
     },
     {
         id: 13,
-        name: 'Bracco Baldo'
+        name: 'Vagabondo'
     },
     {
         id: 14,
-        name: 'Scooby Doo'
+        name: 'Beethoven'
     },
     {
         id: 15,
-        name: 'Pongo'
+        name: 'Rin Tin Tin'
     },
     {
         id: 16,
-        name: 'Bolt'
+        name: 'Raudi'
     }
 ];
 
 function loadPosts(q) {
     return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
         .then(res => {
-            const options = res.data.map(post => ({ value: post.id, label: post.title }));
+            // const options = res.data.map(post => ({ value: post.id, label: post.title }));
 
-            return {
-                options,
-                complete: false
-            };
+            return { options: res.data };
         });
 }
 
@@ -118,18 +116,19 @@ class App extends Component {
             list,
             isLoading: false,
             checked: true,
+            selectAsyncValue: null,
             selectValue: null
         };
     }
 
     getSelectedItems = () => {
-        console.log(this.refs.table.getSelectedItems());
+        console.log(this.table.getSelectedItems());
     }
 
     handleSort = (data) => {
         const { sortBy, sortDirection } = data;
 
-        const newList = lodashSortBy(this.state.list, sortBy);
+        const newList = _.sortBy(this.state.list, sortBy);
 
         this.setState({
             sortBy,
@@ -150,14 +149,20 @@ class App extends Component {
         }, 3000);
     }
 
-    onChangeSelect = (option) => {
+    onChangeSelectAsync = (value) => {
         this.setState({
-            selectValue: option ? option.value : null
+            selectAsyncValue: value
+        });
+    }
+
+    onChangeSelect = (value) => {
+        this.setState({
+            selectValue: value
         });
     }
 
     render() {
-        const { sortBy, sortDirection, list, isLoading, selectValue } = this.state;
+        const { sortBy, sortDirection, list, isLoading, selectValue, selectAsyncValue } = this.state;
 
         return (
             <div>
@@ -165,9 +170,18 @@ class App extends Component {
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
                 <h3>Here is a SelectAsync</h3>
                 <SelectAsync
-                    value={selectValue}
+                    value={selectAsyncValue}
                     loadOptions={loadPosts}
+                    onChange={this.onChangeSelectAsync}
+                    multi={false}
+                    labelKey="title"
+                />
+                <h3>Here is a normal Select</h3>
+                <Select
+                    value={selectValue}
                     onChange={this.onChangeSelect}
+                    multi={true}
+                    options={list}
                 />
                 <h3>Here is a Paginator</h3>
                 <Paginator
@@ -197,7 +211,7 @@ class App extends Component {
                     loading={isLoading}
                     onClick={this.handleLoading}
                 >
-                    <i className="fa fa-check"></i> Save
+                    <i className="fa fa-check"/> Save
                 </LoadingButton>
                 <h3>Here is a Checkbox</h3>
                 <Checkbox onChange={(status) => console.warn(status)} />
@@ -210,7 +224,7 @@ class App extends Component {
                 <h3>Here is a table!</h3>
                 <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
                 <Table
-                    ref="table"
+                    ref={ref => this.table = ref }
                     columns={cols}
                     height={400}
                     rowCount={list.length}

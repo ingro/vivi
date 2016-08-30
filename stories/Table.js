@@ -19,7 +19,7 @@ const cols = [
 const list = [
     {
         id: 1,
-        name: 'Bracco Baldo'
+        name: 'Braccobaldo'
     },
     {
         id: 2,
@@ -35,51 +35,51 @@ const list = [
     },
     {
         id: 5,
-        name: 'Bracco Baldo'
+        name: 'Peggy'
     },
     {
         id: 6,
-        name: 'Scooby Doo'
+        name: 'Rex'
     },
     {
         id: 7,
-        name: 'Pongo'
+        name: 'Lassie'
     },
     {
         id: 8,
-        name: 'Bolt'
+        name: 'Marley'
     },
     {
         id: 9,
-        name: 'Bracco Baldo'
+        name: 'Snoopy'
     },
     {
         id: 10,
-        name: 'Scooby Doo'
+        name: 'Santa\'s Little helper'
     },
     {
         id: 11,
-        name: 'Pongo'
+        name: 'Pluto'
     },
     {
         id: 12,
-        name: 'Bolt'
+        name: 'Lilly'
     },
     {
         id: 13,
-        name: 'Bracco Baldo'
+        name: 'Vagabondo'
     },
     {
         id: 14,
-        name: 'Scooby Doo'
+        name: 'Beethoven'
     },
     {
         id: 15,
-        name: 'Pongo'
+        name: 'Rin Tin Tin'
     },
     {
         id: 16,
-        name: 'Bolt'
+        name: 'Raudi'
     }
 ];
 
