@@ -4,11 +4,12 @@ import Highlight from 'react-highlighter';
 
 export default class SelectAsync extends Component {
     render() {
-        const { labelKey, loadOptions, minimumInput, multi, onChange, placeholder, value, valueKey } = this.props;
+        const { disabled, labelKey, loadOptions, minimumInput, multi, onChange, placeholder, value, valueKey } = this.props;
 
         return (
             <Select.Async
                 ref={ref => this.select = ref}
+                disabled={disabled}
                 loadingPlaceholder="Attendere..."
                 searchingText="Ricerca in corso..."
                 searchPromptText="Digita per ricercare"
@@ -35,6 +36,7 @@ export default class SelectAsync extends Component {
 }
 
 SelectAsync.propTypes = {
+    disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     loadOptions: PropTypes.func.isRequired,
     minimumInput: PropTypes.number,
@@ -46,6 +48,7 @@ SelectAsync.propTypes = {
 };
 
 SelectAsync.defaultProps = {
+    disabled: false,
     labelKey: 'name',
     minimumInput: 0,
     multi: false,

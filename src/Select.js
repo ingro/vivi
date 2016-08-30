@@ -4,11 +4,12 @@ import Highlight from 'react-highlighter';
 
 export default class Select extends Component {
     render() {
-        const { labelKey, minimumInput, multi, onChange, options, placeholder, value, valueKey } = this.props;
+        const { disabled, labelKey, minimumInput, multi, onChange, options, placeholder, value, valueKey } = this.props;
 
         return (
             <ReactSelect
                 ref={ref => this.select = ref}
+                disabled={disabled}
                 noResultsText="Nessun risultato trovato"
                 placeholder={placeholder}
                 onChange={onChange}
@@ -32,6 +33,7 @@ export default class Select extends Component {
 }
 
 Select.propTypes = {
+    disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     minimumInput: PropTypes.number,
     multi: PropTypes.bool,
@@ -43,6 +45,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+    disabled: false,
     labelKey: 'name',
     minimumInput: 0,
     multi: false,

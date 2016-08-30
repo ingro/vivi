@@ -1,6 +1,6 @@
 {
   "name": "vivi",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Ui Components for Dashboards",
   "main": "dist/index.js",
   "scripts": {
@@ -9,6 +9,7 @@
     "build:css": "postcss --use autoprefixer --use postcss-import src/style.css > dist/style.css",
     "build-webpack": "cross-env NODE_ENV=production webpack --config webpack.config.build.js",
     "lint": "eslint src",
+    "prepublish": "npm run build",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --config webpack.config.dev.js",
     "test": "cross-env NODE_ENV=test ava --verbose",
     "storybook": "start-storybook -p 9001"

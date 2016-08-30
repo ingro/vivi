@@ -49,6 +49,15 @@ storiesOf('SelectAsync', module)
             labelKey="title"
         />
     )
+    .add('Disabled', () =>
+        <SelectAsync
+            loadOptions={loadPosts}
+            onChange={action('Change')}
+            labelKey="title"
+            value={3}
+            disabled={true}
+        />
+    )
     .add('Custom placeholder', () =>
         <SelectAsync
             loadOptions={loadPosts}

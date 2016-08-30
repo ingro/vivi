@@ -104,6 +104,14 @@ storiesOf('Select', module)
             onChange={action('Change')}
         />
     )
+    .add('Disabled', () =>
+        <Select
+            options={list}
+            onChange={action('Change')}
+            value={9}
+            disabled={true}
+        />
+    )
     .add('Custom placeholder', () =>
         <Select
             options={list}

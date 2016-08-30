@@ -4,13 +4,6 @@ Vivi è una collezione di componenti per l'interfaccia delle aree riservate di A
 
 ## Installazione
 
-Vivi richiede che alcuni componenti siano gia presenti e inclusi tramite npm nell'applicazione in cui viene installato:
-- React;
-- React-Dom;
-- React-addons-shallow-compare;
-- React-Virtualized;
-- Lodash;
-
 ## Utilizzo
 
 ## Sviluppo
