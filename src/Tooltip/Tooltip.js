@@ -9,7 +9,6 @@ export default class Select extends Component {
             <RcTooltip
                 overlay={content}
                 placement={position}
-                animation="zoom"
                 trigger={trigger}
                 mouseEnterDelay={enterDelay}
                 mouseLeaveDelay={leaveDelay}

@@ -171,11 +171,17 @@ class App extends Component {
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
                 <h3>Here some tooltips</h3>
                 <Tooltip
-                    content={'Im a tooltip!!!'}
+                    content={'Im a Top tooltip!!!'}
+                >
+                    <a>Top</a>
+                </Tooltip>
+                {' '}
+                <Tooltip
+                    content={'Im a Right tooltip!!!'}
                     position="right"
                     trigger={['click']}
                 >
-                    <a>Top</a>
+                    <a>Click</a>
                 </Tooltip>
                 <h3>Here is a SelectAsync</h3>
                 <SelectAsync

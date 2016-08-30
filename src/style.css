@@ -18,6 +18,7 @@
     color: #aaa;
 }
 
+/* Overrides */
 .rc-tooltip {
   opacity: 1;
 }

@@ -13,6 +13,7 @@ function loadStories() {
 	require('../stories/SelectAsync');
 	require('../stories/Switch');
 	require('../stories/Table');
+	require('../stories/Tooltip');
 }
 
 setAddon(infoAddon);

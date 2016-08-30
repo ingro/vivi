@@ -36,7 +36,6 @@
 - Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)
 
 ### Tooltip
-- Scrivere stories
 
 ## Componenti da sviluppare
 - TimeAgo
