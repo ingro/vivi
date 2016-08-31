@@ -13,6 +13,7 @@ import Select from '../Select';
 import SelectAsync from '../SelectAsync';
 import Switch from '../Switch';
 import Table from '../Table';
+import TimeAgo from '../TimeAgo';
 import Tooltip from '../Tooltip';
 
 moment.locale('it');
@@ -169,6 +170,12 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
+                <h3>Here some TimeAgo</h3>
+                <TimeAgo date={moment().subtract(2, 'hour')}/>
+                {' '}
+                <TimeAgo date="2016-08-29 05:01:37"/>
+                {' '}
+                <TimeAgo tooltip={true} date="2016-08-29 05:01:37"/>
                 <h3>Here some tooltips</h3>
                 <Tooltip
                     content={'Im a Top tooltip!!!'}
