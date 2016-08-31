@@ -24,6 +24,8 @@
 
 ### LoadingButton
 
+### Modal
+
 ### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
@@ -36,8 +38,8 @@
 - Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)
 
 ### TimeAgo
+- Possibilità di specificare direzione tooltip
 
 ### Tooltip
 
 ## Componenti da sviluppare
-- Modal

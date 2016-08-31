@@ -8,6 +8,7 @@ import Checkbox from '../Checkbox';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
 import LoadingButton from '../LoadingButton';
+import Modal from '../Modal';
 import Paginator from '../Paginator';
 import Select from '../Select';
 import SelectAsync from '../SelectAsync';
@@ -117,6 +118,7 @@ class App extends Component {
             sortDirection: null,
             list,
             isLoading: false,
+            isModalOpened: false,
             checked: true,
             selectAsyncValue: null,
             selectValue: null
@@ -151,6 +153,18 @@ class App extends Component {
         }, 3000);
     }
 
+    handleModalClose = () => {
+        this.setState({
+            isModalOpened: false
+        });
+    }
+
+    openModal = () => {
+        this.setState({
+            isModalOpened: true
+        });
+    }
+
     onChangeSelectAsync = (value) => {
         this.setState({
             selectAsyncValue: value
@@ -164,25 +178,39 @@ class App extends Component {
     }
 
     render() {
-        const { sortBy, sortDirection, list, isLoading, selectValue, selectAsyncValue } = this.state;
+        const { sortBy, sortDirection, list, isLoading, isModalOpened, selectValue, selectAsyncValue } = this.state;
 
         return (
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
+                <h3>Here is a modal</h3>
+                <button className="btn btn-default" onClick={this.openModal}>Open</button>
+                <Modal
+                    isOpen={isModalOpened}
+                    onClose={this.handleModalClose}
+                    staticModal={true}
+                >
+                    <h1>Im a modal!</h1>
+                    <input type="text" name="name" placeholder="Name" />
+                    <br/>
+                    <input type="text" name="surname" placeholder="Surname" />
+                    <br/>
+                    <button className="btn btn-primary" onClick={this.handleModalClose}>Close me</button>
+                </Modal>
                 <h3>Here some TimeAgo</h3>
                 <TimeAgo date={moment().subtract(2, 'hour')}/>
-                {' '}
+                <br />
                 <TimeAgo date="2016-08-29 05:01:37"/>
-                {' '}
+                <br />
                 <TimeAgo tooltip={true} date="2016-08-29 05:01:37"/>
-                <h3>Here some tooltips</h3>
+                <h3>Here some Tooltip</h3>
                 <Tooltip
                     content={'Im a Top tooltip!!!'}
                 >
                     <a>Top</a>
                 </Tooltip>
-                {' '}
+                <br />
                 <Tooltip
                     content={'Im a Right tooltip!!!'}
                     position="right"
@@ -198,7 +226,7 @@ class App extends Component {
                     multi={false}
                     labelKey="title"
                 />
-                <h3>Here is a normal Select</h3>
+                <h3>Here is a Select</h3>
                 <Select
                     value={selectValue}
                     onChange={this.onChangeSelect}
