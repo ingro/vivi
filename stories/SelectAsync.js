@@ -73,7 +73,7 @@ storiesOf('SelectAsync', module)
             minimumInput={2}
         />
     )
-    .add('Single (with a wrapper)', () =>
+    .add('Default (with a wrapper)', () =>
         <Wrapper multi={false} />
     )
     .add('Multi (with a wrapper)', () =>

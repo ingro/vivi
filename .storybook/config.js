@@ -8,6 +8,7 @@ function loadStories() {
 	require('../stories/DatePicker');
 	require('../stories/DateRangePicker');
 	require('../stories/LoadingButton');
+	require('../stories/Modal');
 	require('../stories/Paginator');
 	require('../stories/Select');
 	require('../stories/SelectAsync');

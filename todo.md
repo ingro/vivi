@@ -43,3 +43,4 @@
 ### Tooltip
 
 ## Componenti da sviluppare
+- Input per redux-form

@@ -35,6 +35,7 @@ Vivi richiede una serie di dipendenze esterne che si suppone siano già presenti
 **Dipendenze opzionali:**
 - moment: >= 2.0.0 (necessario per Datepicker, DateRangePicker e TimeAgo)
 - react-dates: >= 2.0.0 (necessario per DatePicker e DateRangePicker)
+- react-modal: >= 1.0.0 (necessario per Modal)
 - react-virtualized: >= 7.0.0 (necessario per Table)
 - rc-pagination: >= 1.0.0 (necessario per Paginator)
 - rc-tooltip: >= 3.0.0 (necessario per Tooltip)
