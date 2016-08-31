@@ -43,6 +43,19 @@ const cols = [
     }
 ];
 
+const colors = [
+    {
+        value: 'yellow',
+        label: 'Giallo'
+    }, {
+        value: 'blu',
+        label: 'Blu'
+    }, {
+        value: 'red',
+        label: 'Rosso'
+    }
+];
+
 class App extends Component {
 
     constructor(props) {
@@ -56,7 +69,8 @@ class App extends Component {
             isModalOpened: false,
             checked: true,
             selectAsyncValue: null,
-            selectValue: null
+            selectValue: null,
+            color: 'red'
         };
     }
 
@@ -112,8 +126,14 @@ class App extends Component {
         });
     }
 
+    onChangeRadio = (value) => {
+        this.setState({
+            color: value
+        });
+    }
+
     render() {
-        const { sortBy, sortDirection, list, isLoading, isModalOpened, selectValue, selectAsyncValue } = this.state;
+        const { sortBy, sortDirection, list, isLoading, isModalOpened, selectValue, selectAsyncValue, color } = this.state;
 
         return (
             <div>
@@ -125,7 +145,12 @@ class App extends Component {
                 </Provider>
                 <h2>Regular Components</h2>
                 <h3>Here is a radio group</h3>
-                <RadioGroup />
+                <RadioGroup
+                    name="color"
+                    value={color}
+                    options={colors}
+                    onChange={this.onChangeRadio}
+                />
                 <h3>Here is a modal</h3>
                 <button className="btn btn-default" onClick={this.openModal}>Open</button>
                 <Modal

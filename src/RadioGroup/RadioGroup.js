@@ -2,30 +2,34 @@ import React, { Component, PropTypes } from 'react';
 
 export default class RadioGroup extends Component {
 
+    handleClick = (event) => {
+        event.stopPropagation();
+        this.props.onChange(event.target.value)
+    }
+
     render() {
+        const { name, options, value } = this.props;
+
         return (
             <div>
-                <label className="control control--radio">First radio
-                    <input type="radio" name="radio" checked="checked"/>
-                    <div className="control__indicator"></div>
-                </label>
-                <label className="control control--radio">Second radio
-                    <input type="radio" name="radio" />
-                    <div className="control__indicator"></div>
-                </label>
-                <label className="control control--radio">Second radio
-                    <input type="radio" name="radio" disabled />
-                    <div className="control__indicator"></div>
-                </label>
+                {options.map((option, i) =>
+                    <label key={i} className="control control--radio">{option.label}
+                        <input type="radio" name={name} value={option.value} checked={option.value === value} onChange={() => {}} onClick={this.handleClick}/>
+                        <div className="control__indicator" />
+                    </label>
+                )}
             </div>
         );
     }
 }
 
 RadioGroup.propTypes = {
-    //
+    name: PropTypes.string.isRequired,
+    onChange: PropTypes.func,
+    options: PropTypes.array.isRequired,
+    value: PropTypes.string.isRequired
 };
 
 RadioGroup.defaultProps = {
-    //
+    options: []
 };
