@@ -19,6 +19,7 @@ per semplificarli e ridurre le propTypes
 - Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
 - Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
 - Unificare componenti Form che utilizzano stessa logica per disegnare eventuali label e messaggi di errore
+- Scrivere storie per i componenti Form
 
 ### Regular Components
 
@@ -50,6 +51,8 @@ per semplificarli e ridurre le propTypes
 
 ### Form Components
 
+#### CheckboxField
+
 #### InputField
 - Gestione tipi diversi da text?
 
@@ -57,5 +60,10 @@ per semplificarli e ridurre le propTypes
 
 #### SelectAsyncField
 
+#### TextareaField
+
 ### Componenti da sviluppare
 - Dropdown
+- Radio
+- NumberPicker
+- Form/Radio

@@ -10,8 +10,9 @@
 @import 'Datepicker/DatePicker.css';
 @import 'Modal/Modal.css';
 @import 'Paginator/Paginator.css';
-@import 'Table/Table.css';
+@import 'RadioGroup/RadioGroup.css';
 @import 'Switch/Switch.css';
+@import 'Table/Table.css';
 
 /* Highlight Text */
 .highlight {

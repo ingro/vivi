@@ -16,6 +16,7 @@ import DateRangePicker from '../DateRangePicker';
 import LoadingButton from '../LoadingButton';
 import Modal from '../Modal';
 import Paginator from '../Paginator';
+import RadioGroup from '../RadioGroup';
 import Select from '../Select';
 import SelectAsync from '../SelectAsync';
 import Switch from '../Switch';
@@ -123,6 +124,8 @@ class App extends Component {
                     <Form />
                 </Provider>
                 <h2>Regular Components</h2>
+                <h3>Here is a radio group</h3>
+                <RadioGroup />
                 <h3>Here is a modal</h3>
                 <button className="btn btn-default" onClick={this.openModal}>Open</button>
                 <Modal
