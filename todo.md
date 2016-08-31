@@ -11,36 +11,45 @@
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
 - React highlighter dipendenza strutturale o peer?
+- Importare Classnames come dipendenza strutturale
 
 ## Componenti
 - Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
 - Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
 
-### Checkbox
+### Regular Components
 
-### Datepicker & DateRangePicker
+#### Checkbox
+
+#### Datepicker & DateRangePicker
 - Attendere che react-dates rimuova dipendenza da jquery
 - Passare piu props come numberofmonths, placeholders input etc.
 
-### LoadingButton
+#### LoadingButton
 
-### Modal
+#### Modal
 
-### Paginator
+#### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
-### Select & SelectAsync
+#### Select & SelectAsync
 - Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
 
-### Switch
+#### Switch
 
-### Table
+#### Table
 - Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)
 
-### TimeAgo
+#### TimeAgo
 - Possibilità di specificare direzione tooltip
 
-### Tooltip
+#### Tooltip
 
-## Componenti da sviluppare
-- Input per redux-form
+### Form Components
+
+#### Input
+
+### Componenti da sviluppare
+- Form/Select
+- Form/Checkbox
+- Form/TextArea

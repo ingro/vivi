@@ -22,7 +22,9 @@
     ],
     "babel": "inherit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "classnames": "^2.2.5"
+  },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.1",
     "@kadira/storybook": "^2.6.1",

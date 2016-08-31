@@ -3,7 +3,12 @@ import { render } from 'react-dom';
 import moment from 'moment';
 import _ from 'lodash';
 import axios from 'axios';
+import { Provider } from 'react-redux';
 
+import store from './store';
+import Form from './form';
+
+// Components
 import Checkbox from '../Checkbox';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
@@ -184,6 +189,11 @@ class App extends Component {
             <div>
                 <h1>Welcome to Vivi!</h1>
                 <p>A new Adrias Online interface collection based on React and Bootstrap</p>
+                <h2>Form Components</h2>
+                <Provider store={store}>
+                    <Form />
+                </Provider>
+                <h2>Regular Components</h2>
                 <h3>Here is a modal</h3>
                 <button className="btn btn-default" onClick={this.openModal}>Open</button>
                 <Modal
