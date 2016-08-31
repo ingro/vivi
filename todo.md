@@ -36,6 +36,9 @@ per semplificarli e ridurre le propTypes
 #### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
+#### RadioGroup
+- Rendere possibile utilizzo sia in modo controllato che non controllato
+
 #### Select & SelectAsync
 - Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
 

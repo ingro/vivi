@@ -24,10 +24,11 @@ export default class RadioGroup extends Component {
 }
 
 RadioGroup.propTypes = {
+    defaultValue: PropTypes.string,
     name: PropTypes.string.isRequired,
     onChange: PropTypes.func,
     options: PropTypes.array.isRequired,
-    value: PropTypes.string.isRequired
+    value: PropTypes.string
 };
 
 RadioGroup.defaultProps = {
