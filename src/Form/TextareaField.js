@@ -2,10 +2,14 @@ import React, { PropTypes } from 'react';
 import classnames from 'classnames';
 
 function renderInput(props) {
-    return <input type="text" className="form-control" {...props.input} placeholder={props.placeholder}/>;
+    return <textarea
+        className="form-control"
+        {...props.input}
+        placeholder={props.placeholder}
+    />;
 }
 
-const Input = (props) => {
+const TextareaField = (props) => {
     if (props.onlyInput) {
         return renderInput(props);
     }
@@ -16,7 +20,7 @@ const Input = (props) => {
 
     return (
         <div className={groupClass}>
-            <label className={labelClass}>{props.label}</label>
+            <label className={labelClass}>{props.label || props.name}</label>
             <div className={inputWrapperClass}>
                 {renderInput(props)}
                 {props.meta.touched && props.meta.error &&
@@ -27,7 +31,7 @@ const Input = (props) => {
     );
 };
 
-Input.propTypes = {
+TextareaField.propTypes = {
     horizontal: PropTypes.bool,
     input: PropTypes.object,
     label: PropTypes.oneOfType([
@@ -35,13 +39,14 @@ Input.propTypes = {
         PropTypes.bool
     ]),
     meta: PropTypes.object,
+    name: PropTypes.string.isRequired,
     onlyInput: PropTypes.bool,
     placeholder: PropTypes.string
 };
 
-Input.defaultProps = {
+TextareaField.defaultProps = {
     horizontal: true,
     onlyInput: false
 };
 
-export default Input;
+export default TextareaField;

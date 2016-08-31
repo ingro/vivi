@@ -4,7 +4,7 @@ import Highlight from 'react-highlighter';
 
 export default class SelectAsync extends Component {
     render() {
-        const { disabled, labelKey, loadOptions, minimumInput, multi, name, onChange, placeholder, value, valueKey } = this.props;
+        const { disabled, labelKey, loadOptions, minimumInput, multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
 
         return (
             <Select.Async
@@ -16,7 +16,9 @@ export default class SelectAsync extends Component {
                 noResultsText="Nessun risultato trovato"
                 placeholder={placeholder}
                 loadOptions={loadOptions}
+                onBlur={onBlur}
                 onChange={onChange}
+                onFocus={onFocus}
                 value={value}
                 multi={multi}
                 minimumInput={minimumInput}
@@ -43,7 +45,9 @@ SelectAsync.propTypes = {
     minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     name: PropTypes.string,
+    onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
+    onFocus: PropTypes.func,
     placeholder: PropTypes.string,
     value: PropTypes.any,
     valueKey: PropTypes.string

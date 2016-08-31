@@ -10,12 +10,15 @@
 - Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
-- React highlighter dipendenza strutturale o peer?
 - Importare Classnames come dipendenza strutturale
+- Trovare modo di esportare componenti Form in index libreria
 
 ## Componenti
+- A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator
+per semplificarli e ridurre le propTypes
 - Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
 - Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
+- Unificare componenti Form che utilizzano stessa logica per disegnare eventuali label e messaggi di errore
 
 ### Regular Components
 
@@ -47,9 +50,12 @@
 
 ### Form Components
 
-#### Input
+#### InputField
+- Gestione tipi diversi da text?
+
+#### SelectField
+
+#### SelectAsyncField
 
 ### Componenti da sviluppare
-- Form/Select
-- Form/Checkbox
-- Form/TextArea
+- Dropdown

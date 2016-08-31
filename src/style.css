@@ -23,3 +23,7 @@
 .rc-tooltip {
   opacity: 1;
 }
+
+.has-error .Select-control {
+    border-color: #a94442;
+}
