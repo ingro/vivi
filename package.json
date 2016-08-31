@@ -12,7 +12,8 @@
     "prepublish": "npm run build",
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --inline --config webpack.config.dev.js",
     "test": "cross-env NODE_ENV=test ava --verbose",
-    "storybook": "start-storybook -p 9001"
+    "storybook": "start-storybook -p 9001",
+    "build:storybook": "build-storybook -c .storybook -o .out"
   },
   "author": "Emanuele Ingrosso <ingro85@gmail.com>",
   "license": "MIT",
