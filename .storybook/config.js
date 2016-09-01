@@ -10,6 +10,7 @@ function loadStories() {
 	require('../stories/LoadingButton');
 	require('../stories/Modal');
 	require('../stories/Paginator');
+	require('../stories/RadioGroup');
 	require('../stories/Select');
 	require('../stories/SelectAsync');
 	require('../stories/Switch');

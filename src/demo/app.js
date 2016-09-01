@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import moment from 'moment';
 import _ from 'lodash';
-import axios from 'axios';
 import { Provider } from 'react-redux';
 
 // Form
@@ -53,6 +52,10 @@ const colors = [
     }, {
         value: 'red',
         label: 'Rosso'
+    }, {
+        value: 'purple',
+        label: 'Viola',
+        disabled: true
     }
 ];
 
@@ -150,6 +153,7 @@ class App extends Component {
                     value={color}
                     options={colors}
                     onChange={this.onChangeRadio}
+                    disabled={true}
                 />
                 <h3>Here is a modal</h3>
                 <button className="btn btn-default" onClick={this.openModal}>Open</button>
