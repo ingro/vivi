@@ -10,7 +10,6 @@
 - Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
-- Importare Classnames come dipendenza strutturale
 - Trovare modo di esportare componenti Form in index libreria
 
 ## Componenti
