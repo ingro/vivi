@@ -50,7 +50,7 @@ per semplificarli e ridurre le propTypes
 #### Tooltip
 
 ### Form Components
-- Unificare componenti Form che utilizzano stessa logica per disegnare eventuali label e messaggi di errore
+- Meglio Component regolare o functional component per InputGroupHoc?
 - Scrivere storie per i componenti Form
 - Gestire opzioni disabled per i vari fields
 
