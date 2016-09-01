@@ -16,7 +16,7 @@ export default class RadioGroup extends Component {
                     const controlled = value ? { checked: option.value === value } : { defaultChecked: option.value === defaultValue };
 
                     return (
-                        <label key={i} className="control control--radio">{option.label}
+                        <label key={i} className="RadioGroup RadioGroup__radio">{option.label}
                             <input
                                 type="radio"
                                 name={name}
@@ -26,7 +26,7 @@ export default class RadioGroup extends Component {
                                 disabled={disabled ? disabled : option.disabled}
                                 {...controlled}
                             />
-                            <div className="control__indicator" />
+                            <div className="RadioGroup__indicator" />
                         </label>
                     );
                 })}

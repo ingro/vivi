@@ -3,11 +3,12 @@ import { reduxForm, Field } from 'redux-form';
 
 import CheckboxField from '../Form/CheckboxField';
 import InputField from '../Form/InputField';
+import RadioGroupField from '../Form/RadioGroupField';
 import SelectField from '../Form/SelectField';
 import SelectAsyncField from '../Form/SelectAsyncField';
 import TextareaField from '../Form/TextareaField';
 
-import { dogs, loadPosts } from './fixtures';
+import { dogs, colors, loadPosts } from './fixtures';
 
 const validate = values => {
     const errors = {};
@@ -72,6 +73,13 @@ export class Form extends Component {
                     label="I like chocolate"
                     component={CheckboxField}
                     type="switch"
+                />
+                <div>Here is a radio group</div>
+                <Field
+                    name="fav_color"
+                    label="Favorite color"
+                    component={RadioGroupField}
+                    options={colors}
                 />
                 <div>Here is a textarea</div>
                 <Field

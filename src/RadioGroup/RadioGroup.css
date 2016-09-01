@@ -1,4 +1,4 @@
-.control {
+.RadioGroup {
   display: block;
   position: relative;
   padding-left: 30px;
@@ -7,13 +7,13 @@
   font-size: 15px;
 }
 
-.control input {
+.RadioGroup input {
   position: absolute;
   z-index: -1;
   opacity: 0;
 }
 
-.control__indicator {
+.RadioGroup__indicator {
   position: absolute;
   top: 2px;
   left: 0;
@@ -22,41 +22,41 @@
   background: #e6e6e6;
 }
 
-.control--radio .control__indicator {
+.RadioGroup__radio .RadioGroup__indicator {
   border-radius: 50%;
 }
 
-.control:hover input ~ .control__indicator,
-.control input:focus ~ .control__indicator {
+.RadioGroup:hover input ~ .RadioGroup__indicator,
+.RadioGroup input:focus ~ .RadioGroup__indicator {
   background: #ccc;
 }
 
-.control input:checked ~ .control__indicator {
+.RadioGroup input:checked ~ .RadioGroup__indicator {
   background: #09ad7e;
 }
 
-.control:hover input:not([disabled]):checked ~ .control__indicator,
-.control input:checked:focus ~ .control__indicator {
+.RadioGroup:hover input:not([disabled]):checked ~ .RadioGroup__indicator,
+.RadioGroup input:checked:focus ~ .RadioGroup__indicator {
   background: #86d993;
 }
 
-.control input:disabled ~ .control__indicator {
+.RadioGroup input:disabled ~ .RadioGroup__indicator {
   background: #e6e6e6;
   opacity: 0.6;
   pointer-events: none;
 }
 
-.control__indicator:after {
+.RadioGroup__indicator:after {
   content: '';
   position: absolute;
   display: none;
 }
 
-.control input:checked ~ .control__indicator:after {
+.RadioGroup input:checked ~ .RadioGroup__indicator:after {
   display: block;
 }
 
-.control--radio .control__indicator:after {
+.RadioGroup__radio .RadioGroup__indicator:after {
   left: 7px;
   top: 7px;
   height: 6px;
@@ -65,6 +65,6 @@
   background: #fff;
 }
 
-.control--radio input:disabled ~ .control__indicator:after {
+.RadioGroup__radio input:disabled ~ .RadioGroup__indicator:after {
   background: #7b7b7b;
 }

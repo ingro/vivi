@@ -67,6 +67,23 @@ export const dogs = [
     }
 ];
 
+export const colors = [
+    {
+        value: 'yellow',
+        label: 'Giallo'
+    }, {
+        value: 'blu',
+        label: 'Blu'
+    }, {
+        value: 'red',
+        label: 'Rosso'
+    }, {
+        value: 'purple',
+        label: 'Viola',
+        disabled: true
+    }
+];
+
 export function loadPosts(q) {
     return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
         .then(res => {

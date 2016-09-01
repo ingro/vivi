@@ -24,7 +24,7 @@ import TimeAgo from '../TimeAgo';
 import Tooltip from '../Tooltip';
 
 // Fixtures
-import { dogs as list, loadPosts } from './fixtures';
+import { dogs as list, colors, loadPosts } from './fixtures';
 
 // Init
 moment.locale('it');
@@ -39,23 +39,6 @@ const cols = [
         width: 200,
         label: 'Name',
         dataKey: 'name'
-    }
-];
-
-const colors = [
-    {
-        value: 'yellow',
-        label: 'Giallo'
-    }, {
-        value: 'blu',
-        label: 'Blu'
-    }, {
-        value: 'red',
-        label: 'Rosso'
-    }, {
-        value: 'purple',
-        label: 'Viola',
-        disabled: true
     }
 ];
 
@@ -153,7 +136,7 @@ class App extends Component {
                     value={color}
                     options={colors}
                     onChange={this.onChangeRadio}
-                    disabled={true}
+                    disabled={false}
                 />
                 <h3>Here is a modal</h3>
                 <button className="btn btn-default" onClick={this.openModal}>Open</button>

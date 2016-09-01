@@ -16,12 +16,10 @@
 ## Componenti
 - A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator
 per semplificarli e ridurre le propTypes
-- Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
-- Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
-- Unificare componenti Form che utilizzano stessa logica per disegnare eventuali label e messaggi di errore
-- Scrivere storie per i componenti Form
 
 ### Regular Components
+- Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
+- Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
 
 #### Checkbox
 
@@ -37,7 +35,6 @@ per semplificarli e ridurre le propTypes
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
 #### RadioGroup
-- Possibilita di disabilitare singole opzioni o tutte
 
 #### Select & SelectAsync
 - Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
@@ -53,11 +50,16 @@ per semplificarli e ridurre le propTypes
 #### Tooltip
 
 ### Form Components
+- Unificare componenti Form che utilizzano stessa logica per disegnare eventuali label e messaggi di errore
+- Scrivere storie per i componenti Form
+- Gestire opzioni disabled per i vari fields
 
 #### CheckboxField
 
 #### InputField
 - Gestione tipi diversi da text?
+
+#### RadioGroupField
 
 #### SelectField
 
@@ -67,6 +69,4 @@ per semplificarli e ridurre le propTypes
 
 ### Componenti da sviluppare
 - Dropdown
-- Radio
 - NumberPicker
-- Form/Radio
