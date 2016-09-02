@@ -1,8 +1,9 @@
 import React, { Component, PropTypes } from 'react';
+import uncontrollable from 'uncontrollable/batching';
 import Select from 'react-select';
 import Highlight from 'react-highlighter';
 
-export default class SelectAsync extends Component {
+class SelectAsync extends Component {
     render() {
         const { disabled, labelKey, loadOptions, minimumInput, multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
 
@@ -61,3 +62,7 @@ SelectAsync.defaultProps = {
     placeholder: 'Seleziona un valore',
     valueKey: 'id'
 };
+
+export default uncontrollable(SelectAsync, {
+    value: 'onChange'
+});

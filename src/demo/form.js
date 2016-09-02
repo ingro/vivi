@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { reduxForm, Field } from 'redux-form';
+import { reduxForm, Field, getFormValues } from 'redux-form';
+import { connect } from 'react-redux';
+import JsonPretty from 'react-json-pretty';
 
 import CheckboxField from '../Form/CheckboxField';
 import InputField from '../Form/InputField';
@@ -32,12 +34,22 @@ const validate = values => {
     return errors;
 }
 
+class Values extends Component {
+    render() {
+        return <JsonPretty id="form" json={this.props.values || {}} />
+    }
+}
+
+const ConnectedValues = connect(state => ({ values: getFormValues('example')(state) }))(Values);
+
 export class Form extends Component {
     render() {
         const { handleSubmit } = this.props;
 
         return (
-            <form onSubmit={handleSubmit} className="form-horizontal">
+            <div className="row">
+                <div className="col-xs-6">
+                    <form onSubmit={handleSubmit} className="form-horizontal">
                 <div>Here is a normal input</div>
                 <Field
                     name="name"
@@ -89,6 +101,11 @@ export class Form extends Component {
                     component={TextareaField}
                 />
             </form>
+                </div>
+                <div className="col-xs-6">
+                    <ConnectedValues />
+                </div>
+            </div>
         );
     }
 }

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import uncontrollable from 'uncontrollable/batching';
 
-export default class RadioGroup extends Component {
+class RadioGroup extends Component {
 
     handleClick = (event) => {
         event.stopPropagation();
@@ -8,13 +9,11 @@ export default class RadioGroup extends Component {
     }
 
     render() {
-        const { defaultValue, disabled, name, options, value } = this.props;
+        const { disabled, name, options, value } = this.props;
 
         return (
             <div>
                 {options.map((option, i) => {
-                    const controlled = value ? { checked: option.value === value } : { defaultChecked: option.value === defaultValue };
-
                     return (
                         <label key={i} className="RadioGroup RadioGroup__radio">{option.label}
                             <input
@@ -24,7 +23,7 @@ export default class RadioGroup extends Component {
                                 onChange={() => {}}
                                 onClick={this.handleClick}
                                 disabled={disabled ? disabled : option.disabled}
-                                {...controlled}
+                                checked={option.value === value}
                             />
                             <div className="RadioGroup__indicator" />
                         </label>
@@ -49,3 +48,7 @@ RadioGroup.defaultProps = {
     onChange: () => {},
     options: []
 };
+
+export default uncontrollable(RadioGroup, {
+    value: 'onChange'
+});
