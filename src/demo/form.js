@@ -50,57 +50,57 @@ export class Form extends Component {
             <div className="row">
                 <div className="col-xs-6">
                     <form onSubmit={handleSubmit} className="form-horizontal">
-                <div>Here is a normal input</div>
-                <Field
-                    name="name"
-                    placeholder="Name"
-                    label="Nome"
-                    component={InputField}
-                />
-                <div>Here is a select</div>
-                <Field
-                    name="fav_dog"
-                    placeholder="Seleziona uno o più cani"
-                    label="Favorite dog"
-                    component={SelectField}
-                    options={dogs}
-                    selectOptions={{
-                        multi: true
-                    }}
-                />
-                <div>Here is a select async</div>
-                <Field
-                    name="fav_post"
-                    placeholder="Seleziona un post"
-                    label="Favorite post"
-                    component={SelectAsyncField}
-                    loadOptions={loadPosts}
-                    selectOptions={{
-                        labelKey: "title"
-                    }}
-                />
-                <div>Here is a checkbox</div>
-                <Field
-                    name="like"
-                    label="I like chocolate"
-                    component={CheckboxField}
-                    type="switch"
-                />
-                <div>Here is a radio group</div>
-                <Field
-                    name="fav_color"
-                    label="Favorite color"
-                    component={RadioGroupField}
-                    options={colors}
-                />
-                <div>Here is a textarea</div>
-                <Field
-                    name="message"
-                    placeholder="Lascia un messaggio..."
-                    label="Message"
-                    component={TextareaField}
-                />
-            </form>
+                        <div>Here is a normal input</div>
+                        <Field
+                            name="name"
+                            placeholder="Name"
+                            label="Nome"
+                            component={InputField}
+                        />
+                        <div>Here is a select</div>
+                        <Field
+                            name="fav_dog"
+                            placeholder="Seleziona uno o più cani"
+                            label="Favorite dog"
+                            component={SelectField}
+                            options={dogs}
+                            selectOptions={{
+                                multi: true
+                            }}
+                        />
+                        <div>Here is a select async</div>
+                        <Field
+                            name="fav_post"
+                            placeholder="Seleziona un post"
+                            label="Favorite post"
+                            component={SelectAsyncField}
+                            loadOptions={loadPosts}
+                            selectOptions={{
+                                labelKey: "title"
+                            }}
+                        />
+                        <div>Here is a checkbox</div>
+                        <Field
+                            name="like"
+                            label="I like chocolate"
+                            component={CheckboxField}
+                            type="switch"
+                        />
+                        <div>Here is a radio group</div>
+                        <Field
+                            name="fav_color"
+                            label="Favorite color"
+                            component={RadioGroupField}
+                            options={colors}
+                        />
+                        <div>Here is a textarea</div>
+                        <Field
+                            name="message"
+                            placeholder="Lascia un messaggio..."
+                            label="Message"
+                            component={TextareaField}
+                        />
+                    </form>
                 </div>
                 <div className="col-xs-6">
                     <ConnectedValues />
