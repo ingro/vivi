@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import uniqueId from 'lodash/uniqueId';
+import uncontrollable from 'uncontrollable/batching';
 
-export default class Switch extends Component {
+class Switch extends Component {
 
     constructor(props) {
         super(props);
@@ -10,9 +11,7 @@ export default class Switch extends Component {
     }
 
     render() {
-        const { checked, defaultChecked, disabled, onChange, onClick } = this.props;
-
-        const controlled = typeof checked === 'boolean' ? { checked } : { defaultChecked };
+        const { checked, disabled, onChange, onClick } = this.props;
 
         return (
             <span>
@@ -24,7 +23,7 @@ export default class Switch extends Component {
                     type="checkbox"
                     className="Switch__tgl Switch__tgl-switch"
                     onChange={() => onChange(this.refs.checkbox.checked)}
-                    {...controlled}
+                    checked={checked}
                 />
                 <label
                     htmlFor={this.checkboxId}
@@ -44,8 +43,12 @@ Switch.propTypes = {
 };
 
 Switch.defaultProps = {
-    defaultChecked: false,
+    checked: false,
     disabled: false,
     onChange: () => {},
     onClick: () => {}
 };
+
+export default uncontrollable(Switch, {
+    checked: 'onChange'
+});

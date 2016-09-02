@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import uniqueId from 'lodash/uniqueId';
+import uncontrollable from 'uncontrollable/batching';
 
-export default class Checkbox extends Component {
+class Checkbox extends Component {
 
     constructor(props) {
         super(props);
@@ -10,9 +11,7 @@ export default class Checkbox extends Component {
     }
 
     render() {
-        const { checked, defaultChecked, disabled, onChange, onClick } = this.props;
-
-        const controlled = typeof checked === 'boolean' ? { checked } : { defaultChecked };
+        const { checked, disabled, onChange, onClick } = this.props;
 
         return (
             <span>
@@ -24,7 +23,7 @@ export default class Checkbox extends Component {
                     type="checkbox"
                     className="Checkbox__cmp-checkbox"
                     onChange={() => onChange(this.refs.checkbox.checked)}
-                    {...controlled}
+                    checked={checked}
                 />
                 <label
                     htmlFor={this.checkboxId}
@@ -44,8 +43,12 @@ Checkbox.propTypes = {
 };
 
 Checkbox.defaultProps = {
-    defaultChecked: false,
+    checked: false,
     disabled: false,
     onChange: () => {},
     onClick: () => {}
 };
+
+export default uncontrollable(Checkbox, {
+    checked: 'onChange'
+});

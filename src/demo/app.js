@@ -218,7 +218,9 @@ class App extends Component {
                     <i className="fa fa-check"/> Save
                 </LoadingButton>
                 <h3>Here is a Checkbox</h3>
-                <Checkbox onChange={(status) => console.warn(status)} />
+                <Checkbox
+                    onChange={(status) => console.warn(status)}
+                />
                 <h3>Here is a Switch</h3>
                 <Switch
                     checked={this.state.checked}
