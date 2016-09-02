@@ -41,7 +41,6 @@ per semplificarli e ridurre le propTypes
 #### Switch
 
 #### Table
-- Risolvere warning react per passaggio checkbox header select da uncontrolled a controlled (valore iniziale null)
 
 #### TimeAgo
 - Possibilità di specificare direzione tooltip
