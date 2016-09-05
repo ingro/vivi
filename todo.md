@@ -23,7 +23,6 @@ per semplificarli e ridurre le propTypes
 #### Checkbox
 
 #### Datepicker & DateRangePicker
-- Attendere che react-dates rimuova dipendenza da jquery
 - Passare piu props come numberofmonths, placeholders input etc.
 
 #### LoadingButton
