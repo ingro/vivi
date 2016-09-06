@@ -67,3 +67,5 @@ per semplificarli e ridurre le propTypes
 ### Componenti da sviluppare
 - Dropdown
 - NumberPicker
+- DebounceInput
+- Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)
