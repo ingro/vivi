@@ -1,13 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
+import { withKnobs, text, boolean, number } from '@kadira/storybook-addon-knobs';
 
 import Tooltip from '../src/Tooltip';
 
 storiesOf('Tooltip', module)
-    .add('Default', () =>
+.addDecorator(withKnobs)
+.add('Default', () =>
         <div style={{ margin: 100 }}>
             <Tooltip
-                content={'Im a tooltip!'}
+                content={text('Content', 'Im a tooltip!')}
             >
                 <span className="btn btn-danger">Delete</span>
             </Tooltip>
