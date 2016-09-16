@@ -10,7 +10,9 @@ Installare tramite npm: `$ npm install vivi --save`
 
 Vivi richiede l'utilizzo di un bundler come Webpack o Browserify. Utilizzando la sintassi ES6 si possono richiedere i singoli componenti nei seguenti modi:
 - `import { Select } from 'vivi'`;
-- `import Select from 'vivi/Select'`;
+- `import Select from 'vivi/dist/Select'`;
+
+Da notare che importando tutto il pacchetto Vivi sarà necessario avere installate anche tutte le dipendenze opzionali, mentre richiedendo i singoli componenti saranno richieste solo le loro (eventuali) dipendenze.
 
 ## Sviluppo
 
