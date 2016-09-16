@@ -1,10 +1,10 @@
 # Vivi
 
-Vivi è una collezione di componenti per l'interfaccia delle aree riservate di Adrias Online.
+Vivi è una collezione di componenti per l'UI, specialmente orientata alle dashboard.
 
 ## Installazione
 
-Installare tramite npm: `$ npm install git+ssh://git@bitbucket.org:ingro/vivi.git --save`
+Installare tramite npm: `$ npm install vivi --save`
 
 ## Utilizzo
 

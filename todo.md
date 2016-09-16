@@ -31,6 +31,9 @@ per semplificarli e ridurre le propTypes
 
 #### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
+- Utilizzare uncontrolled
+- Nascondere quando esiste solo una pagina?
+- Status text non corretto (dice sempre da 1 a 10 anche se ad es il totale sono 6 elementi)
 
 #### RadioGroup
 
