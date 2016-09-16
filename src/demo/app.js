@@ -189,13 +189,13 @@ class App extends Component {
                 />
                 <h3>Here is a Paginator</h3>
                 <Paginator
-                    current={1}
-                    total={50}
+                    defaultCurrent={1}
+                    total={15}
                     pageSize={10}
                     showStatusText={true}
                     showSizeChanger={true}
                     sizeOptions={[10, 20, 50]}
-                    onChanges={p => console.warn(p)}
+                    onChange={p => console.warn(p)}
                     onSizeChange={s => console.warn(s)}
                 />
                 <h3>Here is a DatePicker</h3>

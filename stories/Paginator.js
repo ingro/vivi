@@ -38,21 +38,28 @@ storiesOf('Paginator', module)
         <Paginator
             total={100}
             pageSize={20}
-            current={2}
+            defaultCurrent={2}
+        />
+    )
+    .add('Not necessary', () =>
+        <Paginator
+            total={10}
+            pageSize={20}
+            defaultCurrent={2}
         />
     )
     .add('With status text', () =>
         <Paginator
-            total={100}
+            total={96}
             pageSize={20}
-            current={2}
+            defaultCurrent={5}
             showStatusText={true}
         />
     ).add('With size changer', () =>
         <Paginator
             total={1000}
             pageSize={20}
-            current={2}
+            defaultCurrent={2}
             showSizeChanger={true}
             sizeOptions={[20, 50, 100]}
             onSizeChange={action('Change size')}

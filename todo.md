@@ -11,6 +11,7 @@
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
 - Trovare modo di esportare componenti Form in index libreria
+- Esportare anche i singoli file CSS?
 
 ## Componenti
 - A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator
@@ -31,9 +32,6 @@ per semplificarli e ridurre le propTypes
 
 #### Paginator
 - Migliorare aspetto select change size e info text (renderlo personalizzabile???)
-- Utilizzare uncontrolled
-- Nascondere quando esiste solo una pagina?
-- Status text non corretto (dice sempre da 1 a 10 anche se ad es il totale sono 6 elementi)
 
 #### RadioGroup
 

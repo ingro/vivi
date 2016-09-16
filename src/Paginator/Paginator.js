@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-
 import Pagination from 'rc-pagination';
+import uncontrollable from 'uncontrollable/batching';
 
 const locale = {
     // Options.jsx
@@ -19,11 +19,7 @@ const locale = {
     next_5: '5 Pagine indietro'
 };
 
-export default class Paginator extends Component {
-
-    // constructor(props) {
-    //     super(props);
-    // }
+class Paginator extends Component {
 
     onSizeChange = (e) => {
         this.props.onSizeChange(e.target.value);
@@ -45,33 +41,31 @@ export default class Paginator extends Component {
     }
 
     getStatusText() {
-        const { current, pageSize, total } = this.props;
+        const { current, pageSize, total, displaying } = this.props;
 
         const start = ((current - 1) * pageSize) + 1;
-        const end = current * pageSize;
+        const pageEnd = current * pageSize;
 
-        return `${start}-${end} di ${total}`;
+        const end = (displaying && displaying < pageEnd) ? displaying : pageEnd;
+
+        return `${start}-${total < end ? total : end} di ${total}`;
     }
 
     render() {
         const { current, onChange, pageSize, showSizeChanger, showStatusText, total } = this.props;
 
-        const controller = typeof onChange !== 'undefined' ? {
-            current,
-            onChange
-        } : {
-            defaultCurrent: current
-        };
-
         return (
             <div className="container-fluid">
-                <Pagination
-                    className="pagination"
-                    locale={locale}
-                    total={total}
-                    pageSize={pageSize}
-                    {...controller}
-                />
+                {total > pageSize &&
+                    <Pagination
+                        current={current}
+                        className="pagination"
+                        locale={locale}
+                        total={total}
+                        pageSize={pageSize}
+                        onChange={onChange}
+                    />
+                }
                 {' '}
                 <div className="paginator-info pull-right" style={{ margin: 20 }}>
                     {showSizeChanger && this.getSizer()}
@@ -84,6 +78,7 @@ export default class Paginator extends Component {
 
 Paginator.propTypes = {
     current: PropTypes.number.isRequired,
+    displaying: PropTypes.number,
     onChange: PropTypes.func,
     onSizeChange: PropTypes.func,
     pageSize: PropTypes.number.isRequired,
@@ -97,3 +92,7 @@ Paginator.defaultProps = {
     showSizeChanger: false,
     showStatusText: false
 };
+
+export default uncontrollable(Paginator, {
+    current: 'onChange'
+});
