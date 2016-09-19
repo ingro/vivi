@@ -36,7 +36,8 @@ per semplificarli e ridurre le propTypes
 #### RadioGroup
 
 #### Select & SelectAsync
-- Attendere che react-select 1.x implementi nuovamento l'opzione *allowCreate* per creare nuovi tags dinamicamente
+- Implementare AsyncCreatable
+- Utilizzare debounce input per ricerca con Async?
 
 #### Switch
 
