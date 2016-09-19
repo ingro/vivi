@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { AutoSizer, FlexTable, FlexColumn } from 'react-virtualized';
+import { AutoSizer, Table as RVTable, Column } from 'react-virtualized';
 import defaults from 'lodash/defaults';
 
 import Checkbox from '../Checkbox';
@@ -99,7 +99,7 @@ export default class Table extends Component {
         return (
             <AutoSizer>
                 {(auto) => (
-                    <FlexTable
+                    <RVTable
                         headerHeight={headerHeight}
                         height={tableHeight}
                         rowCount={rowCount}
@@ -113,24 +113,24 @@ export default class Table extends Component {
                         sortDirection={sortDirection}
                     >
                         {selectable &&
-                            <FlexColumn
+                            <Column
                                 width={36}
                                 disableSort
                                 dataKey={'_select'}
                                 cellRenderer={this.renderCheckColumn}
                                 headerRenderer={this.renderCheckHeader}
                                 flexGrow={0}
-                                className='FlexTable__selectColumn'
-                                headerClassName='FlexTable__selectColumn'
+                                className='ReactVirtualized__Table__selectColumnRow'
+                                headerClassName='ReactVirtualized__Table__selectColumnHeader'
                             />
                         }
                         {columns.map((column, i) =>
-                            <FlexColumn
+                            <Column
                                 key={i}
                                 {...column}
                             />
                         )}
-                    </FlexTable>
+                    </RVTable>
                 )}
             </AutoSizer>
         );
