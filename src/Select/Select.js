@@ -5,10 +5,12 @@ import Highlight from 'react-highlighter';
 
 class Select extends Component {
     render() {
-        const { disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, options, placeholder, value, valueKey } = this.props;
+        const { creable, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, options, placeholder, value, valueKey } = this.props;
+
+        const Component = creable ? ReactSelect.Creatable : ReactSelect;
 
         return (
-            <ReactSelect
+            <Component
                 ref={ref => this.select = ref}
                 disabled={disabled}
                 noResultsText="Nessun risultato trovato"
@@ -25,8 +27,10 @@ class Select extends Component {
                 labelKey={labelKey}
                 backspaceRemoves={false}
                 optionRenderer={option => {
-                    if (this.select) {
-                        return <Highlight search={this.select.state.inputValue}>{option[labelKey]}</Highlight>;
+                    const selectState = (this.select && creable) ? this.select.select : this.select;
+
+                    if (this.select && selectState) {
+                        return <Highlight search={selectState.state.inputValue}>{option[labelKey]}</Highlight>;
                     }
 
                     return <span>{option[labelKey]}</span>;
@@ -37,6 +41,7 @@ class Select extends Component {
 }
 
 Select.propTypes = {
+    creable: PropTypes.bool,
     disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     minimumInput: PropTypes.number,
@@ -52,6 +57,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+    creable: false,
     disabled: false,
     labelKey: 'name',
     minimumInput: 0,

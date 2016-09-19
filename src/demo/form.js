@@ -65,7 +65,8 @@ export class Form extends Component {
                             component={SelectField}
                             options={dogs}
                             selectOptions={{
-                                multi: true
+                                multi: true,
+                                creable: true
                             }}
                         />
                         <div>Here is a select async</div>

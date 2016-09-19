@@ -118,6 +118,13 @@ storiesOf('Select', module)
             placeholder="Scegli attentamente un oggetto"
         />
     )
+    .add('Creable options', () =>
+        <Select
+            options={list}
+            multi={true}
+            creable={true}
+        />
+    )
     .add('Default (with a wrapper)', () =>
         <Wrapper multi={false} />
     )

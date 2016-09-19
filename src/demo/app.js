@@ -177,7 +177,7 @@ class App extends Component {
                     value={selectAsyncValue}
                     loadOptions={loadPosts}
                     onChange={this.onChangeSelectAsync}
-                    multi={false}
+                    multi={true}
                     labelKey="title"
                 />
                 <h3>Here is a Select</h3>
@@ -186,6 +186,7 @@ class App extends Component {
                     onChange={this.onChangeSelect}
                     multi={true}
                     options={list}
+                    creable={true}
                 />
                 <h3>Here is a Paginator</h3>
                 <Paginator
