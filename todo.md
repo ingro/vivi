@@ -41,6 +41,7 @@ per semplificarli e ridurre le propTypes
 #### Switch
 
 #### Table
+- Migliorare stile: hover non copre tutta riga, select dovrebbe andare sopra hover, aggiungere bordi tra celle
 
 #### TimeAgo
 - Possibilità di specificare direzione tooltip

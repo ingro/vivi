@@ -5,7 +5,7 @@ import Checkbox from '../Checkbox';
 import Switch from '../Switch';
 
 function CheckboxComponent(props) {
-    if (props.type === 'checkbox') {
+    if (props.controlType === 'checkbox') {
         return <Checkbox
             {...props.input}
         />;
@@ -18,11 +18,11 @@ function CheckboxComponent(props) {
 
 CheckboxComponent.propTypes = {
     input: PropTypes.object.isRequired,
-    type: PropTypes.oneOf(['checkbox', 'switch'])
+    controlType: PropTypes.oneOf(['checkbox', 'switch'])
 };
 
 CheckboxComponent.defaultProps = {
-    type: 'checkbox'
+    controlType: 'checkbox'
 };
 
 export default InputGroupHoc(CheckboxComponent);
