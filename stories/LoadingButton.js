@@ -44,11 +44,11 @@ storiesOf('LoadingButton', module)
         // { inline: true, propTables: false, header: false }
     )
     .addWithInfo(
-        'With bootstrap classes',
-        'Button in normal state with bootstrap class applied',
+        'Customized',
+        'Button in normal state with some bootstrap classes applied',
         () =>
             <LoadingButton
-                bsClass="warning"
+                className="btn-warning btn-lg"
                 onClick={action('Change')}
             >
                 Save

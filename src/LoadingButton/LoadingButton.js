@@ -1,12 +1,19 @@
 import React, { Component, PropTypes } from 'react';
+import classnames from 'classnames';
 
 export default class LoadingButton extends Component {
 
     render() {
-        const { bsClass, loading, loadingMsg, onClick } = this.props;
+        const { className, loading, loadingMsg, onClick } = this.props;
+
+        const btnClass = classnames('btn', className.split(' '));
 
         return (
-            <button className={`btn btn-${bsClass}`} disabled={loading} onClick={onClick}>
+            <button
+                className={btnClass}
+                disabled={loading}
+                onClick={onClick}
+            >
                 {!loading && this.props.children}
                 {loading && loadingMsg}
             </button>
@@ -15,7 +22,7 @@ export default class LoadingButton extends Component {
 }
 
 LoadingButton.propTypes = {
-    bsClass: PropTypes.oneOf(['primary', 'success', 'warning', 'danger', 'info', 'default']),
+    className: PropTypes.string,
     children: PropTypes.any,
     loading: PropTypes.bool,
     loadingMsg: PropTypes.any,
@@ -23,7 +30,7 @@ LoadingButton.propTypes = {
 };
 
 LoadingButton.defaultProps = {
-    bsClass: 'default',
+    className: 'btn-default',
     loading: false,
     loadingMsg: <span><i className="fa fa-spin fa-spinner" /> Loading...</span>,
     onClick: () => {}

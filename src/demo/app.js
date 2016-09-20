@@ -212,7 +212,7 @@ class App extends Component {
                 />
                 <h3>Here is a LoadingButton</h3>
                 <LoadingButton
-                    bsClass="info"
+                    className="btn-info btn-lg"
                     loading={isLoading}
                     onClick={this.handleLoading}
                 >
