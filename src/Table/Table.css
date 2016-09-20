@@ -10,8 +10,8 @@
 }
 
 .ReactVirtualized__Table__Grid {
-  /* Added */
-  overflow-x: hidden !important;
+  /* Added
+  overflow-x: hidden !important; */
 }
 
 .ReactVirtualized__Table__headerRow {

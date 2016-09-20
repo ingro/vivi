@@ -5,10 +5,12 @@ import Highlight from 'react-highlighter';
 
 class SelectAsync extends Component {
     render() {
-        const { disabled, labelKey, loadOptions, minimumInput, multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
+        const { create, disabled, labelKey, loadOptions, minimumInput, multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
+
+        const Component = create ? Select.AsyncCreatable : Select.Async;
 
         return (
-            <Select.Async
+            <Component
                 ref={ref => this.select = ref}
                 disabled={disabled}
                 loadingPlaceholder="Attendere..."
@@ -28,9 +30,10 @@ class SelectAsync extends Component {
                 labelKey={labelKey}
                 backspaceRemoves={false}
                 optionRenderer={option => {
-                    if (this.select) {
-                        return <Highlight search={this.select._lastInput}>{option[labelKey]}</Highlight>;
-                    }
+                    // Not working anymore with react-select@1.0.0-rc.2
+                    // if (this.select) {
+                    //     return <Highlight search={this.select._lastInput}>{option[labelKey]}</Highlight>;
+                    // }
 
                     return <span>{option[labelKey]}</span>;
                 }}
@@ -40,6 +43,7 @@ class SelectAsync extends Component {
 }
 
 SelectAsync.propTypes = {
+    create: PropTypes.bool,
     disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     loadOptions: PropTypes.func.isRequired,
@@ -55,6 +59,7 @@ SelectAsync.propTypes = {
 };
 
 SelectAsync.defaultProps = {
+    create: false,
     disabled: false,
     labelKey: 'name',
     minimumInput: 0,

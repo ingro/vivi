@@ -36,7 +36,7 @@ per semplificarli e ridurre le propTypes
 #### RadioGroup
 
 #### Select & SelectAsync
-- Implementare AsyncCreatable
+- Fixare hightlight su SelectAsync (https://github.com/JedWatson/react-select/pull/1231)
 - Utilizzare debounce input per ricerca con Async?
 
 #### Switch

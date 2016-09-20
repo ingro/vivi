@@ -122,7 +122,7 @@ storiesOf('Select', module)
         <Select
             options={list}
             multi={true}
-            creable={true}
+            create={true}
         />
     )
     .add('Default (with a wrapper)', () =>
