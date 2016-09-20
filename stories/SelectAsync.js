@@ -65,12 +65,12 @@ storiesOf('SelectAsync', module)
             labelKey="title"
         />
     )
-    .add('minimumInput = 2', () =>
+    .add('Autoload', () =>
         <SelectAsync
             loadOptions={loadPosts}
             placeholder="Scegli attentamente un articolo"
             labelKey="title"
-            minimumInput={2}
+            autoload={true}
         />
     )
     .add('Default (with a wrapper)', () =>

@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import uncontrollable from 'uncontrollable/batching';
 import Select from 'react-select';
-import Highlight from 'react-highlighter';
+// import Highlight from 'react-highlighter';
 
 class SelectAsync extends Component {
     render() {
-        const { create, disabled, labelKey, loadOptions, minimumInput, multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
+        const { autoload, create, disabled, labelKey, loadOptions, /*minimumInput,*/ multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 
@@ -24,7 +24,7 @@ class SelectAsync extends Component {
                 onFocus={onFocus}
                 value={value}
                 multi={multi}
-                minimumInput={minimumInput}
+                autoload={autoload}
                 name={name}
                 valueKey={valueKey}
                 labelKey={labelKey}
@@ -43,11 +43,12 @@ class SelectAsync extends Component {
 }
 
 SelectAsync.propTypes = {
+    autoload: PropTypes.bool,
     create: PropTypes.bool,
     disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     loadOptions: PropTypes.func.isRequired,
-    minimumInput: PropTypes.number,
+    // minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     name: PropTypes.string,
     onBlur: PropTypes.func,
@@ -59,10 +60,11 @@ SelectAsync.propTypes = {
 };
 
 SelectAsync.defaultProps = {
+    autoload: false,
     create: false,
     disabled: false,
     labelKey: 'name',
-    minimumInput: 0,
+    // minimumInput: 0,
     multi: false,
     placeholder: 'Seleziona un valore',
     valueKey: 'id'

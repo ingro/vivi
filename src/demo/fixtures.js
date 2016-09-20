@@ -85,8 +85,8 @@ export const colors = [
 ];
 
 export function loadPosts(q) {
-    // return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
-    return axios.get(`https://ingruz-api-aqvckpkjre.now.sh/api/hotels?_limit=10&q=${q}`)
+    return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
+    // return axios.get(`https://ingruz-api-aqvckpkjre.now.sh/api/hotels?_limit=10&q=${q}`)
         .then(res => {
             // const options = res.data.map(post => ({ value: post.id, label: post.title }));
 
