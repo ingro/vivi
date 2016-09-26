@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.2.1",
-    "@kadira/storybook": "^2.18.1",
+    "@kadira/storybook": "^2.19.0",
     "@kadira/storybook-addon-knobs": "^1.2.2",
     "autoprefixer": "^6.4.1",
     "ava": "^0.16.0",
@@ -59,7 +59,7 @@
     "eslint-plugin-react": "^6.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
-    "lodash": "^4.16.1",
+    "lodash": "^4.16.2",
     "moment": "^2.15.1",
     "postcss-cli": "^2.6.0",
     "postcss-import": "^8.1.2",
