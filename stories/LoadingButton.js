@@ -41,7 +41,14 @@ storiesOf('LoadingButton', module)
             >
                 Save
             </LoadingButton>,
-        // { inline: true, propTables: false, header: false }
+    )
+    .add('Disabled', () => 
+        <LoadingButton
+            disabled={true}
+            onClick={action('Change')}
+        >
+            Disabled :(
+        </LoadingButton>
     )
     .addWithInfo(
         'Customized',
