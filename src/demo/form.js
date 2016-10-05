@@ -57,6 +57,14 @@ export class Form extends Component {
                             label="Nome"
                             component={InputField}
                         />
+                        <div>Here is a password fields</div>
+                        <Field
+                            name="password"
+                            placeholder="Password"
+                            label="Password"
+                            component={InputField}
+                            type="password"
+                        />
                         <div>Here is a select</div>
                         <Field
                             name="fav_dog"

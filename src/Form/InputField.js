@@ -4,7 +4,7 @@ import InputGroupHoc from './InputGroupHoc';
 
 function InputComponent(props) {
     return <input
-        type="text"
+        type={props.type}
         className="form-control"
         {...props.input}
         placeholder={props.placeholder}
@@ -13,7 +13,12 @@ function InputComponent(props) {
 
 InputComponent.propTypes = {
     input: PropTypes.object.isRequired,
-    placeholder: PropTypes.string
+    placeholder: PropTypes.string,
+    type: PropTypes.strng
+};
+
+InputComponent.defaultProps = {
+    type: 'text'
 };
 
 export default InputGroupHoc(InputComponent);
