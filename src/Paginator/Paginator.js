@@ -28,12 +28,12 @@ class Paginator extends Component {
     }
 
     getSizer() {
-        const { sizeOptions } = this.props;
+        const { sizeOptions, pageSize } = this.props;
 
         return (
             <div>
                 <Select
-                    value={10}
+                    value={pageSize}
                     options={sizeOptions.map(size => ({ value: size, label: size }))}
                     onChange={this.onSizeChange}
                     valueKey="value"
