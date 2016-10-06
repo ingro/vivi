@@ -23,8 +23,8 @@ const locale = {
 
 class Paginator extends Component {
 
-    onSizeChange = (e) => {
-        this.props.onSizeChange(e.target.value);
+    onSizeChange = (option) => {
+        this.props.onSizeChange(option.value);
     }
 
     getSizer() {
