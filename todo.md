@@ -37,6 +37,7 @@ per semplificarli e ridurre le propTypes
 #### Switch
 
 #### Table
+- Allineamento verticale contenuto celle???
 
 #### TimeAgo
 
