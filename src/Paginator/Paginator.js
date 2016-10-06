@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import Pagination from 'rc-pagination';
 import uncontrollable from 'uncontrollable/batching';
 
+import Select from '../Select';
+
 const locale = {
     // Options.jsx
     items_per_page: 'oggetti per pagina',
@@ -30,12 +32,14 @@ class Paginator extends Component {
 
         return (
             <div>
-                <select
+                <Select
                     value={10}
+                    options={sizeOptions.map(size => ({ value: size, label: size }))}
                     onChange={this.onSizeChange}
-                >
-                    {sizeOptions.map((o, key) => <option key={key} value={o}>{o}</option>)}
-                </select>
+                    valueKey="value"
+                    labelKey="label"
+                    clearable={false}
+                />
             </div>
         );
     }

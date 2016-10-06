@@ -41,5 +41,5 @@ Vivi richiede una serie di dipendenze esterne che si suppone siano già presenti
 - react-virtualized: >= 7.0.0 (necessario per Table)
 - rc-pagination: >= 1.0.0 (necessario per Paginator)
 - rc-tooltip: >= 3.0.0 (necessario per Tooltip)
-- react-select: 1.0.0-beta14 (necessario per Select e SelectAsync)
+- react-select: 1.0.0-rc.2 (necessario per Select, SelectAsync e Paginator)
 - react-timeago: >= 3.0.0 (necessario per TimeAgo)

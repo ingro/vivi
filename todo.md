@@ -1,7 +1,7 @@
 # Vivi TODO
 
 ## Strutturali
-- Decidere libreria per tests e scriverli per i vari componenti. Come Runner si potrebbero utilizzare mocha o ava, come librerie enzyme o jest.
+- Decidere libreria per tests e scriverli per i vari componenti. Come Runner si potrebbero utilizzare mocha ava o jest, come librerie enzyme.
 - Decidere metodologia di gestire style dei vari componenti e come generare il file CSS pubblico.
 - Decidere se creare un bundle con le varie dipendenze o mantenerle come peer depedencies e compilare semplicemente i files sorgenti con babel.
 - Definire nomenclatura unica nomi componenti, callbacks etc.
@@ -17,8 +17,6 @@
 per semplificarli e ridurre le propTypes
 
 ### Regular Components
-- Unificare in componente base per Checkbox e Switch che hanno lo stesso comportamento
-- Unificare in componente base per Select e SelectAsync che condividono gran parte delle funzioni
 
 #### Checkbox
 
@@ -29,7 +27,6 @@ per semplificarli e ridurre le propTypes
 #### Modal
 
 #### Paginator
-- Migliorare aspetto select change size e info text (renderlo personalizzabile???)
 
 #### RadioGroup
 

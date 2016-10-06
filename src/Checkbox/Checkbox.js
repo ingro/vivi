@@ -1,36 +1,15 @@
 import React, { Component, PropTypes } from 'react';
-import uniqueId from 'lodash/uniqueId';
 import uncontrollable from 'uncontrollable/batching';
 
+import Checkable from '../shared/Checkable';
+
 class Checkbox extends Component {
-
-    constructor(props) {
-        super(props);
-
-        this.checkboxId = uniqueId('checkbox');
-    }
-
     render() {
-        const { checked, disabled, onChange, onClick } = this.props;
-
-        return (
-            <span>
-                <input
-                    disabled={disabled}
-                    ref="checkbox"
-                    onClick={onClick}
-                    id={this.checkboxId}
-                    type="checkbox"
-                    className="Checkbox__cmp-checkbox"
-                    onChange={() => onChange(this.refs.checkbox.checked)}
-                    checked={checked}
-                />
-                <label
-                    htmlFor={this.checkboxId}
-                    className="Checkbox__cmp-btn"
-                />
-            </span>
-        );
+        return <Checkable
+            inputClassName="Checkbox__cmp-checkbox" 
+            labelClassName="Checkbox__cmp-btn"
+            {...this.props} 
+        />
     }
 }
 
