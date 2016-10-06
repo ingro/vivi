@@ -14,7 +14,7 @@ function InputComponent(props) {
 InputComponent.propTypes = {
     input: PropTypes.object.isRequired,
     placeholder: PropTypes.string,
-    type: PropTypes.strng
+    type: PropTypes.string
 };
 
 InputComponent.defaultProps = {

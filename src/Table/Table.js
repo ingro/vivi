@@ -58,20 +58,14 @@ export default class Table extends Component {
         return this.state.selectedRows.map(index => this.props.rowGetter({ index }));
     }
 
-    getRowStyle = (data) => {
-        const { index } = data;
-
+    getRowClassName = ({ index }) => {
         const checked = this.state.selectedRows.indexOf(index) > -1;
 
         if (checked) {
-            return { backgroundColor: 'yellow' };
+            return 'ReactVirtualized__Table__row__selected';
         }
 
-        if (index > -1) {
-            return index % 2 ? { backgroundColor: '#f9f9f9' } : { backgroundColor: '#fff' };
-        }
-
-        return {};
+        return '';
     }
 
     renderCheckColumn = (data) => {
@@ -107,7 +101,7 @@ export default class Table extends Component {
                         rowHeight={rowHeight}
                         width={width ? width : auto.width}
                         noRowsRenderer={noRowsRenderer}
-                        rowStyle={this.getRowStyle}
+                        rowClassName={this.getRowClassName}
                         sort={onSort}
                         sortBy={sortBy}
                         sortDirection={sortDirection}

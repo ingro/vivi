@@ -3,5 +3,5 @@
 }
 
 .DateInput {
-    width: 150px;
+    min-width: 130px;
 }
