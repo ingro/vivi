@@ -1,6 +1,6 @@
 {
   "name": "vivi",
-  "version": "0.1.5",
+  "version": "0.1.4",
   "description": "Ui Components for Dashboards",
   "main": "dist/index.js",
   "scripts": {
@@ -32,6 +32,7 @@
     "@kadira/react-storybook-addon-info": "^3.2.1",
     "@kadira/storybook": "^2.22.0",
     "@kadira/storybook-addon-knobs": "^1.2.3",
+    "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.5.0",
     "ava": "^0.16.0",
     "axios": "^0.14.0",
