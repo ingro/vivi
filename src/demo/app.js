@@ -232,6 +232,7 @@ class App extends Component {
                 <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
                 <Table
                     ref={ref => this.table = ref }
+                    bordered={true}
                     columns={cols}
                     height={400}
                     rowCount={list.length}

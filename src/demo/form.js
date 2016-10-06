@@ -57,7 +57,7 @@ export class Form extends Component {
                             label="Nome"
                             component={InputField}
                         />
-                        <div>Here is a password fields</div>
+                        <div>Here is a password field</div>
                         <Field
                             name="password"
                             placeholder="Password"

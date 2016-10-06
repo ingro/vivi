@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { AutoSizer, Table as RVTable, Column } from 'react-virtualized';
+import classnames from 'classnames';
 import defaults from 'lodash/defaults';
 
 import Checkbox from '../Checkbox';
@@ -61,11 +62,10 @@ export default class Table extends Component {
     getRowClassName = ({ index }) => {
         const checked = this.state.selectedRows.indexOf(index) > -1;
 
-        if (checked) {
-            return 'ReactVirtualized__Table__row__selected';
-        }
-
-        return '';
+        return classnames({
+            'ReactVirtualized__Table__row__selected': checked,
+            'ReactVirtualized__Table__row__striped': ! (index % 2)
+        });
     }
 
     renderCheckColumn = (data) => {
@@ -83,7 +83,7 @@ export default class Table extends Component {
     }
 
     render() {
-        const { columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
+        const { bordered, columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
 
         const expectedHeight = rowCount > 0 ? headerHeight + (rowHeight * rowCount) : headerHeight + rowHeight;
         const tableHeight =  expectedHeight < height ? expectedHeight : height;
@@ -94,6 +94,7 @@ export default class Table extends Component {
             <AutoSizer>
                 {(auto) => (
                     <RVTable
+                        className={classnames({'ReactVirtualized__Table__bordered': bordered})}
                         headerHeight={headerHeight}
                         height={tableHeight}
                         rowCount={rowCount}
@@ -109,7 +110,7 @@ export default class Table extends Component {
                         {selectable &&
                             <Column
                                 width={36}
-                                disableSort
+                                disableSort={true}
                                 dataKey={'_select'}
                                 cellRenderer={this.renderCheckColumn}
                                 headerRenderer={this.renderCheckHeader}
@@ -132,6 +133,7 @@ export default class Table extends Component {
 }
 
 Table.propTypes = {
+    bordered: PropTypes.bool,
     columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
     height: PropTypes.number.isRequired,
@@ -148,6 +150,7 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
+    bordered: false,
     headerHeight: 40,
     noRowsRenderer: () => <div className="alert alert-warning text-center">No items to show</div>,
     onRowSelectChange: () => {},

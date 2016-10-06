@@ -40,7 +40,6 @@ per semplificarli e ridurre le propTypes
 #### Switch
 
 #### Table
-- Migliorare stile: aggiungere bordi tra celle, sort header
 
 #### TimeAgo
 

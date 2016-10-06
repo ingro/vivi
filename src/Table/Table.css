@@ -6,12 +6,7 @@
 
 .ReactVirtualized__Table {
   /* Added */
-  margin: 20px 0;
-}
-
-.ReactVirtualized__Table__Grid {
-  /* Added
-  overflow-x: hidden !important; */
+  margin: 10px 0;
 }
 
 .ReactVirtualized__Table__headerRow {
@@ -20,8 +15,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* Added border */
-  border: 1px solid #ddd;
 }
 .ReactVirtualized__Table__row {
   display: flex;
@@ -39,20 +32,48 @@
 
 .ReactVirtualized__Table__headerColumn,
 .ReactVirtualized__Table__rowColumn {
-  /*margin-right: 10px;*/
   min-width: 0px;
+}
+
+/* Added */
+.ReactVirtualized__Table__headerColumn {
+  height: 100%;
+  padding: 8px;
 }
 .ReactVirtualized__Table__rowColumn {
   text-overflow: ellipsis;
   white-space: nowrap;
   height: 100%;
-  padding-top: 10px;
+  /* Added global padding */
+  padding: 8px;
+  border-top: 1px solid #ddd;
 }
 
+/* Added */
 .ReactVirtualized__Table__headerColumn:first-of-type,
 .ReactVirtualized__Table__rowColumn:first-of-type {
-  padding-left: 10px;
+  padding-left: 8px;
 }
+
+/* Added */
+.ReactVirtualized__Table__bordered .ReactVirtualized__Table__headerColumn {
+  border-right: 1px solid #ddd;
+}
+
+/* Added */
+.ReactVirtualized__Table__bordered .ReactVirtualized__Table__rowColumn {
+  border: 1px solid #ddd;
+}
+
+/* Added */
+.ReactVirtualized__Table__bordered .ReactVirtualized__Table__headerRow {
+  border: 1px solid #ddd;
+}
+
+.ReactVirtualized__Table__headerColumn:last-of-type {
+  border-right: none;
+}
+
 .ReactVirtualized__Table__sortableHeaderColumn {
   cursor: pointer;
 }
@@ -69,26 +90,20 @@
 }
 
 /* Added */
+.ReactVirtualized__Table__selectColumnRow, 
 .ReactVirtualized__Table__selectColumnHeader {
-  margin-top: -20px;
-}
-
-.ReactVirtualized__Table__selectColumnRow {
   padding: 0;
 }
 
-.ReactVirtualized__Table__row {
-  background-color: #fff;
-}
-
-.ReactVirtualized__Grid__innerScrollContainer>.ReactVirtualized__Table__row:nth-of-type(odd) {
+/* Added */
+.ReactVirtualized__Grid__innerScrollContainer>.ReactVirtualized__Table__row.ReactVirtualized__Table__row__striped {
   background-color: #f9f9f9;
 }
-
+/* Added */
 .ReactVirtualized__Grid__innerScrollContainer>.ReactVirtualized__Table__row.ReactVirtualized__Table__row__selected {
   background-color: #ffeb3b !important;
 }
-
+/* Added */
 .ReactVirtualized__Grid__innerScrollContainer>.ReactVirtualized__Table__row:hover {
   background-color: #BDBDBD;
 }

@@ -86,7 +86,7 @@ const list = [
 const emptyList = [];
 
 storiesOf('Table', module)
-    .add('Simple example', () =>
+    .addWithInfo('Simple example', 'Component Info',() =>
         <Table
             columns={cols}
             height={400}
@@ -97,6 +97,15 @@ storiesOf('Table', module)
     )
     .add('Auto width', () =>
         <Table
+            columns={cols}
+            height={400}
+            rowCount={list.length}
+            rowGetter={({ index }) => list[index]}
+        />
+    )
+    .add('With borders', () =>
+        <Table
+            bordered={true}
             columns={cols}
             height={400}
             rowCount={list.length}
