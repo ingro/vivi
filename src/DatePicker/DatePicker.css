@@ -1,3 +1,7 @@
 .CalendarMonth__caption {
     text-align: center;
 }
+
+.DateInput {
+    width: 150px;
+}

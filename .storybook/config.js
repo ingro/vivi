@@ -3,20 +3,10 @@ import infoAddon from '@kadira/react-storybook-addon-info';
 
 import '../src/style.css';
 
+const req = require.context('../stories', true, /.js$/)
+
 function loadStories() {
-	require('../stories/Checkbox');
-	require('../stories/DatePicker');
-	require('../stories/DateRangePicker');
-	require('../stories/LoadingButton');
-	require('../stories/Modal');
-	require('../stories/Paginator');
-	require('../stories/RadioGroup');
-	require('../stories/Select');
-	require('../stories/SelectAsync');
-	require('../stories/Switch');
-	require('../stories/Table');
-	require('../stories/TimeAgo');
-	require('../stories/Tooltip');
+	req.keys().forEach((filename) => req(filename));
 }
 
 setAddon(infoAddon);

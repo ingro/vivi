@@ -26,7 +26,7 @@ export default class DatePicker extends Component {
     }
 
     render() {
-        // const {  } = this.props;
+        const { displayFormat, numberOfMonths, placeholder } = this.props;
         const { focused, date } = this.state;
 
         return (
@@ -34,7 +34,9 @@ export default class DatePicker extends Component {
                 id={this.datepickerId}
                 date={date}
                 focused={focused}
-                numberOfMonths={1}
+                numberOfMonths={numberOfMonths}
+                displayFormat={displayFormat}
+                placeholder={placeholder}
                 onDateChange={this.onDateChange}
                 onFocusChange={this.onFocusChange}
             />
@@ -44,9 +46,15 @@ export default class DatePicker extends Component {
 
 DatePicker.propTypes = {
     date: PropTypes.any,
-    onChange: PropTypes.func
+    displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+    numberOfMonths: PropTypes.number,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.string
 };
 
 DatePicker.defaultProps = {
-    onChange: () => {}
+    displayFormat: 'DD/MM/YYYY',
+    numberOfMonths: 1,
+    onChange: () => {},
+    placeholder: 'Seleziona data'
 };

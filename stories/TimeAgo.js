@@ -1,11 +1,15 @@
 import React from 'react';
 import { storiesOf } from '@kadira/storybook';
+import { withKnobs, select } from '@kadira/storybook-addon-knobs';
 import moment from 'moment';
 
 import TimeAgo from '../src/TimeAgo';
 
-storiesOf('TimeAgo', module)
-    .add('Default', () =>
+const stories = storiesOf('TimeAgo', module);
+
+stories.addDecorator(withKnobs);
+
+stories.addWithInfo('Default', 'ComponentInfo', () =>
         <TimeAgo
             date={"2016-08-29 05:01:37"}
         />
@@ -16,8 +20,20 @@ storiesOf('TimeAgo', module)
         />
     )
     .add('With tooltip', () =>
-        <TimeAgo
-            date={moment().subtract(3, 'day')}
-            tooltip={true}
-        />
+        <div style={{ margin: 100 }}>
+            <TimeAgo
+                date={moment().subtract(3, 'day')}
+                tooltip={true}
+            />
+        </div>
+    )
+    .add('With custom tooltip content and position', () =>
+        <div style={{ margin: 100 }}>
+            <TimeAgo
+                date={moment().subtract(3, 'day')}
+                tooltip={true}
+                tooltipPosition={select('Tooltip position', ['top', 'right', 'bottom', 'left'], 'right')}
+                tooltipDateFormat="DD/MM/Y"
+            />
+        </div>
     );

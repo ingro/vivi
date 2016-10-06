@@ -23,7 +23,6 @@ per semplificarli e ridurre le propTypes
 #### Checkbox
 
 #### Datepicker & DateRangePicker
-- Passare piu props come numberofmonths, placeholders input etc.
 
 #### LoadingButton
 
@@ -44,7 +43,6 @@ per semplificarli e ridurre le propTypes
 - Migliorare stile: hover non copre tutta riga, select dovrebbe andare sopra hover, aggiungere bordi tra celle, sort header
 
 #### TimeAgo
-- Possibilità di specificare direzione tooltip
 
 #### Tooltip
 

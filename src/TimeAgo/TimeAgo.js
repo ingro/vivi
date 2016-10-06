@@ -22,12 +22,13 @@ export default class TimeAgo extends Component {
     }
 
     render() {
-        const { date, tooltip } = this.props;
+        const { date, tooltip, tooltipDateFormat, tooltipPosition } = this.props;
 
         if (tooltip) {
             return (
                 <Tooltip
-                    content={moment.isMoment(date) ? date.format('lll') : date}
+                    content={moment.isMoment(date) ? date.format(tooltipDateFormat) : date}
+                    position={tooltipPosition}
                 >
                     <a style={{ textDecoration: 'none' }}>
                         {this.renderTimeAgo()}
@@ -42,9 +43,13 @@ export default class TimeAgo extends Component {
 
 TimeAgo.propTypes = {
     date: PropTypes.any.isRequired,
-    tooltip: PropTypes.bool
+    tooltip: PropTypes.bool,
+    tooltipDateFormat: PropTypes.string,
+    tooltipPosition: PropTypes.oneOf(['left', 'right', 'top', 'bottom'])
 };
 
 TimeAgo.defaultProps = {
-    tooltip: false
+    tooltip: false,
+    tooltipDateFormat: 'lll',
+    tooltipPosition: 'top'
 };

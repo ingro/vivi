@@ -13,7 +13,8 @@ export default class DateRangePicker extends Component {
             endDate: props.endDate
         };
 
-        this.datepickerId = uniqueId('datepicker');
+        this.startPickerId = uniqueId('startPicker');
+        this.endPickerId = uniqueId('endPicker');
     }
 
     onDatesChange = ({ startDate, endDate }) => {
@@ -27,15 +28,22 @@ export default class DateRangePicker extends Component {
     }
 
     render() {
-        // const {  } = this.props;
+        const { displayFormat, minimumNights, numberOfMonths, showClearDates, startDatePlaceholderText, endDatePlaceholderText } = this.props;
         const { focusedInput, startDate, endDate } = this.state;
 
         return (
             <RangePicker
-                id={this.datepickerId}
+                startDateId={this.startPickerId}
+                endDateId={this.endPickerId}
                 focusedInput={focusedInput}
                 startDate={startDate}
                 endDate={endDate}
+                displayFormat={displayFormat}
+                numberOfMonths={numberOfMonths}
+                minimumNights={minimumNights}
+                showClearDates={showClearDates}
+                startDatePlaceholderText={startDatePlaceholderText}
+                endDatePlaceholderText={endDatePlaceholderText}
                 onDatesChange={this.onDatesChange}
                 onFocusChange={this.onFocusChange}
             />
@@ -44,11 +52,23 @@ export default class DateRangePicker extends Component {
 }
 
 DateRangePicker.propTypes = {
-    startDate: PropTypes.any,
+    displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     endDate: PropTypes.any,
-    onChange: PropTypes.func
+    endDatePlaceholderText: PropTypes.string,
+    minimumNights: PropTypes.number,
+    numberOfMonths: PropTypes.number,
+    onChange: PropTypes.func,
+    showClearDates: PropTypes.bool,
+    startDate: PropTypes.any,
+    startDatePlaceholderText: PropTypes.string
 };
 
 DateRangePicker.defaultProps = {
-    onChange: () => {}
+    displayFormat: 'DD/MM/YYYY',
+    endDatePlaceholderText: 'Data fine',
+    minimumNights: null,
+    numberOfMonths: 2,
+    onChange: () => {},
+    showClearDates: false,
+    startDatePlaceholderText: 'Data inizio'
 };
