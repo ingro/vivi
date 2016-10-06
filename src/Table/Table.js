@@ -85,8 +85,12 @@ export default class Table extends Component {
     render() {
         const { bordered, columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
 
-        const expectedHeight = rowCount > 0 ? headerHeight + (rowHeight * rowCount) : headerHeight + rowHeight;
-        const tableHeight =  expectedHeight < height ? expectedHeight : height;
+        let tableHeight = height;
+
+        if (height) {
+            const expectedHeight = rowCount > 0 ? headerHeight + (rowHeight * rowCount) : headerHeight + rowHeight;
+            tableHeight =  expectedHeight < height ? expectedHeight : height;
+        }
 
         columns.map(column => defaults(column, defaultColumnProps));
 
@@ -96,7 +100,7 @@ export default class Table extends Component {
                     <RVTable
                         className={classnames({'ReactVirtualized__Table__bordered': bordered})}
                         headerHeight={headerHeight}
-                        height={tableHeight}
+                        height={height ? tableHeight : auto.height}
                         rowCount={rowCount}
                         rowGetter={rowGetter}
                         rowHeight={rowHeight}
@@ -136,7 +140,7 @@ Table.propTypes = {
     bordered: PropTypes.bool,
     columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
-    height: PropTypes.number.isRequired,
+    height: PropTypes.number,
     noRowsRenderer: PropTypes.func,
     onRowSelectChange: PropTypes.func,
     onSort: PropTypes.func,
