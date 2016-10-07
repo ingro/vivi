@@ -57,7 +57,7 @@ storiesOf('Paginator', module)
         />
     ).add('With size changer', () =>
         <Paginator
-            total={1000}
+            total={100}
             pageSize={20}
             defaultCurrent={2}
             showSizeChanger={true}
