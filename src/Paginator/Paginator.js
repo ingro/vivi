@@ -28,7 +28,7 @@ class Paginator extends Component {
     }
 
     getSizer() {
-        const { sizeOptions, pageSize } = this.props;
+        const { pageSize, sizeChangerOptions, sizeOptions } = this.props;
 
         return (
             <div>
@@ -39,6 +39,7 @@ class Paginator extends Component {
                     valueKey="value"
                     labelKey="label"
                     clearable={false}
+                    {...sizeChangerOptions}
                 />
             </div>
         );
@@ -88,13 +89,15 @@ Paginator.propTypes = {
     pageSize: PropTypes.number.isRequired,
     showSizeChanger: PropTypes.bool,
     showStatusText: PropTypes.bool,
+    sizeChangerOptions: PropTypes.object,
     sizeOptions: PropTypes.array,
     total: PropTypes.number.isRequired
 };
 
 Paginator.defaultProps = {
     showSizeChanger: false,
-    showStatusText: false
+    showStatusText: false,
+    sizeChangerOptions: {}
 };
 
 export default uncontrollable(Paginator, {
