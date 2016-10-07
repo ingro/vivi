@@ -1,0 +1,4 @@
+.Select-drop-up .Select-menu-outer { 
+  top: auto !important; 
+  bottom: 100%; 
+}

@@ -2,16 +2,18 @@ import React, { Component, PropTypes } from 'react';
 import uncontrollable from 'uncontrollable/batching';
 import ReactSelect from 'react-select';
 import Highlight from 'react-highlighter';
+import classnames from 'classnames';
 
 class Select extends Component {
     render() {
-        const { clearable, create, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, options, placeholder, value, valueKey } = this.props;
+        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey } = this.props;
 
         const Component = create ? ReactSelect.Creatable : ReactSelect;
 
         return (
             <Component
                 ref={ref => this.select = ref}
+                className={classnames(className, { 'Select-drop-up': openUp })}
                 disabled={disabled}
                 clearable={clearable}
                 noResultsText="Nessun risultato trovato"
@@ -42,6 +44,7 @@ class Select extends Component {
 }
 
 Select.propTypes = {
+    className: PropTypes.string,
     clearable: PropTypes.bool,
     create: PropTypes.bool,
     disabled: PropTypes.bool,
@@ -52,6 +55,7 @@ Select.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    openUp: PropTypes.bool,
     options: PropTypes.array.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.any,
@@ -65,6 +69,7 @@ Select.defaultProps = {
     labelKey: 'name',
     minimumInput: 0,
     multi: false,
+    openUp: false,
     placeholder: 'Seleziona un valore',
     valueKey: 'id'
 };

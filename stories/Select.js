@@ -118,6 +118,14 @@ storiesOf('Select', module)
             placeholder="Scegli attentamente un oggetto"
         />
     )
+    .add('Open dropdown up', () =>
+        <div style={{ marginTop: 250 }}>
+            <Select
+                options={list}
+                openUp={true}
+            />
+        </div>
+    )
     .add('Creable options', () =>
         <Select
             options={list}
