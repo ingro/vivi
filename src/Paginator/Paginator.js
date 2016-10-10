@@ -72,7 +72,7 @@ class Paginator extends Component {
                     />
                 }
                 {' '}
-                <div className="paginator-info pull-right" style={{ margin: 20 }}>
+                <div className="paginator-info pull-right" style={{ margin: '20px 20px 0' }}>
                     {(showSizeChanger && total > 0) && this.getSizer()}
                     {(showStatusText && total > 0) && this.getStatusText()}
                 </div>
