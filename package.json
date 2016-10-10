@@ -57,7 +57,7 @@
     "eslint": "^3.7.1",
     "eslint-loader": "^1.5.0",
     "eslint-plugin-import": "^2.0.0",
-    "eslint-plugin-react": "^6.3.0",
+    "eslint-plugin-react": "^6.4.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "html-webpack-plugin": "^2.22.0",
     "jest": "^16.0.1",
