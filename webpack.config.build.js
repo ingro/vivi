@@ -8,7 +8,7 @@ module.exports = {
         vivi: './src/index.js'
     },
     output: {
-        path: 'dist',
+        path: 'lib',
         filename: '[name].js'
     },
     // externals: {

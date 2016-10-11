@@ -10,7 +10,7 @@ Installare tramite npm: `$ npm install vivi --save`
 
 Vivi richiede l'utilizzo di un bundler come Webpack o Browserify. Utilizzando la sintassi ES6 si possono richiedere i singoli componenti nei seguenti modi:
 - `import { Select } from 'vivi'`;
-- `import Select from 'vivi/dist/Select'`;
+- `import Select from 'vivi/lib/Select'`;
 
 Da notare che importando tutto il pacchetto Vivi sarà necessario avere installate anche tutte le dipendenze opzionali, mentre richiedendo i singoli componenti saranno richieste solo le loro (eventuali) dipendenze.
 
@@ -38,7 +38,7 @@ Vivi richiede una serie di dipendenze esterne che si suppone siano già presenti
 - moment: >= 2.0.0 (necessario per Datepicker, DateRangePicker e TimeAgo)
 - react-dates: >= 2.0.0 (necessario per DatePicker e DateRangePicker)
 - react-modal: >= 1.0.0 (necessario per Modal)
-- react-virtualized: >= 7.0.0 (necessario per Table)
+- react-virtualized: >= 8.0.0 (necessario per Table)
 - rc-pagination: >= 1.0.0 (necessario per Paginator)
 - rc-tooltip: >= 3.0.0 (necessario per Tooltip)
 - react-select: 1.0.0-rc.2 (necessario per Select, SelectAsync e Paginator)
