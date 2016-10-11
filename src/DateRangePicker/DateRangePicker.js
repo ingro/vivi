@@ -27,6 +27,10 @@ export default class DateRangePicker extends Component {
         this.setState({ focusedInput });
     }
 
+    getInitialVisibleMonth = () => {
+        return this.props.startDate;
+    }
+
     render() {
         const { displayFormat, minimumNights, numberOfMonths, showClearDates, startDatePlaceholderText, endDatePlaceholderText } = this.props;
         const { focusedInput, startDate, endDate } = this.state;
@@ -46,6 +50,7 @@ export default class DateRangePicker extends Component {
                 endDatePlaceholderText={endDatePlaceholderText}
                 onDatesChange={this.onDatesChange}
                 onFocusChange={this.onFocusChange}
+                initialVisibleMonth={this.getInitialVisibleMonth}
             />
         );
     }

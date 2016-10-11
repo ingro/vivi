@@ -17,8 +17,8 @@ stories
     )
     .add('With an existing range', () =>
         <DateRangePicker
-            startDate={moment().add(3, 'day')}
-            endDate={moment().add(8, 'day')}
+            startDate={moment().add(60, 'day')}
+            endDate={moment().add(73, 'day')}
         />
     )
     .add('With custom format', () =>

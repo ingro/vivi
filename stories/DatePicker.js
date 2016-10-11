@@ -17,7 +17,7 @@ stories
     )
     .add('With an existing date', () =>
         <DatePicker
-            date={moment().add(3, 'day')}
+            date={moment().add(30, 'day')}
         />
     )
     .add('With custom format', () =>

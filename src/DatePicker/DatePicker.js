@@ -25,6 +25,10 @@ export default class DatePicker extends Component {
         this.setState({ focused });
     }
 
+    getInitialVisibleMonth = () => {
+        return this.props.date;
+    }
+
     render() {
         const { displayFormat, numberOfMonths, placeholder } = this.props;
         const { focused, date } = this.state;
@@ -39,6 +43,7 @@ export default class DatePicker extends Component {
                 placeholder={placeholder}
                 onDateChange={this.onDateChange}
                 onFocusChange={this.onFocusChange}
+                initialVisibleMonth={this.getInitialVisibleMonth}
             />
         );
     }
