@@ -23,9 +23,9 @@ per semplificarli e ridurre le propTypes
 #### Checkbox
 
 #### Datepicker & DateRangePicker
-- Usare la nuova prop initialVisibleMonth
 
 #### LoadingButton
+- Valutare utilizzo animakit-rotator? https://animakit.github.io
 
 #### Modal
 
