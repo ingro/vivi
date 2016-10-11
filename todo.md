@@ -11,6 +11,8 @@
 - Come gestire tutte le peer dependencies???
 - Trovare modo di esportare componenti Form in index libreria
 - Esportare anche i singoli file CSS?
+- Convertire readme e componenti con stringhe inglesi
+- Prevedere supporto lingue con react-intl?
 
 ## Componenti
 - A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator
@@ -21,6 +23,7 @@ per semplificarli e ridurre le propTypes
 #### Checkbox
 
 #### Datepicker & DateRangePicker
+- Usare la nuova prop initialVisibleMonth
 
 #### LoadingButton
 
