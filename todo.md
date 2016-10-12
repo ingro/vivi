@@ -24,6 +24,9 @@ per semplificarli e ridurre le propTypes
 
 #### Datepicker & DateRangePicker
 
+#### Dropdown
+- Valutare funzionamento in caso di testo molto lungo nel menu
+
 #### LoadingButton
 - Valutare utilizzo animakit-rotator? https://animakit.github.io
 
@@ -64,7 +67,6 @@ per semplificarli e ridurre le propTypes
 #### TextareaField
 
 ### Componenti da sviluppare
-- Dropdown
 - NumberPicker
 - DebounceInput
 - Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)
