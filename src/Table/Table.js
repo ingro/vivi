@@ -15,44 +15,49 @@ export default class Table extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            globalSelectStatus: null,
-            selectedRows: []
-        };
+        // this.state = {
+        //     globalSelectStatus: null,
+        //     selectedRows: props.selectedRows
+        // };
     }
 
     handleHeaderCheckClick = (checked) => {
-        const selectedRows = [];
+        this.props.onHeaderCheckClick(checked);
+        // const selectedRows = [];
 
-        if (checked) {
-            for (let i = 0; i < this.props.rowCount; i++) {
-                selectedRows.push(i);
-            }
-        }
+        // if (checked) {
+        //     for (let i = 0; i < this.props.rowCount; i++) {
+        //         selectedRows.push(i);
+        //     }
+        // }
 
-        this.setState({
-            globalSelectStatus: checked,
-            selectedRows: selectedRows
-        });
+        // this.setState({
+        //     globalSelectStatus: checked,
+        //     selectedRows: selectedRows
+        // });
     }
 
-    handleRowCheckClick = (rowData, rowIndex, checked) => {
-        if (checked) {
-            this.state.selectedRows.push(rowIndex);
-        } else {
-            const index = this.state.selectedRows.indexOf(rowIndex);
-
-            if (index > -1) {
-                this.state.selectedRows.splice(index, 1);
-            }
+    handleRowCheckClick = (rowData, checked) => {
+        if (this.props.onRowCheckClick) {
+            return this.props.onRowCheckClick(rowData, checked);
         }
 
-        this.setState({
-            globalSelectStatus: null,
-            selectedRows: this.state.selectedRows
-        });
+        // if (checked) {
+        //     this.state.selectedRows.push(rowIndex);
+        // } else {
+        //     const index = this.state.selectedRows.indexOf(rowIndex);
 
-        this.props.onRowSelectChange(checked, rowData);
+        //     if (index > -1) {
+        //         this.state.selectedRows.splice(index, 1);
+        //     }
+        // }
+
+        // this.setState({
+        //     globalSelectStatus: null,
+        //     selectedRows: this.state.selectedRows
+        // });
+
+        // this.props.onRowSelectChange(checked, rowData);
     }
 
     getSelectedItems() {
@@ -60,7 +65,8 @@ export default class Table extends Component {
     }
 
     getRowClassName = ({ index }) => {
-        const checked = this.state.selectedRows.indexOf(index) > -1;
+        // const checked = this.state.selectedRows.indexOf(index) > -1;
+        const checked = this.props.isSelected(index);
 
         return classnames({
             'ReactVirtualized__Table__row__selected': checked,
@@ -71,15 +77,18 @@ export default class Table extends Component {
     renderCheckColumn = (data) => {
         const { rowData, rowIndex } = data;
 
-        const index = this.state.selectedRows.indexOf(rowIndex);
+        // const index = this.state.selectedRows.indexOf(rowIndex);
 
-        const checked = index > -1;
+        // const checked = index > -1;
+        const checked = this.props.isSelected(rowIndex);
 
-        return <Checkbox checked={checked} onChange={this.handleRowCheckClick.bind(this, rowData, rowIndex)}/>;
+        return <Checkbox checked={checked} onChange={this.handleRowCheckClick.bind(this, rowData)}/>;
     }
 
     renderCheckHeader = () => {
-        return <Checkbox checked={this.state.globalSelectStatus} onChange={this.handleHeaderCheckClick}/>;
+        const { rowCount, selectedRows } = this.props;
+
+        return <Checkbox checked={rowCount === selectedRows.length} onChange={this.handleHeaderCheckClick}/>;
     }
 
     render() {
@@ -141,13 +150,17 @@ Table.propTypes = {
     columns: PropTypes.array.isRequired,
     headerHeight: PropTypes.number,
     height: PropTypes.number,
+    isSelected: PropTypes.func,
     noRowsRenderer: PropTypes.func,
+    onHeaderCheckClick: PropTypes.func,
+    onRowCheckClick: PropTypes.func,
     onRowSelectChange: PropTypes.func,
     onSort: PropTypes.func,
     rowCount: PropTypes.number.isRequired,
     rowGetter: PropTypes.func.isRequired,
     rowHeight: React.PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
     selectable: PropTypes.bool,
+    selectedRows: PropTypes.array,
     sortBy: PropTypes.string,
     sortDirection: PropTypes.string,
     width: PropTypes.number
@@ -159,5 +172,6 @@ Table.defaultProps = {
     noRowsRenderer: () => <div className="alert alert-warning text-center">No items to show</div>,
     onRowSelectChange: () => {},
     rowHeight: 40,
-    selectable: false
+    selectable: false,
+    selectedRows: []
 };

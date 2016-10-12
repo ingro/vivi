@@ -15,8 +15,7 @@
 - Prevedere supporto lingue con react-intl?
 
 ## Componenti
-- A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator
-per semplificarli e ridurre le propTypes
+- A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator per semplificarli e ridurre le propTypes
 
 ### Regular Components
 
@@ -44,6 +43,8 @@ per semplificarli e ridurre le propTypes
 
 #### Table
 - Allineamento verticale contenuto celle???
+- Checkbox header risulta uncontrolled
+- Possibilita di passare come props le righe selezionate e quindi anche i metodi per aggiornarle
 
 #### TimeAgo
 
@@ -68,5 +69,4 @@ per semplificarli e ridurre le propTypes
 
 ### Componenti da sviluppare
 - NumberPicker
-- DebounceInput
 - Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)

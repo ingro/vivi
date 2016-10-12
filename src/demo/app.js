@@ -56,7 +56,8 @@ class App extends Component {
             checked: true,
             selectAsyncValue: null,
             selectValue: null,
-            color: 'red'
+            color: 'red',
+            selectedRows: []
         };
     }
 
@@ -116,6 +117,69 @@ class App extends Component {
         this.setState({
             color: value
         });
+    }
+
+    isSelected = (index) => {
+        const item = this.rowGetter({ index });
+
+        if (item) {
+            const find = this.state.selectedRows.indexOf(item.id);
+
+            if (find > -1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    rowGetter = ({ index }) => {
+        return this.state.list[index];
+    }
+
+    onHeaderCheckClick = (checked) => {
+        if (checked) {
+            this.setState({
+                selectedRows: this.state.list.map(item => item.id)
+            });
+        } else {
+            this.setState({
+                selectedRows: []
+            });
+        }
+    }
+
+    onRowCheckClick = (rowData, checked) => {
+        // if (checked) {
+        //     this.setState({
+        //         selectedRows: {
+        //             ...this.state.selectedRows,
+
+        //         }
+        //     })
+        // }
+        if (checked) {
+            this.state.selectedRows.push(rowData.id);
+        } else {
+            const index = this.state.selectedRows.indexOf(rowData.id);
+
+            if (index > -1) {
+                this.state.selectedRows.splice(index, 1);
+            }
+        }
+
+        this.setState({
+            selectedRows: this.state.selectedRows
+        });
+
+        // console.warn(this.state.selectedRows);
+
+        // this.setState({
+        //     globalSelectStatus: null,
+        //     selectedRows: this.state.selectedRows
+        // });
+
+        // this.props.onRowSelectChange(checked, rowData);
     }
 
     render() {
@@ -236,10 +300,14 @@ class App extends Component {
                     columns={cols}
                     height={400}
                     rowCount={list.length}
-                    rowGetter={({ index }) => list[index]}
+                    rowGetter={this.rowGetter}
                     width={600}
                     selectable={true}
+                    selectedRows={this.state.selectedRows}
                     onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
+                    onRowCheckClick={this.onRowCheckClick}
+                    onHeaderCheckClick={this.onHeaderCheckClick}
+                    isSelected={this.isSelected}
                     onSort={this.handleSort}
                     sortBy={sortBy}
                     sortDirection={sortDirection}
