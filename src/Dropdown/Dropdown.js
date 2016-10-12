@@ -6,11 +6,21 @@ export default class Dropdown extends Component {
     constructor(props) {
         super(props);
 
+        this._isMounted = false;
+
         this.state = {
             isOpened: false,
             top: 0,
             left: 0
         };
+    }
+
+    componentDidMount() {
+        this._isMounted = true;
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     onClick = () => {
@@ -43,7 +53,11 @@ export default class Dropdown extends Component {
     }
 
     onClose = () => {
-        setImmediate(() => this.setState({ isOpened: false }));
+        setImmediate(() => {
+            if (this._isMounted) {
+                this.setState({ isOpened: false });
+            }
+        });
     }
 
     getPortalStyle() {
