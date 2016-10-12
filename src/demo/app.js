@@ -150,14 +150,6 @@ class App extends Component {
     }
 
     onRowCheckClick = (rowData, checked) => {
-        // if (checked) {
-        //     this.setState({
-        //         selectedRows: {
-        //             ...this.state.selectedRows,
-
-        //         }
-        //     })
-        // }
         if (checked) {
             this.state.selectedRows.push(rowData.id);
         } else {
@@ -171,15 +163,6 @@ class App extends Component {
         this.setState({
             selectedRows: this.state.selectedRows
         });
-
-        // console.warn(this.state.selectedRows);
-
-        // this.setState({
-        //     globalSelectStatus: null,
-        //     selectedRows: this.state.selectedRows
-        // });
-
-        // this.props.onRowSelectChange(checked, rowData);
     }
 
     render() {
@@ -256,10 +239,10 @@ class App extends Component {
                 <Paginator
                     defaultCurrent={1}
                     total={15}
-                    pageSize={10}
+                    pageSize={1000}
                     showStatusText={true}
                     showSizeChanger={true}
-                    sizeOptions={[10, 20, 50]}
+                    sizeOptions={[10, 20, 500, 1000]}
                     onChange={p => console.warn(p)}
                     onSizeChange={s => console.warn(s)}
                 />
@@ -303,8 +286,7 @@ class App extends Component {
                     rowGetter={this.rowGetter}
                     width={600}
                     selectable={true}
-                    selectedRows={this.state.selectedRows}
-                    onRowSelectChange={(checked, data) => {console.log(data); console.warn(checked)}}
+                    selectedRowsCount={this.state.selectedRows.length}
                     onRowCheckClick={this.onRowCheckClick}
                     onHeaderCheckClick={this.onHeaderCheckClick}
                     isSelected={this.isSelected}

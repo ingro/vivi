@@ -32,6 +32,7 @@
 #### Modal
 
 #### Paginator
+- Limitare larghezza info e size changer
 
 #### RadioGroup
 
@@ -44,7 +45,6 @@
 #### Table
 - Allineamento verticale contenuto celle???
 - Checkbox header risulta uncontrolled
-- Possibilita di passare come props le righe selezionate e quindi anche i metodi per aggiornarle
 
 #### TimeAgo
 

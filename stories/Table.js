@@ -85,6 +85,77 @@ const list = [
 
 const emptyList = [];
 
+class Wrapper extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            selectedRows: []
+        };
+    }
+
+    isSelected = (index) => {
+        const item = this.rowGetter({ index });
+
+        if (item) {
+            const find = this.state.selectedRows.indexOf(item.id);
+
+            if (find > -1) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    rowGetter = ({ index }) => {
+        return list[index];
+    }
+
+    onHeaderCheckClick = (checked) => {
+        if (checked) {
+            this.setState({
+                selectedRows: list.map(item => item.id)
+            });
+        } else {
+            this.setState({
+                selectedRows: []
+            });
+        }
+    }
+
+    onRowCheckClick = (rowData, checked) => {
+        if (checked) {
+            this.state.selectedRows.push(rowData.id);
+        } else {
+            const index = this.state.selectedRows.indexOf(rowData.id);
+
+            if (index > -1) {
+                this.state.selectedRows.splice(index, 1);
+            }
+        }
+
+        this.setState({
+            selectedRows: this.state.selectedRows
+        });
+    }
+
+    render() {
+        return <Table
+            columns={cols}
+            height={400}
+            rowCount={list.length}
+            rowGetter={this.rowGetter}
+            width={600}
+            selectable={true}
+            selectedRowsCount={this.state.selectedRows.length}
+            onRowCheckClick={this.onRowCheckClick}
+            onHeaderCheckClick={this.onHeaderCheckClick}
+            isSelected={this.isSelected}
+        />;
+    }
+}
+
 storiesOf('Table', module)
     .addWithInfo('Simple example', 'Component Info',() =>
         <Table
@@ -103,6 +174,17 @@ storiesOf('Table', module)
             rowGetter={({ index }) => list[index]}
         />
     )
+    .add('Full auto', () =>
+        <div
+            style={{ width: 600, height: 600 }}
+        >
+            <Table
+                columns={cols}
+                rowCount={list.length}
+                rowGetter={({ index }) => list[index]}
+            />
+        </div>
+    )
     .add('With borders', () =>
         <Table
             bordered={true}
@@ -113,15 +195,7 @@ storiesOf('Table', module)
         />
     )
     .add('Selectable rows', () =>
-        <Table
-            columns={cols}
-            height={400}
-            rowCount={list.length}
-            rowGetter={({ index }) => list[index]}
-            width={600}
-            onRowSelectChange={action('Row selected')}
-            selectable
-        />
+        <Wrapper />
     )
     // TODO: sarebbe carino far cambiare i gutter negli headers dinamicamente ma questo pare non sia possibile con Storybook
     // dato che necessiterebbe di un re-render del componente
