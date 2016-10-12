@@ -6,7 +6,6 @@ import Select from '../Select';
 function SelectComponent(props) {
     // onBlur necessario altrimenti si resetta il valore del select al blur...
     return <Select
-        className="form-control"
         placeholder={props.placeholder}
         options={props.options}
         {...props.input}
