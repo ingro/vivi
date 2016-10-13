@@ -60,7 +60,7 @@ class Paginator extends Component {
         const { current, onChange, pageSize, showSizeChanger, showStatusText, total } = this.props;
 
         return (
-            <div className="container-fluid">
+            <div>
                 {total > pageSize &&
                     <Pagination
                         current={current}
