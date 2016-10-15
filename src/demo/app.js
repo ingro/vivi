@@ -64,10 +64,6 @@ class App extends Component {
         };
     }
 
-    getSelectedItems = () => {
-        console.log(this.table.getSelectedItems());
-    }
-
     handleSort = (data) => {
         const { sortBy, sortDirection } = data;
 
@@ -277,7 +273,6 @@ class App extends Component {
                     onChange={(status) => console.warn(status)}
                 />
                 <h3>Here is a table!</h3>
-                <button onClick={this.getSelectedItems}>Oggetti selezionati</button>
                 <Table
                     ref={ref => this.table = ref }
                     bordered={true}

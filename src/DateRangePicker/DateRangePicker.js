@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { DateRangePicker as RangePicker } from 'react-dates';
 import uniqueId from 'lodash/uniqueId';
 
-export default class DateRangePicker extends Component {
+import getTranslation from '../utils/getTranslation';
 
+export default class DateRangePicker extends Component {
     constructor(props) {
         super(props);
 
@@ -32,10 +33,8 @@ export default class DateRangePicker extends Component {
     }
 
     render() {
-        const { displayFormat, minimumNights, numberOfMonths, showClearDates, startDatePlaceholderText, endDatePlaceholderText } = this.props;
+        const { displayFormat, minimumNights, numberOfMonths, showClearDates } = this.props;
         const { focusedInput, startDate, endDate } = this.state;
-
-        console.warn(this.context.vivi);
 
         return (
             <RangePicker
@@ -48,8 +47,8 @@ export default class DateRangePicker extends Component {
                 numberOfMonths={numberOfMonths}
                 minimumNights={minimumNights}
                 showClearDates={showClearDates}
-                startDatePlaceholderText={this.context.vivi.messages.DateRangePicker.startDatePlaceholderText}
-                endDatePlaceholderText={this.context.vivi.messages.DateRangePicker.endDatePlaceholderText}
+                startDatePlaceholderText={getTranslation(this, 'startDatePlaceholderText')}
+                endDatePlaceholderText={getTranslation(this, 'endDatePlaceholderText')}
                 onDatesChange={this.onDatesChange}
                 onFocusChange={this.onFocusChange}
                 initialVisibleMonth={this.getInitialVisibleMonth}
@@ -72,12 +71,10 @@ DateRangePicker.propTypes = {
 
 DateRangePicker.defaultProps = {
     displayFormat: 'DD/MM/YYYY',
-    // endDatePlaceholderText: 'Data fine',
     minimumNights: null,
     numberOfMonths: 2,
     onChange: () => {},
-    showClearDates: false,
-    // startDatePlaceholderText: 'Data inizio'
+    showClearDates: false
 };
 
 DateRangePicker.contextTypes = {
