@@ -35,6 +35,8 @@ export default class DateRangePicker extends Component {
         const { displayFormat, minimumNights, numberOfMonths, showClearDates, startDatePlaceholderText, endDatePlaceholderText } = this.props;
         const { focusedInput, startDate, endDate } = this.state;
 
+        console.warn(this.context.vivi);
+
         return (
             <RangePicker
                 startDateId={this.startPickerId}
@@ -46,8 +48,8 @@ export default class DateRangePicker extends Component {
                 numberOfMonths={numberOfMonths}
                 minimumNights={minimumNights}
                 showClearDates={showClearDates}
-                startDatePlaceholderText={startDatePlaceholderText}
-                endDatePlaceholderText={endDatePlaceholderText}
+                startDatePlaceholderText={this.context.vivi.messages.DateRangePicker.startDatePlaceholderText}
+                endDatePlaceholderText={this.context.vivi.messages.DateRangePicker.endDatePlaceholderText}
                 onDatesChange={this.onDatesChange}
                 onFocusChange={this.onFocusChange}
                 initialVisibleMonth={this.getInitialVisibleMonth}
@@ -70,10 +72,14 @@ DateRangePicker.propTypes = {
 
 DateRangePicker.defaultProps = {
     displayFormat: 'DD/MM/YYYY',
-    endDatePlaceholderText: 'Data fine',
+    // endDatePlaceholderText: 'Data fine',
     minimumNights: null,
     numberOfMonths: 2,
     onChange: () => {},
     showClearDates: false,
-    startDatePlaceholderText: 'Data inizio'
+    // startDatePlaceholderText: 'Data inizio'
+};
+
+DateRangePicker.contextTypes = {
+    vivi: React.PropTypes.object
 };

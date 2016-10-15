@@ -9,6 +9,7 @@ import store from './store';
 import Form from './form';
 
 // Components
+import ViviProvider from '../Provider';
 import Checkbox from '../Checkbox';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
@@ -22,6 +23,8 @@ import Switch from '../Switch';
 import Table from '../Table';
 import TimeAgo from '../TimeAgo';
 import Tooltip from '../Tooltip';
+
+import messages from '../messages/it';
 
 // Fixtures
 import { dogs as list, colors, loadPosts } from './fixtures';
@@ -253,8 +256,6 @@ class App extends Component {
                 />
                 <h3>Here is a DateRangePicker</h3>
                 <DateRangePicker
-                    startDate={moment().add(10, 'days')}
-                    endDate={moment().add(23, 'days')}
                     onChange={(range) => console.warn('New range!', range)}
                 />
                 <h3>Here is a LoadingButton</h3>
@@ -300,6 +301,13 @@ class App extends Component {
 }
 
 render(
-    <App />,
+    <ViviProvider locale="it" messages={messages}>
+        <App />
+    </ViviProvider>,
     document.getElementById('root')
 );
+
+// render(
+//     <App />,
+//     document.getElementById('root')
+// );

@@ -5,6 +5,7 @@ export { Dropdown } from './Dropdown';
 export { LoadingButton } from './LoadingButton';
 export { Modal } from './Modal';
 export { Paginator } from './Paginator';
+export { Provider } from './Provider';
 export { Select } from './Select';
 export { SelectAsync } from './SelectAsync';
 export { Switch } from './Switch';
