@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { AutoSizer, Table as RVTable, Column } from 'react-virtualized';
+import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
+import Column from 'react-virtualized/dist/commonjs/Table/Column';
+import RVTable from 'react-virtualized/dist/commonjs/Table/Table';
 import classnames from 'classnames';
 import defaults from 'lodash/defaults';
 

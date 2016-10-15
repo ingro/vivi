@@ -13,6 +13,7 @@
 - Esportare anche i singoli file CSS?
 - Convertire readme e componenti con stringhe inglesi
 - Prevedere supporto lingue con react-intl?
+- Usare import diretti componenti per evitare di importare intere librerie (vedere come esempio import di componenti da `react-virtualized` in Table, altri candidati sono `react-select` e `react-dates`)
 
 ## Componenti
 - A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator per semplificarli e ridurre le propTypes
