@@ -78,5 +78,5 @@ DateRangePicker.defaultProps = {
 };
 
 DateRangePicker.contextTypes = {
-    vivi: React.PropTypes.object
+    vivi: PropTypes.object
 };

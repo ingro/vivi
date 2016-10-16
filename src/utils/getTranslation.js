@@ -9,10 +9,10 @@ export default function getTranslation(component, propName, defaultValue) {
         return defaultValue;
     }
 
-    const t = get(component.context.vivi.messages, `${component.constructor.name}.${propName}`);
+    const translation = get(component.context.vivi.messages, `${component.constructor.name}.${propName}`);
 
-    if (t) {
-        return t;
+    if (translation) {
+        return translation;
     }
 
     return defaultValue;

@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
+import getTranslation from '../utils/getTranslation';
+
 export default class LoadingButton extends Component {
 
     render() {
-        const { className, disabled, loading, loadingMsg, onClick } = this.props;
+        const { children, className, disabled, loading, loadingIndicator, onClick } = this.props;
 
         const btnClass = classnames('btn', className.split(' '));
 
@@ -14,8 +16,8 @@ export default class LoadingButton extends Component {
                 disabled={disabled || loading}
                 onClick={onClick}
             >
-                {!loading && this.props.children}
-                {loading && loadingMsg}
+                {!loading && children}
+                {loading && <span>{loadingIndicator}{' '}{getTranslation(this, 'loadingMsg', 'Loading...')}</span>}
             </button>
         );
     }
@@ -26,6 +28,7 @@ LoadingButton.propTypes = {
     children: PropTypes.any,
     disabled: PropTypes.bool,
     loading: PropTypes.bool,
+    loadingIndicator: PropTypes.any,
     loadingMsg: PropTypes.any,
     onClick: PropTypes.func
 };
@@ -34,6 +37,10 @@ LoadingButton.defaultProps = {
     className: 'btn-default',
     disabled: false,
     loading: false,
-    loadingMsg: <span><i className="fa fa-spin fa-spinner" /> Loading...</span>,
+    loadingIndicator: <i className="fa fa-spin fa-spinner" />,
     onClick: () => {}
+};
+
+LoadingButton.contextTypes = {
+    vivi: PropTypes.object
 };

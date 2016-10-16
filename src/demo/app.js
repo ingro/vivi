@@ -235,19 +235,20 @@ class App extends Component {
                     create={false}
                 />
                 <h3>Here is a Paginator</h3>
-                <Paginator
-                    defaultCurrent={1}
-                    total={15}
-                    pageSize={1000}
-                    showStatusText={true}
-                    showSizeChanger={true}
-                    sizeOptions={[10, 20, 500, 1000]}
-                    onChange={p => console.warn(p)}
-                    onSizeChange={s => console.warn(s)}
-                />
+                <div className="row">
+                    <Paginator
+                        defaultCurrent={1}
+                        total={15}
+                        pageSize={1000}
+                        showStatusText={true}
+                        showSizeChanger={true}
+                        sizeOptions={[10, 20, 500, 1000]}
+                        onChange={p => console.warn(p)}
+                        onSizeChange={s => console.warn(s)}
+                    />
+                </div>
                 <h3>Here is a DatePicker</h3>
                 <DatePicker
-                    date={moment().add(10, 'days')}
                     onChange={(date) => console.warn('New date!', date)}
                 />
                 <h3>Here is a DateRangePicker</h3>

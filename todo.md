@@ -45,7 +45,6 @@
 
 #### Table
 - Allineamento verticale contenuto celle???
-- Checkbox header risulta uncontrolled
 
 #### TimeAgo
 
