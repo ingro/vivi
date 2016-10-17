@@ -3,22 +3,23 @@ import Pagination from 'rc-pagination';
 import uncontrollable from 'uncontrollable/batching';
 
 import Select from '../Select';
+import getTranslation from '../utils/getTranslation';
 
-const locale = {
+const locale_en = {
     // Options.jsx
-    items_per_page: 'oggetti per pagina',
-    jump_to: 'Vai a',
-    page: 'Pagina',
+    items_per_page: 'items per page',
+    jump_to: 'Go to',
+    page: 'Page',
 
     // Pager.jsx
-    first_page: 'Prima pagina',
-    last_page: 'Ultima pagina',
+    first_page: 'First page',
+    last_page: 'Last page',
 
     // Pagination.jsx
-    prev_page: 'Pagina precedente',
-    next_page: 'Pagina successiva',
-    prev_5: '5 Pagine avanti',
-    next_5: '5 Pagine indietro'
+    prev_page: 'Previous page',
+    next_page: 'Next page',
+    prev_5: '5 pages ahead',
+    next_5: '5 pages behind'
 };
 
 class Paginator extends Component {
@@ -65,7 +66,7 @@ class Paginator extends Component {
                     <Pagination
                         current={current}
                         className="pagination"
-                        locale={locale}
+                        locale={getTranslation(this, 'locale', locale_en)}
                         total={total}
                         pageSize={pageSize}
                         onChange={onChange}
@@ -84,6 +85,7 @@ class Paginator extends Component {
 Paginator.propTypes = {
     current: PropTypes.number.isRequired,
     displaying: PropTypes.number,
+    locale: PropTypes.object,
     onChange: PropTypes.func,
     onSizeChange: PropTypes.func,
     pageSize: PropTypes.number.isRequired,
@@ -98,6 +100,10 @@ Paginator.defaultProps = {
     showSizeChanger: false,
     showStatusText: false,
     sizeChangerOptions: {}
+};
+
+Paginator.contextTypes = {
+    vivi: PropTypes.object
 };
 
 export default uncontrollable(Paginator, {

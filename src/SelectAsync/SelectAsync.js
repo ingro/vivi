@@ -3,6 +3,8 @@ import uncontrollable from 'uncontrollable/batching';
 import Select from 'react-select';
 // import Highlight from 'react-highlighter';
 
+import getTranslation from '../utils/getTranslation';
+
 class SelectAsync extends Component {
     render() {
         const { autoload, create, disabled, labelKey, loadOptions, /*minimumInput,*/ multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
@@ -13,11 +15,11 @@ class SelectAsync extends Component {
             <Component
                 ref={ref => this.select = ref}
                 disabled={disabled}
-                loadingPlaceholder="Attendere..."
-                searchingText="Ricerca in corso..."
-                searchPromptText="Digita per ricercare"
-                noResultsText="Nessun risultato trovato"
-                placeholder={placeholder}
+                loadingPlaceholder={getTranslation(this, 'loadingPlaceholder')}
+                searchingText={getTranslation(this, 'searchingText', 'Searching...')}
+                searchPromptText={getTranslation(this, 'searchPromptText')}
+                noResultsText={getTranslation(this, 'noResultsText')}
+                placeholder={getTranslation(this, 'placeholder', 'Select a value')}
                 loadOptions={loadOptions}
                 onBlur={onBlur}
                 onChange={onChange}
@@ -48,13 +50,17 @@ SelectAsync.propTypes = {
     disabled: PropTypes.bool,
     labelKey: PropTypes.string,
     loadOptions: PropTypes.func.isRequired,
+    loadingPlaceholder: PropTypes.string,
     // minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     name: PropTypes.string,
+    noResultsText: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
     placeholder: PropTypes.string,
+    searchingText: PropTypes.string,
+    searchPromptText: PropTypes.string,
     value: PropTypes.any,
     valueKey: PropTypes.string
 };
@@ -66,7 +72,6 @@ SelectAsync.defaultProps = {
     labelKey: 'name',
     // minimumInput: 0,
     multi: false,
-    placeholder: 'Seleziona un valore',
     valueKey: 'id'
 };
 

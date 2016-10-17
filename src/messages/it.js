@@ -8,5 +8,32 @@ export default {
     },
     LoadingButton: {
         loadingMsg: 'Caricamento...'
+    },
+    Paginator: {
+        locale: {
+            items_per_page: 'oggetti per pagina',
+            jump_to: 'Vai a',
+            page: 'Pagina',
+            first_page: 'Prima pagina',
+            last_page: 'Ultima pagina',
+            prev_page: 'Pagina precedente',
+            next_page: 'Pagina successiva',
+            prev_5: '5 Pagine avanti',
+            next_5: '5 Pagine indietro'
+        }
+    },
+    Select: {
+        noResultsText: 'Nessun risultato trovato',
+        placeholder: 'Seleziona un valore'
+    },
+    SelectAsync: {
+        loadingPlaceholder: 'Attendere...',
+        noResultsText: 'Nessun risultato trovato',
+        placeholder: 'Seleziona un valore',
+        searchPromptText: 'Digita per ricercare',
+        searchingText: 'Ricerca in corso...',
+    },
+    Table: {
+        noRowsText: 'Nessun oggetto da mostrare'
     }
 };

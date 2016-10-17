@@ -4,9 +4,11 @@ import ReactSelect from 'react-select';
 import Highlight from 'react-highlighter';
 import classnames from 'classnames';
 
+import getTranslation from '../utils/getTranslation';
+
 class Select extends Component {
     render() {
-        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey } = this.props;
+        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, openUp, options, value, valueKey } = this.props;
 
         const Component = create ? ReactSelect.Creatable : ReactSelect;
 
@@ -16,8 +18,8 @@ class Select extends Component {
                 className={classnames(className, { 'Select-drop-up': openUp })}
                 disabled={disabled}
                 clearable={clearable}
-                noResultsText="Nessun risultato trovato"
-                placeholder={placeholder}
+                noResultsText={getTranslation(this, 'noResultsText')}
+                placeholder={getTranslation(this, 'placeholder', 'Select a value')}
                 onBlur={onBlur}
                 onChange={onChange}
                 onFocus={onFocus}
@@ -52,6 +54,7 @@ Select.propTypes = {
     minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     name: PropTypes.string,
+    noResultsText: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
@@ -70,8 +73,11 @@ Select.defaultProps = {
     minimumInput: 0,
     multi: false,
     openUp: false,
-    placeholder: 'Seleziona un valore',
     valueKey: 'id'
+};
+
+Select.contextTypes = {
+    vivi: PropTypes.object
 };
 
 export default uncontrollable(Select, {

@@ -6,6 +6,7 @@ import classnames from 'classnames';
 import defaults from 'lodash/defaults';
 
 import Checkbox from '../Checkbox';
+import getTranslation from '../utils/getTranslation';
 
 const defaultColumnProps = {
     flexGrow: 1,
@@ -109,6 +110,7 @@ Table.propTypes = {
     height: PropTypes.number,
     isSelected: PropTypes.func,
     noRowsRenderer: PropTypes.func,
+    noRowsText: PropTypes.string,
     onHeaderCheckClick: PropTypes.func,
     onRowCheckClick: PropTypes.func,
     onSort: PropTypes.func,
@@ -125,7 +127,11 @@ Table.propTypes = {
 Table.defaultProps = {
     bordered: false,
     headerHeight: 40,
-    noRowsRenderer: () => <div className="alert alert-warning text-center">No items to show</div>,
+    noRowsRenderer: () => <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No item to show')}</div>,
     rowHeight: 40,
     selectable: false
+};
+
+Table.contextTypes = {
+    vivi: PropTypes.object
 };
