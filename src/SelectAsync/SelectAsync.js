@@ -7,7 +7,7 @@ import getTranslation from '../utils/getTranslation';
 
 class SelectAsync extends Component {
     render() {
-        const { autoload, create, disabled, labelKey, loadOptions, /*minimumInput,*/ multi, name, onBlur, onChange, onFocus, placeholder, value, valueKey } = this.props;
+        const { autoload, create, disabled, labelKey, loadOptions, /*minimumInput,*/ multi, name, onBlur, onChange, onFocus, value, valueKey } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 

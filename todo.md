@@ -11,8 +11,7 @@
 - Come gestire tutte le peer dependencies???
 - Trovare modo di esportare componenti Form in index libreria
 - Esportare anche i singoli file CSS?
-- Convertire readme e componenti con stringhe inglesi
-- Prevedere supporto lingue con react-intl?
+- Convertire readme in inglese
 - Usare import diretti componenti per evitare di importare intere librerie (vedere come esempio import di componenti da `react-virtualized` in Table, altri candidati sono `react-select` e `react-dates`)
 
 ## Componenti
