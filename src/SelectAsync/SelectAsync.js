@@ -75,6 +75,10 @@ SelectAsync.defaultProps = {
     valueKey: 'id'
 };
 
+SelectAsync.contextTypes = {
+    vivi: PropTypes.object
+};
+
 export default uncontrollable(SelectAsync, {
     value: 'onChange'
 });

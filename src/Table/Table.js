@@ -49,6 +49,10 @@ export default class Table extends Component {
         return <Checkbox checked={(rowCount > 0) && rowCount === selectedRowsCount} onChange={this.handleHeaderCheckClick}/>;
     }
 
+    getDefaultNoRowsRenderer = () => {
+        return <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No item to show')}</div>;
+    }
+
     render() {
         const { bordered, columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
 
@@ -72,7 +76,7 @@ export default class Table extends Component {
                         rowGetter={rowGetter}
                         rowHeight={rowHeight}
                         width={width ? width : auto.width}
-                        noRowsRenderer={noRowsRenderer}
+                        noRowsRenderer={noRowsRenderer || this.getDefaultNoRowsRenderer}
                         rowClassName={this.getRowClassName}
                         sort={onSort}
                         sortBy={sortBy}
@@ -127,7 +131,6 @@ Table.propTypes = {
 Table.defaultProps = {
     bordered: false,
     headerHeight: 40,
-    noRowsRenderer: () => <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No item to show')}</div>,
     rowHeight: 40,
     selectable: false
 };
