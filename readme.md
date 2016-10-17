@@ -8,24 +8,26 @@ Install vivi with npm: `$ npm install vivi --save`
 
 ## Usage
 
-Vivi richiede l'utilizzo di un bundler come Webpack o Browserify. Utilizzando la sintassi ES6 si possono richiedere i singoli componenti nei seguenti modi:
+Vivi requires to be used with a bundler like [webpack](https://webpack.github.io/) or [browserify](http://browserify.org/). Using es6 syntax you could require components in two ways:
+
 - `import { Select } from 'vivi'`;
 - `import Select from 'vivi/lib/Select'`;
 
-Da notare che importando tutto il pacchetto Vivi sarà necessario avere installate anche tutte le dipendenze opzionali, mentre richiedendo i singoli componenti saranno richieste solo le loro (eventuali) dipendenze.
+Please not that requiring `vivi` will pull the whole package (also requiring all the optional dependencies), so you can save a lot of space importing the single components directly.
 
 ## Development
 
-- Clonare il repository;
-- Installare le dipendenze tramite il comando `npm install`;
-- Lanciare il comando `npm start` per compilare i files sorgente e aggiornarli in tempo reale.
+- Clone the repository;
+- Install dependencies with `npm install`;
+- Type `npm start` to compile the source code and watch for changes;
 
-Una pagina dove sono mostrati i vari componenti e può essere usata per lo sviluppo sarà accessibile all'url [http://localhost:3001/](http://localhost:3001/).
-In alternativa è possibile usare [storybook](https://github.com/kadirahq/react-storybook) per lavorare su diverse varianti dei singoli componenti. Per lanciare il server di storybook digitare da riga di comando `npm run storybook`, che sarà accessibile all'url [http://localhost:9001/](http://localhost:9001/).
+A demo page where you can see in action all the components could be found at [http://localhost:3001/](http://localhost:3001/).
+Alternatively you could use [storybook](https://github.com/kadirahq/react-storybook) to work with components in many different scenarios.
+To launch storybook's server simple type `npm run storybook` and point your browser to [http://localhost:9001/](http://localhost:9001/).
 
 ## External dependencies
 
-Vivi richiede una serie di dipendenze esterne che si suppone siano già presenti nel progetto nel quale viene utilizzato:
+Vivi requires external dependencies in order to work, some globally and some optionally (needed only for specific components);
 
 **Required dependencies:**
 
