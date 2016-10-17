@@ -5,13 +5,13 @@
 - Decidere metodologia di gestire style dei vari componenti e come generare il file CSS pubblico.
 - Decidere se creare un bundle con le varie dipendenze o mantenerle come peer depedencies e compilare semplicemente i files sorgenti con babel.
 - Definire nomenclatura unica nomi componenti, callbacks etc.
-- Inserire qualche info nel readme.
 - Valutare se utilizzare lodash per intero o piccoli moduli separati (nel caso di lodash valutare build con webpack e webpack plugin lodash)
 - Valutare se utilizzare moduli specifici al posto di lodash
 - Come gestire tutte le peer dependencies???
 - Trovare modo di esportare componenti Form in index libreria
 - Esportare anche i singoli file CSS?
 - Documentare ViviProvider
+- Pubblicare storybook su github pages
 - Usare import diretti componenti per evitare di importare intere librerie (vedere come esempio import di componenti da `react-virtualized` in Table, altri candidati sono `react-select` e `react-dates`)
 
 ## Componenti
@@ -67,5 +67,6 @@
 #### TextareaField
 
 ### Componenti da sviluppare
+- ClearableInput
 - NumberPicker
 - Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)
