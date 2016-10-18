@@ -23,6 +23,12 @@ export default class Dropdown extends Component {
         this._isMounted = false;
     }
 
+    close() {
+        this.setState({
+            isOpened: false
+        });
+    }
+
     onClick = () => {
         if (this.state.isOpened) {
             this.setState({

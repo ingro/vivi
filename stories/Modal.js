@@ -34,7 +34,7 @@ class Wrapper extends React.Component {
                     isOpen={this.state.isOpened}
                     onClose={this.handleClose.bind(this)}
                     staticModal={this.props.staticModal || false}
-                    modalClass={this.props.modalClass}
+                    className={this.props.className}
                 >
                     {this.props.children}
                 </Modal>

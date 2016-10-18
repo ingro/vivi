@@ -25,6 +25,7 @@
 
 #### Dropdown
 - Valutare funzionamento in caso di testo molto lungo nel menu
+- Chiudere dopo click su elemento del menu?
 
 #### LoadingButton
 - Valutare utilizzo animakit-rotator? https://animakit.github.io
