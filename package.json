@@ -1,6 +1,6 @@
 {
   "name": "vivi",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Ui Components for Dashboards",
   "main": "lib/index.js",
   "scripts": {
