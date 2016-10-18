@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import uncontrollable from 'uncontrollable/batching';
 
 class ClearableInput extends Component {
+    componentDidMount() {
+        if (this.props.autofocus) {
+            this.input.focus();
+        }
+    }
+
     clearInput = () => {
         this.props.onChange('');
     }
@@ -15,7 +21,8 @@ class ClearableInput extends Component {
 
         return (
             <div className="ClearableInput__wrapper">
-                <input 
+                <input
+                    ref={ref => this.input = ref}
                     className="form-control" 
                     type="text"
                     disabled={disabled}
@@ -24,17 +31,20 @@ class ClearableInput extends Component {
                     value={value}
                     onChange={this.changeInput}
                 />
-                <i 
-                    onClick={this.clearInput} 
-                    className="ClearableInput__trigger fa fa-times" 
-                    style={{ color: clearButtonColor }}
-                />
+                {value && value !== '' &&
+                    <i 
+                        onClick={this.clearInput} 
+                        className="ClearableInput__trigger fa fa-times" 
+                        style={{ color: clearButtonColor }}
+                    />
+                }
             </div>
         );
     }
 }
 
 ClearableInput.propTypes = {
+    autofocus: PropTypes.bool,
     clearButtonColor: PropTypes.string,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
@@ -44,6 +54,7 @@ ClearableInput.propTypes = {
 };
 
 ClearableInput.defaultProps = {
+    autofocus: false,
     clearButtonColor: '#a94442',
     disabled: false,
     value: ''

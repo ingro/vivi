@@ -31,6 +31,7 @@ storiesOf('ClearableInput', module)
     )
     .add('Uncontrolled', () =>
         <ClearableInput
+            autofocus={true}
             onChange={action('Change')}
             name="title"
             placeholder="Insert a title"
