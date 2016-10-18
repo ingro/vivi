@@ -32,11 +32,19 @@ storiesOf('ClearableInput', module)
     .add('Uncontrolled', () =>
         <ClearableInput
             onChange={action('Change')}
+            name="title"
+            placeholder="Insert a title"
         />
     )
     .add('Disabled', () =>
         <ClearableInput
             disabled={true}
+            onChange={action('Change')}
+        />
+    )
+    .add('With custom trigger\'s color', () =>
+        <ClearableInput
+            clearButtonColor="lightblue"
             onChange={action('Change')}
         />
     );

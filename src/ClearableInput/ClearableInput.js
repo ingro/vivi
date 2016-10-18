@@ -11,7 +11,7 @@ class ClearableInput extends Component {
     }
 
     render() {
-        const { clearButtonColor, disabled, value } = this.props;
+        const { clearButtonColor, disabled, name, placeholder, value } = this.props;
 
         return (
             <div className="ClearableInput__wrapper">
@@ -19,6 +19,8 @@ class ClearableInput extends Component {
                     className="form-control" 
                     type="text"
                     disabled={disabled}
+                    name={name}
+                    placeholder={placeholder}
                     value={value}
                     onChange={this.changeInput}
                 />
@@ -36,6 +38,8 @@ ClearableInput.propTypes = {
     clearButtonColor: PropTypes.string,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
+    name: PropTypes.string,
+    placeholder: PropTypes.string,
     value: PropTypes.string
 };
 
