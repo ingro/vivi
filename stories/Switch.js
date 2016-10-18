@@ -38,7 +38,7 @@ storiesOf('Switch', module)
     .add('Disabled', () =>
         <Switch
             defaultChecked={true}
-            disabled
+            disabled={true}
             onChange={action('Change')}
         />
     );

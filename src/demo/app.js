@@ -11,6 +11,7 @@ import Form from './form';
 // Components
 import ViviProvider from '../Provider';
 import Checkbox from '../Checkbox';
+import ClearableInput from '../ClearableInput';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
 import LoadingButton from '../LoadingButton';
@@ -60,7 +61,8 @@ class App extends Component {
             selectAsyncValue: null,
             selectValue: null,
             color: 'red',
-            selectedRows: []
+            selectedRows: [],
+            cvalue: ''
         };
     }
 
@@ -273,6 +275,12 @@ class App extends Component {
                     onClick={(e) => this.setState({ checked: ! this.state.checked })}
                     onChange={(status) => console.warn(status)}
                 />
+                <h3>Here is a ClearableInput</h3>
+                <div className="row">
+                    <div className="col-xs-4">
+                        <ClearableInput />
+                    </div>
+                </div>
                 <h3>Here is a table!</h3>
                 <Table
                     ref={ref => this.table = ref }

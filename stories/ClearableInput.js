@@ -1,43 +1,41 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 
-import Checkbox from '../src/Checkbox';
+import ClearableInput from '../src/ClearableInput';
 
 class Wrapper extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            isChecked: false
+            value: ''
         };
     }
 
-    handleClick() {
-        action('Click')();
+    handleChange(value) {
+        action('Change')(value);
 
         this.setState({
-            isChecked: ! this.state.isChecked
+            value
         });
     }
 
     render() {
-        return <Checkbox checked={this.state.isChecked} onClick={this.handleClick.bind(this)} />
+        return <ClearableInput value={this.state.value} onChange={this.handleChange.bind(this)} />
     }
 }
 
-storiesOf('Checkbox', module)
+storiesOf('ClearableInput', module)
     .add('Controlled (with a wrapper)', () =>
         <Wrapper />
     )
     .add('Uncontrolled', () =>
-        <Checkbox
-            defaultChecked={true}
+        <ClearableInput
             onChange={action('Change')}
         />
     )
     .add('Disabled', () =>
-        <Checkbox
-            defaultChecked={true}
+        <ClearableInput
             disabled={true}
             onChange={action('Change')}
         />

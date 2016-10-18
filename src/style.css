@@ -7,6 +7,7 @@
 
 /* Custom styles */
 @import 'Checkbox/Checkbox.css';
+@import 'ClearableInput/ClearableInput.css';
 @import 'Datepicker/DatePicker.css';
 @import 'Dropdown/Dropdown.css';
 @import 'Modal/Modal.css';

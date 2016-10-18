@@ -1,0 +1,10 @@
+.ClearableInput__wrapper {
+    position: relative;
+}
+
+.ClearableInput__trigger {
+    position: absolute;
+    top: 9px;
+    right: 5px; 
+    cursor: pointer;
+}

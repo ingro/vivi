@@ -21,11 +21,13 @@
 
 #### Checkbox
 
+#### ClearableInput
+
 #### Datepicker & DateRangePicker
 
 #### Dropdown
 - Valutare funzionamento in caso di testo molto lungo nel menu
-- Chiudere dopo click su elemento del menu?
+- Chiudere dopo click su elemento del menu (implementato per ora un workaround con <Dropdown>.close())
 
 #### LoadingButton
 - Valutare utilizzo animakit-rotator? https://animakit.github.io
@@ -68,6 +70,5 @@
 #### TextareaField
 
 ### Componenti da sviluppare
-- ClearableInput
 - NumberPicker
 - Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)

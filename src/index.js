@@ -1,4 +1,5 @@
 export { Checkbox } from './Checkbox';
+export { ClearableInput } from './ClearableInput';
 export { DatePicker } from './DatePicker';
 export { DateRangePicker } from './DateRangePicker';
 export { Dropdown } from './Dropdown';
