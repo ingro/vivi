@@ -17,21 +17,17 @@ class ClearableInput extends Component {
     }
 
     render() {
-        const { clearButtonColor, disabled, name, placeholder, value } = this.props;
+        const { clearButtonColor, autofocus, ...rest } = this.props;
 
         return (
             <div className="ClearableInput__wrapper">
                 <input
                     ref={ref => this.input = ref}
-                    className="form-control" 
-                    type="text"
-                    disabled={disabled}
-                    name={name}
-                    placeholder={placeholder}
-                    value={value}
+                    {...rest}
                     onChange={this.changeInput}
+                    
                 />
-                {value && value !== '' &&
+                {this.props.value && this.props.value !== '' &&
                     <i 
                         onClick={this.clearInput} 
                         className="ClearableInput__trigger fa fa-times" 
@@ -45,18 +41,23 @@ class ClearableInput extends Component {
 
 ClearableInput.propTypes = {
     autofocus: PropTypes.bool,
+    className: PropTypes.string,
     clearButtonColor: PropTypes.string,
     disabled: PropTypes.bool,
     onChange: PropTypes.func,
+    onKeyUp: PropTypes.func,
     name: PropTypes.string,
     placeholder: PropTypes.string,
+    type: PropTypes.string,
     value: PropTypes.string
 };
 
 ClearableInput.defaultProps = {
     autofocus: false,
+    className: 'form-control',
     clearButtonColor: '#a94442',
     disabled: false,
+    type: 'text',
     value: ''
 };
 

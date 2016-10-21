@@ -278,7 +278,11 @@ class App extends Component {
                 <h3>Here is a ClearableInput</h3>
                 <div className="row">
                     <div className="col-xs-4">
-                        <ClearableInput />
+                        <ClearableInput
+                            name="foo" 
+                            placeholder="Type to search..."
+                            onKeyUp={(e) => console.warn(`${e.key} Pressed!`)}
+                        />
                     </div>
                 </div>
                 <h3>Here is a table!</h3>
