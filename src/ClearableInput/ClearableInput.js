@@ -10,6 +10,7 @@ class ClearableInput extends Component {
 
     clearInput = () => {
         this.props.onChange('');
+        this.props.onClear();
     }
 
     changeInput = (event) => {
@@ -17,7 +18,7 @@ class ClearableInput extends Component {
     }
 
     render() {
-        const { clearButtonColor, autofocus, ...rest } = this.props;
+        const { clearButtonColor, autofocus, onClear, ...rest } = this.props;
 
         return (
             <div className="ClearableInput__wrapper">
@@ -44,6 +45,7 @@ ClearableInput.propTypes = {
     className: PropTypes.string,
     clearButtonColor: PropTypes.string,
     disabled: PropTypes.bool,
+    onClear: PropTypes.func,
     onChange: PropTypes.func,
     onKeyUp: PropTypes.func,
     name: PropTypes.string,
@@ -57,6 +59,7 @@ ClearableInput.defaultProps = {
     className: 'form-control',
     clearButtonColor: '#a94442',
     disabled: false,
+    onClear: () => {},
     type: 'text',
     value: ''
 };
