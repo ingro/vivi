@@ -50,7 +50,7 @@ export default class Table extends Component {
     }
 
     getDefaultNoRowsRenderer = () => {
-        return <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No item to show')}</div>;
+        return <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No items to show')}</div>;
     }
 
     render() {
