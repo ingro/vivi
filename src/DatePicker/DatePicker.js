@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { SingleDatePicker } from 'react-dates';
 import uniqueId from 'lodash/uniqueId';
 
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
-export default class DatePicker extends Component {
+export class DatePicker extends Component {
     constructor(props) {
         super(props);
 
@@ -31,7 +31,7 @@ export default class DatePicker extends Component {
     }
 
     render() {
-        const { displayFormat, numberOfMonths } = this.props;
+        const { displayFormat, numberOfMonths, placeholder } = this.props;
         const { focused, date } = this.state;
 
         return (
@@ -41,7 +41,7 @@ export default class DatePicker extends Component {
                 focused={focused}
                 numberOfMonths={numberOfMonths}
                 displayFormat={displayFormat}
-                placeholder={getTranslation(this, 'placeholder')}
+                placeholder={placeholder}
                 onDateChange={this.onDateChange}
                 onFocusChange={this.onFocusChange}
                 initialVisibleMonth={this.getInitialVisibleMonth}
@@ -64,6 +64,6 @@ DatePicker.defaultProps = {
     onChange: () => {}
 };
 
-DatePicker.contextTypes = {
-    vivi: PropTypes.object
-};
+export default TranslatorHoc(DatePicker, {
+    placeholder: 'DatePicker.placeholder'
+});

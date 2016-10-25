@@ -1,13 +1,17 @@
 import { Component, Children, PropTypes } from 'react';
+import get from 'lodash/get';
 
-export default class ViviProvider extends Component {
+export default class TranslatorProvider extends Component {
     getChildContext() {
         const { locale, messages } = this.props;
 
         return {
-            vivi: {
+            translator: {
                 locale,
-                messages
+                messages,
+                getTranslation(key) {
+                    return get(this.messages, key);
+                }
             }
         };
     }
@@ -17,17 +21,17 @@ export default class ViviProvider extends Component {
     }
 }
 
-ViviProvider.propTypes = {
+TranslatorProvider.propTypes = {
     children: PropTypes.any.isRequired,
     locale: PropTypes.string,
     messages: PropTypes.object
 };
 
-ViviProvider.defaultProps = {
+TranslatorProvider.defaultProps = {
     locale: 'en',
     messages: {}
 };
 
-ViviProvider.childContextTypes = {
-    vivi: PropTypes.object
+TranslatorProvider.childContextTypes = {
+    translator: PropTypes.object
 };

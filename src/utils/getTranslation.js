@@ -5,11 +5,11 @@ export default function getTranslation(component, propName, defaultValue) {
         return component.props[propName];
     }
 
-    if (typeof component.context.vivi == 'undefined') {
+    if (typeof component.context.translator == 'undefined') {
         return defaultValue;
     }
 
-    const translation = get(component.context.vivi.messages, `${component.constructor.name}.${propName}`);
+    const translation = get(component.context.translator.messages, `${component.constructor.name}.${propName}`);
 
     if (translation) {
         return translation;

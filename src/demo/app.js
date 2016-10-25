@@ -9,7 +9,7 @@ import store from './store';
 import Form from './form';
 
 // Components
-import ViviProvider from '../Provider';
+import TranslatorProvider from '../TranslatorProvider';
 import Checkbox from '../Checkbox';
 import ClearableInput from '../ClearableInput';
 import DatePicker from '../DatePicker';
@@ -309,9 +309,9 @@ class App extends Component {
 }
 
 render(
-    <ViviProvider locale="it" messages={messages}>
+    <TranslatorProvider locale="it" messages={messages}>
         <App />
-    </ViviProvider>,
+    </TranslatorProvider>,
     document.getElementById('root')
 );
 
