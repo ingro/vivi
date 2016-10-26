@@ -240,8 +240,8 @@ class App extends Component {
                 <div className="row">
                     <Paginator
                         defaultCurrent={1}
-                        total={15}
-                        pageSize={1000}
+                        total={50}
+                        pageSize={10}
                         showStatusText={true}
                         showSizeChanger={true}
                         sizeOptions={[10, 20, 500, 1000]}

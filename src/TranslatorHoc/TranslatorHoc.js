@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import forOwn from 'lodash/forOwn';
 
+// TODO: implement a method to get the WrappedComponent and to set ref on it, see https://github.com/ReactTraining/react-router/blob/master/modules/withRouter.js
 export default function TranslatorHoc(WrappedComponent, propsMap) {
     class TranslatorProviderWrapper extends Component {
         getTranslatedProps() {
@@ -26,10 +27,6 @@ export default function TranslatorHoc(WrappedComponent, propsMap) {
             return <WrappedComponent {...newProps} />;
         }
     }
-
-    TranslatorProviderWrapper.propTypes = {
-        children: PropTypes.element
-    };
 
     TranslatorProviderWrapper.contextTypes = {
         translator: PropTypes.object

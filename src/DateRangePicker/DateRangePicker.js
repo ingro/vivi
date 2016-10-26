@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { DateRangePicker as RangePicker } from 'react-dates';
 import uniqueId from 'lodash/uniqueId';
 
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
-export default class DateRangePicker extends Component {
+export class DateRangePicker extends Component {
     constructor(props) {
         super(props);
 
@@ -33,7 +33,7 @@ export default class DateRangePicker extends Component {
     }
 
     render() {
-        const { displayFormat, minimumNights, numberOfMonths, showClearDates } = this.props;
+        const { displayFormat, minimumNights, numberOfMonths, showClearDates, startDatePlaceholderText, endDatePlaceholderText } = this.props;
         const { focusedInput, startDate, endDate } = this.state;
 
         return (
@@ -47,8 +47,8 @@ export default class DateRangePicker extends Component {
                 numberOfMonths={numberOfMonths}
                 minimumNights={minimumNights}
                 showClearDates={showClearDates}
-                startDatePlaceholderText={getTranslation(this, 'startDatePlaceholderText')}
-                endDatePlaceholderText={getTranslation(this, 'endDatePlaceholderText')}
+                startDatePlaceholderText={startDatePlaceholderText}
+                endDatePlaceholderText={endDatePlaceholderText}
                 onDatesChange={this.onDatesChange}
                 onFocusChange={this.onFocusChange}
                 initialVisibleMonth={this.getInitialVisibleMonth}
@@ -77,6 +77,7 @@ DateRangePicker.defaultProps = {
     showClearDates: false
 };
 
-DateRangePicker.contextTypes = {
-    vivi: PropTypes.object
-};
+export default TranslatorHoc(DateRangePicker, {
+    startDatePlaceholderText: 'DateRangePicker.startDatePlaceholderText',
+    endDatePlaceholderText: 'DateRangePicker.endDatePlaceholderText'
+});

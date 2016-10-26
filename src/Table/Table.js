@@ -6,14 +6,14 @@ import classnames from 'classnames';
 import defaults from 'lodash/defaults';
 
 import Checkbox from '../Checkbox';
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
 const defaultColumnProps = {
     flexGrow: 1,
     width: 50
 };
 
-export default class Table extends Component {
+export class Table extends Component {
     handleHeaderCheckClick = (checked) => {
         if (this.props.onHeaderCheckClick) {
             this.props.onHeaderCheckClick(checked);
@@ -50,7 +50,7 @@ export default class Table extends Component {
     }
 
     getDefaultNoRowsRenderer = () => {
-        return <div className="alert alert-warning text-center">{getTranslation(this, 'noRowsText', 'No items to show')}</div>;
+        return <div className="alert alert-warning text-center">{this.props.noRowsText}</div>;
     }
 
     render() {
@@ -131,10 +131,11 @@ Table.propTypes = {
 Table.defaultProps = {
     bordered: false,
     headerHeight: 40,
+    noRowsText: 'No items to show',
     rowHeight: 40,
     selectable: false
 };
 
-Table.contextTypes = {
-    vivi: PropTypes.object
-};
+export default TranslatorHoc(Table, {
+    noRowsText: 'Table.noRowsText'
+});

@@ -4,11 +4,11 @@ import ReactSelect from 'react-select';
 import Highlight from 'react-highlighter';
 import classnames from 'classnames';
 
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
 class Select extends Component {
     render() {
-        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, onBlur, onChange, onFocus, openUp, options, value, valueKey } = this.props;
+        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, noResultsText, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey } = this.props;
 
         const Component = create ? ReactSelect.Creatable : ReactSelect;
 
@@ -18,8 +18,8 @@ class Select extends Component {
                 className={classnames(className, { 'Select-drop-up': openUp })}
                 disabled={disabled}
                 clearable={clearable}
-                noResultsText={getTranslation(this, 'noResultsText')}
-                placeholder={getTranslation(this, 'placeholder', 'Select a value')}
+                noResultsText={noResultsText}
+                placeholder={placeholder}
                 onBlur={onBlur}
                 onChange={onChange}
                 onFocus={onFocus}
@@ -73,13 +73,15 @@ Select.defaultProps = {
     minimumInput: 0,
     multi: false,
     openUp: false,
+    placeholder: 'Select a value',
     valueKey: 'id'
 };
 
-Select.contextTypes = {
-    vivi: PropTypes.object
-};
-
-export default uncontrollable(Select, {
+const UncontrolledSelect = uncontrollable(Select, {
     value: 'onChange'
+});
+
+export default TranslatorHoc(UncontrolledSelect, {
+    noResultsText: 'Select.noResultsText',
+    placeholder: 'Select.placeholder'
 });

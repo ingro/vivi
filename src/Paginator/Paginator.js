@@ -3,9 +3,9 @@ import Pagination from 'rc-pagination';
 import uncontrollable from 'uncontrollable/batching';
 
 import Select from '../Select';
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
-const locale_en = {
+const localeDefault = {
     // Options.jsx
     items_per_page: 'items per page',
     jump_to: 'Go to',
@@ -58,7 +58,7 @@ class Paginator extends Component {
     }
 
     render() {
-        const { current, onChange, pageSize, showSizeChanger, showStatusText, total } = this.props;
+        const { current, locale, onChange, pageSize, showSizeChanger, showStatusText, total } = this.props;
 
         return (
             <div>
@@ -66,7 +66,7 @@ class Paginator extends Component {
                     <Pagination
                         current={current}
                         className="pagination"
-                        locale={getTranslation(this, 'locale', locale_en)}
+                        locale={locale}
                         total={total}
                         pageSize={pageSize}
                         onChange={onChange}
@@ -97,15 +97,16 @@ Paginator.propTypes = {
 };
 
 Paginator.defaultProps = {
+    locale: localeDefault,
     showSizeChanger: false,
     showStatusText: false,
     sizeChangerOptions: {}
 };
 
-Paginator.contextTypes = {
-    vivi: PropTypes.object
-};
-
-export default uncontrollable(Paginator, {
+const UncontrollablePaginator = uncontrollable(Paginator, {
     current: 'onChange'
+});
+
+export default TranslatorHoc(UncontrollablePaginator, {
+    locale: 'Paginator.locale'
 });

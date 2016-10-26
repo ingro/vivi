@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
-export default class LoadingButton extends Component {
+export class LoadingButton extends Component {
 
     render() {
-        const { children, className, disabled, loading, loadingIndicator, onClick } = this.props;
+        const { children, className, disabled, loading, loadingMsg, loadingIndicator, onClick } = this.props;
 
         const btnClass = classnames('btn', className.split(' '));
 
@@ -17,7 +17,7 @@ export default class LoadingButton extends Component {
                 onClick={onClick}
             >
                 {!loading && children}
-                {loading && <span>{loadingIndicator}{' '}{getTranslation(this, 'loadingMsg', 'Loading...')}</span>}
+                {loading && <span>{loadingIndicator}{' '}{loadingMsg}</span>}
             </button>
         );
     }
@@ -38,9 +38,10 @@ LoadingButton.defaultProps = {
     disabled: false,
     loading: false,
     loadingIndicator: <i className="fa fa-spin fa-spinner" />,
+    loadingMsg: 'Loading...',
     onClick: () => {}
 };
 
-LoadingButton.contextTypes = {
-    vivi: PropTypes.object
-};
+export default TranslatorHoc(LoadingButton, {
+    loadingMsg: 'LoadingButton.loadingMsg'
+});

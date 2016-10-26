@@ -3,11 +3,11 @@ import uncontrollable from 'uncontrollable/batching';
 import Select from 'react-select';
 // import Highlight from 'react-highlighter';
 
-import getTranslation from '../utils/getTranslation';
+import TranslatorHoc from '../TranslatorHoc';
 
 class SelectAsync extends Component {
     render() {
-        const { autoload, create, disabled, labelKey, loadOptions, /*minimumInput,*/ multi, name, onBlur, onChange, onFocus, value, valueKey } = this.props;
+        const { autoload, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 
@@ -15,11 +15,11 @@ class SelectAsync extends Component {
             <Component
                 ref={ref => this.select = ref}
                 disabled={disabled}
-                loadingPlaceholder={getTranslation(this, 'loadingPlaceholder')}
-                searchingText={getTranslation(this, 'searchingText', 'Searching...')}
-                searchPromptText={getTranslation(this, 'searchPromptText')}
-                noResultsText={getTranslation(this, 'noResultsText')}
-                placeholder={getTranslation(this, 'placeholder', 'Select a value')}
+                loadingPlaceholder={loadingPlaceholder}
+                searchingText={searchingText}
+                searchPromptText={searchPromptText}
+                noResultsText={noResultsText}
+                placeholder={placeholder}
                 loadOptions={loadOptions}
                 onBlur={onBlur}
                 onChange={onChange}
@@ -69,16 +69,22 @@ SelectAsync.defaultProps = {
     autoload: false,
     create: false,
     disabled: false,
-    labelKey: 'name',
+    labelKey: 'name',    
     // minimumInput: 0,
     multi: false,
+    placeholder: 'Select a value',
+    searchingText: 'Searching...',
     valueKey: 'id'
 };
 
-SelectAsync.contextTypes = {
-    vivi: PropTypes.object
-};
-
-export default uncontrollable(SelectAsync, {
+const UncontrolledSelectAsync = uncontrollable(SelectAsync, {
     value: 'onChange'
+});
+
+export default TranslatorHoc(UncontrolledSelectAsync, {
+    loadingPlaceholder: 'SelectAsync.loadingPlaceholder',
+    noResultsText: 'SelectAsync.noResultsText',
+    placeholder: 'SelectAsync.placeholder',
+    searchPromptText: 'SelectAsync.searchPromptText',
+    searchingText: 'SelectAsync.searchingText',
 });
