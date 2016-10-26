@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import forOwn from 'lodash/forOwn';
 
-// TODO: implement a method to get the WrappedComponent and to set ref on it, see https://github.com/ReactTraining/react-router/blob/master/modules/withRouter.js
+function getDisplayName(WrappedComponent) {
+    return WrappedComponent.displayName || WrappedComponent.name || 'Component';
+}
+
 export default function TranslatorHoc(WrappedComponent, propsMap) {
     class TranslatorProviderWrapper extends Component {
         getTranslatedProps() {
@@ -17,20 +20,24 @@ export default function TranslatorHoc(WrappedComponent, propsMap) {
             }
         }
 
-        render() {
-            if (! this.context.translator) {
-                return <WrappedComponent {...this.props} />;
-            }
-            
-            let newProps = this.getTranslatedProps();
+        getWrappedInstance() {
+            return this.wrappedInstance;
+        }
 
-            return <WrappedComponent {...newProps} />;
+        render() {
+            let props = this.context.translator ? this.getTranslatedProps() : {...this.props};
+
+            props.ref = (c) => { this.wrappedInstance = c };
+
+            return <WrappedComponent {...props} />;
         }
     }
 
     TranslatorProviderWrapper.contextTypes = {
         translator: PropTypes.object
     };
+
+    TranslatorProviderWrapper.displayName = `TranslatorHoc(${getDisplayName(WrappedComponent)})`
 
     return TranslatorProviderWrapper;
 }
