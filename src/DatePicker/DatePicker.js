@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { SingleDatePicker } from 'react-dates';
+import moment from 'moment';
 import uniqueId from 'lodash/uniqueId';
 
 import TranslatorHoc from '../TranslatorHoc';
@@ -27,7 +28,7 @@ export class DatePicker extends Component {
     }
 
     getInitialVisibleMonth = () => {
-        return this.props.date;
+        return this.props.date || moment();
     }
 
     render() {

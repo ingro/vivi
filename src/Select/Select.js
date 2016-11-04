@@ -69,12 +69,12 @@ Select.defaultProps = {
     clearable: true,
     create: false,
     disabled: false,
-    labelKey: 'name',
+    labelKey: 'label',
     minimumInput: 0,
     multi: false,
     openUp: false,
     placeholder: 'Select a value',
-    valueKey: 'id'
+    valueKey: 'value'
 };
 
 const UncontrolledSelect = uncontrollable(Select, {

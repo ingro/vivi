@@ -84,9 +84,6 @@ export class Form extends Component {
                             label="Favorite post"
                             component={SelectAsyncField}
                             loadOptions={loadPosts}
-                            selectOptions={{
-                                labelKey: "title"
-                            }}
                         />
                         <div>Here is a checkbox</div>
                         <Field

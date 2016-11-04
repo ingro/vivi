@@ -2,68 +2,68 @@ import axios from 'axios';
 
 export const dogs = [
     {
-        id: 1,
-        name: 'Braccobaldo'
+        value: 1,
+        label: 'Braccobaldo'
     },
     {
-        id: 2,
-        name: 'Scooby Doo'
+        value: 2,
+        label: 'Scooby Doo'
     },
     {
-        id: 3,
-        name: 'Pongo'
+        value: 3,
+        label: 'Pongo'
     },
     {
-        id: 4,
-        name: 'Bolt'
+        value: 4,
+        label: 'Bolt'
     },
     {
-        id: 5,
-        name: 'Peggy'
+        value: 5,
+        label: 'Peggy'
     },
     {
-        id: 6,
-        name: 'Rex'
+        value: 6,
+        label: 'Rex'
     },
     {
-        id: 7,
-        name: 'Lassie'
+        value: 7,
+        label: 'Lassie'
     },
     {
-        id: 8,
-        name: 'Marley'
+        value: 8,
+        label: 'Marley'
     },
     {
-        id: 9,
-        name: 'Snoopy'
+        value: 9,
+        label: 'Snoopy'
     },
     {
-        id: 10,
-        name: 'Santa\'s Little helper'
+        value: 10,
+        label: 'Santa\'s Little helper'
     },
     {
-        id: 11,
-        name: 'Pluto'
+        value: 11,
+        label: 'Pluto'
     },
     {
-        id: 12,
-        name: 'Lilly'
+        value: 12,
+        label: 'Lilly'
     },
     {
-        id: 13,
-        name: 'Vagabondo'
+        value: 13,
+        label: 'Vagabondo'
     },
     {
-        id: 14,
-        name: 'Beethoven'
+        value: 14,
+        label: 'Beethoven'
     },
     {
-        id: 15,
-        name: 'Rin Tin Tin'
+        value: 15,
+        label: 'Rin Tin Tin'
     },
     {
-        id: 16,
-        name: 'Raudi'
+        value: 16,
+        label: 'Raudi'
     }
 ];
 
@@ -88,8 +88,8 @@ export function loadPosts(q) {
     return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
     // return axios.get(`https://ingruz-api-aqvckpkjre.now.sh/api/hotels?_limit=10&q=${q}`)
         .then(res => {
-            // const options = res.data.map(post => ({ value: post.id, label: post.title }));
+            const options = res.data.map(post => ({ value: post.id, label: post.title }));
 
-            return { options: res.data.data };
+            return { options };
         });
 }

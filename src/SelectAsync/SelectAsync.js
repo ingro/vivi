@@ -69,12 +69,12 @@ SelectAsync.defaultProps = {
     autoload: false,
     create: false,
     disabled: false,
-    labelKey: 'name',    
+    labelKey: 'label',    
     // minimumInput: 0,
     multi: false,
     placeholder: 'Select a value',
     searchingText: 'Searching...',
-    valueKey: 'id'
+    valueKey: 'value'
 };
 
 const UncontrolledSelectAsync = uncontrollable(SelectAsync, {

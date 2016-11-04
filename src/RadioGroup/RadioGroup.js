@@ -23,7 +23,7 @@ class RadioGroup extends Component {
                                 onChange={() => {}}
                                 onClick={this.handleClick}
                                 disabled={disabled ? disabled : option.disabled}
-                                checked={option.value === value}
+                                checked={option.value == value}
                             />
                             <div className="RadioGroup__indicator" />
                         </label>

@@ -54,6 +54,7 @@
 
 ### Form Components
 - Meglio Component regolare o functional component per InputGroupHoc?
+- Possibilita di maggiori customizzazioni Field? (classe, presenza o meno di testo errori etc.)
 - Scrivere storie per i componenti Form
 - Gestire opzioni disabled per i vari fields
 

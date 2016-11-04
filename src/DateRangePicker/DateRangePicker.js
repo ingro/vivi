@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { DateRangePicker as RangePicker } from 'react-dates';
 import uniqueId from 'lodash/uniqueId';
+import moment from 'moment';
 
 import TranslatorHoc from '../TranslatorHoc';
 
@@ -29,7 +30,7 @@ export class DateRangePicker extends Component {
     }
 
     getInitialVisibleMonth = () => {
-        return this.props.startDate;
+        return this.props.startDate || moment();
     }
 
     render() {

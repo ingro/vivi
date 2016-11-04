@@ -37,12 +37,12 @@ const cols = [
     {
         width: 100,
         label: 'ID',
-        dataKey: 'id',
+        dataKey: 'value',
         flexGrow: 0
     }, {
         width: 200,
         label: 'Name',
-        dataKey: 'name'
+        dataKey: 'label'
     }
 ];
 
