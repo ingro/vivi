@@ -27,8 +27,7 @@
     "classnames": "^2.2.5",
     "react-highlighter": "^0.3.3",
     "react-portal": "^2.2.1",
-    "uncontrollable": "^4.0.3",
-    "webpack-dev-server": "^1.16.2"
+    "uncontrollable": "^4.0.3"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
