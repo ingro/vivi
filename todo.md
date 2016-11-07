@@ -26,7 +26,6 @@
 #### Datepicker & DateRangePicker
 
 #### Dropdown
-- Valutare funzionamento in caso di testo molto lungo nel menu
 - Usare `tether` al posto di `react-portal` per gestire posizionamento?
 
 #### LoadingButton

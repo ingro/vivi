@@ -39,4 +39,18 @@ stories.addWithInfo('Button', 'ComponentInfo', () =>
                 </ul>
             </div>
         </div>
+    )
+    .add('Don\'t close menu on click', () =>
+        <Dropdown
+            type="button"
+            text={text('Handler text', 'Click me!')}
+            closeOnClick={false}
+        >
+            <li>
+                <a>Foo</a>
+            </li>
+            <li>
+                <a>Bar</a>
+            </li>
+        </Dropdown>
     );
