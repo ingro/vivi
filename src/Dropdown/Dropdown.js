@@ -20,6 +20,19 @@ export default class Dropdown extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+        if (this.state.isOpened && this.list) {
+            const menu = this.list.getBoundingClientRect();
+            const bodyRect = document.body.getBoundingClientRect();
+
+            // I'm using this.state.left instead of menu.left because the position of the menu takes more time to change and so it would trigger
+            // another change before it stabilize
+            if (bodyRect.width < (this.state.left + menu.width)) {
+                this.setState({
+                    left: this.state.left - (menu.width - 160)
+                });
+            }
+        }
+
         if(this.state.isOpened === prevState.isOpened) {
             return;
         }

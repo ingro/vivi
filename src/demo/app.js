@@ -287,10 +287,12 @@ class App extends Component {
                     </div>
                 </div>
                 <h3>Here is a dropdown</h3>
-                <Dropdown text="Click me!" type="button">
-                    <li><a href="#foo">Link</a></li>
-                    <li><a onClick={() => console.warn('BAR CLICKED!')}>Bar</a></li>
-                </Dropdown>
+                <div className="text-right">
+                    <Dropdown text="Click me!" type="button">
+                        <li><a href="#foo">A very very very very very very long link</a></li>
+                        <li><a onClick={() => console.warn('BAR CLICKED!')}>Bar</a></li>
+                    </Dropdown>
+                </div>
                 <h3>Here is a table!</h3>
                 <Table
                     ref={ref => this.table = ref }
