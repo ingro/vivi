@@ -19,11 +19,27 @@ export default class Dropdown extends Component {
         this._isMounted = true;
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if(this.state.isOpened === prevState.isOpened) {
+            return;
+        }
+
+        if (this.state.isOpened && ! prevState.isOpened) {
+            if (this.list && this.props.closeOnClick) {
+                this.list.addEventListener('click', this.close);
+            }
+        } else if (! this.state.isOpened && prevState.isOpened) {
+            if (this.list && this.props.closeOnClick) {
+                this.list.removeEventListener('click', this.close);
+            }
+        }
+    }
+
     componentWillUnmount() {
         this._isMounted = false;
     }
 
-    close() {
+    close = () => {
         this.setState({
             isOpened: false
         });
@@ -50,7 +66,7 @@ export default class Dropdown extends Component {
         // if ((projectedLeft + 160) >= bodyRect.right) {
         //     console.warn('OUT OF BOUNDS');
         // }
-        
+
         this.setState({
             isOpened: true,
             top: targetRect.bottom - bodyRect.top,
@@ -81,7 +97,7 @@ export default class Dropdown extends Component {
 
         return (
             <li
-                className={elClass} 
+                className={elClass}
                 onClick={this.onClick}
                 ref={ref => this.el = ref}
             >
@@ -98,7 +114,7 @@ export default class Dropdown extends Component {
 
         return (
             <span>
-                <button 
+                <button
                     className={elClass}
                     onClick={this.onClick}
                     ref={ref => this.el = ref}
@@ -112,12 +128,12 @@ export default class Dropdown extends Component {
 
     renderPortal() {
         return (
-            <Portal 
-                closeOnOutsideClick={true} 
+            <Portal
+                closeOnOutsideClick={true}
                 isOpened={this.state.isOpened}
                 onClose={this.onClose}
             >
-                <ul className="dropdown-menu Dropdown__dropdown-menu" style={this.getPortalStyle()}>
+                <ul className="dropdown-menu Dropdown__dropdown-menu" style={this.getPortalStyle()} ref={ref => this.list = ref}>
                     {this.props.children}
                 </ul>
             </Portal>
@@ -132,10 +148,12 @@ export default class Dropdown extends Component {
 Dropdown.propTypes = {
     btnClassName: PropTypes.string,
     children: PropTypes.any.isRequired,
+    closeOnClick: PropTypes.bool,
     text: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['navbar', 'button']).isRequired
 };
 
 Dropdown.defaultProps = {
-    btnClassName: 'btn-default'
+    btnClassName: 'btn-default',
+    closeOnClick: true
 };

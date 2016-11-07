@@ -27,7 +27,7 @@
 
 #### Dropdown
 - Valutare funzionamento in caso di testo molto lungo nel menu
-- Chiudere dopo click su elemento del menu (implementato per ora un workaround con <Dropdown>.close())
+- Usare `tether` al posto di `react-portal` per gestire posizionamento?
 
 #### LoadingButton
 - Valutare utilizzo animakit-rotator? https://animakit.github.io

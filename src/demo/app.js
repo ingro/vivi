@@ -14,6 +14,7 @@ import Checkbox from '../Checkbox';
 import ClearableInput from '../ClearableInput';
 import DatePicker from '../DatePicker';
 import DateRangePicker from '../DateRangePicker';
+import Dropdown from '../Dropdown';
 import LoadingButton from '../LoadingButton';
 import Modal from '../Modal';
 import Paginator from '../Paginator';
@@ -279,12 +280,17 @@ class App extends Component {
                 <div className="row">
                     <div className="col-xs-4">
                         <ClearableInput
-                            name="foo" 
+                            name="foo"
                             placeholder="Type to search..."
                             onKeyUp={(e) => console.warn(`${e.key} Pressed!`)}
                         />
                     </div>
                 </div>
+                <h3>Here is a dropdown</h3>
+                <Dropdown text="Click me!" type="button">
+                    <li><a href="#foo">Link</a></li>
+                    <li><a>Bar</a></li>
+                </Dropdown>
                 <h3>Here is a table!</h3>
                 <Table
                     ref={ref => this.table = ref }
