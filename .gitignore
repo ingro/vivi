@@ -3,5 +3,6 @@
 /lib
 /build
 /.out
+/.vscode
 npm-debug.log
 yarn-error.log

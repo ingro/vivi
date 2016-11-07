@@ -1,6 +1,18 @@
 import React, { Component, PropTypes} from 'react';
-import Portal from 'react-portal';
+// import ReactDOM from 'react-dom';
+// import Portal from 'react-portal';
 import classnames from 'classnames';
+
+import TetherContent from './TetherContent';
+
+const defaultTetherConfig = {
+    classPrefix: 'bs-tether',
+    classes: { element: 'dropdown', enabled: 'open' },
+    constraints: [
+        { to: 'scrollParent', attachment: 'together none' },
+        { to: 'window', attachment: 'together none' }
+    ]
+};
 
 export default class Dropdown extends Component {
     constructor(props) {
@@ -105,6 +117,49 @@ export default class Dropdown extends Component {
         };
     }
 
+    getTetherTarget() {
+        return this.el;
+        // const container = ReactDOM.findDOMNode(this);
+
+        // return container.querySelector('.Dropdown__dropdown-menu');
+    }
+
+    getTetherConfig() {
+        const target = () => this.getTetherTarget();
+        let vElementAttach = 'top';
+        let hElementAttach = 'left';
+        let vTargetAttach = 'bottom';
+        let hTargetAttach = 'left';
+
+        if (this.props.right) {
+            hElementAttach = 'right';
+            hTargetAttach = 'right';
+        }
+
+        if (this.props.dropup) {
+            vElementAttach = 'bottom';
+            vTargetAttach = 'top';
+        }
+
+        return {
+            ...defaultTetherConfig,
+            attachment: vElementAttach + ' ' + hElementAttach,
+            targetAttachment: vTargetAttach + ' ' + hTargetAttach,
+            target
+        };
+    }
+
+    toggle = (e) => {
+        this.setState({
+            isOpened: ! this.state.isOpened
+        });
+        // if (this.props.disabled) {
+        //     return e && e.preventDefault();
+        // }
+
+        // return this.props.toggle();
+    }
+
     renderNavbarDropdown() {
         const elClass = classnames('dropdown', { active: this.state.isOpened })
 
@@ -140,18 +195,34 @@ export default class Dropdown extends Component {
     }
 
     renderPortal() {
+        console.warn(this.getTetherConfig());
+        // console.warn(this.getTetherTarget());
         return (
-            <Portal
-                closeOnOutsideClick={true}
-                isOpened={this.state.isOpened}
-                onClose={this.onClose}
+            <TetherContent
+                tether={this.getTetherConfig()}
+                toggle={this.toggle}
+                isOpen={this.state.isOpened}
             >
-                <ul className="dropdown-menu Dropdown__dropdown-menu" style={this.getPortalStyle()} ref={ref => this.list = ref}>
+                <ul className="dropdown-menu Dropdown__dropdown-menu">
                     {this.props.children}
                 </ul>
-            </Portal>
+            </TetherContent>
         )
     }
+
+    // renderPortal() {
+    //     return (
+    //         <Portal
+    //             closeOnOutsideClick={true}
+    //             isOpened={this.state.isOpened}
+    //             onClose={this.onClose}
+    //         >
+    //             <ul className="dropdown-menu Dropdown__dropdown-menu" style={this.getPortalStyle()} ref={ref => this.list = ref}>
+    //                 {this.props.children}
+    //             </ul>
+    //         </Portal>
+    //     )
+    // }
 
     render() {
         return this.props.type === 'navbar' ? this.renderNavbarDropdown() : this.renderButtonDropdown();
@@ -162,11 +233,15 @@ Dropdown.propTypes = {
     btnClassName: PropTypes.string,
     children: PropTypes.any.isRequired,
     closeOnClick: PropTypes.bool,
+    dropup: PropTypes.bool,
+    right: PropTypes.bool,
     text: PropTypes.string.isRequired,
     type: PropTypes.oneOf(['navbar', 'button']).isRequired
 };
 
 Dropdown.defaultProps = {
     btnClassName: 'btn-default',
-    closeOnClick: true
+    closeOnClick: true,
+    dropup: false,
+    right: false
 };
