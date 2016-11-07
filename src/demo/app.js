@@ -289,7 +289,7 @@ class App extends Component {
                 <h3>Here is a dropdown</h3>
                 <Dropdown text="Click me!" type="button">
                     <li><a href="#foo">Link</a></li>
-                    <li><a>Bar</a></li>
+                    <li><a onClick={() => console.warn('BAR CLICKED!')}>Bar</a></li>
                 </Dropdown>
                 <h3>Here is a table!</h3>
                 <Table

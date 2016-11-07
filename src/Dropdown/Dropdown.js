@@ -26,11 +26,11 @@ export default class Dropdown extends Component {
 
         if (this.state.isOpened && ! prevState.isOpened) {
             if (this.list && this.props.closeOnClick) {
-                this.list.addEventListener('click', this.close);
+                this.list.addEventListener('click', this.onClose);
             }
         } else if (! this.state.isOpened && prevState.isOpened) {
             if (this.list && this.props.closeOnClick) {
-                this.list.removeEventListener('click', this.close);
+                this.list.removeEventListener('click', this.onClose);
             }
         }
     }
