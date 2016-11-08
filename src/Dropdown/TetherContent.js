@@ -1,8 +1,8 @@
+// Inspired by https://github.com/reactstrap/reactstrap/blob/master/src/TetherContent.js
 import React, { Component, PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 import Tether from 'tether';
 import isFunction from 'lodash/isFunction';
-// import classnames from 'classnames';
 
 export default class TetherContent extends Component {
     componentDidMount() {
@@ -44,8 +44,15 @@ export default class TetherContent extends Component {
 
     handleDocumentClick = (e) => {
         const container = this._element;
-        if (e.target === container || !container.contains(e.target)) {
-            this.toggle();
+
+        const target = this.getTarget();
+
+        const isClickOnTarget = (e.target === target || target.contains(e.target));
+        const isClickonContainer = (e.target === container || container.contains(e.target));
+        const isClickOutside = !container.contains(e.target);
+
+        if ((isClickonContainer && this.props.closeOnClick) || (isClickOutside && ! isClickOnTarget)) {
+            this.toggle(e);
         }
     }
 
@@ -82,8 +89,7 @@ export default class TetherContent extends Component {
 
         if (this.props.arrow) {
             const arrow = document.createElement('div');
-            arrow.className = 'Dropdown-arrow';
-            // arrow.className = mapToCssModules(this.props.arrow + '-arrow', this.props.cssModule);
+            arrow.className = `${this.props.arrow}-arrow`;
             this._element.appendChild(arrow);
         }
 
@@ -123,6 +129,7 @@ export default class TetherContent extends Component {
 TetherContent.propTypes = {
     arrow: PropTypes.string,
     children: PropTypes.node.isRequired,
+    closeOnClick: PropTypes.bool,
     disabled: PropTypes.bool,
     isOpen: PropTypes.bool.isRequired,
     tether: PropTypes.object.isRequired,
@@ -131,6 +138,7 @@ TetherContent.propTypes = {
 };
 
 TetherContent.defaultProps = {
+    closeOnClick: true,
     isOpen: false,
     tetherRef: () => {}
 };

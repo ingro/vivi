@@ -1,4 +1,4 @@
 .Dropdown__dropdown-menu {
-    display: block;
+    position: static;
     margin: 0;
 }

@@ -288,7 +288,7 @@ class App extends Component {
                 </div>
                 <h3>Here is a dropdown</h3>
                 <div className="text-right">
-                    <Dropdown text="Click me!" type="button" right={true}>
+                    <Dropdown text="Click me!" type="button" right={true} dropup={false}>
                         <li><a href="#foo">A very very very very very very long link</a></li>
                         <li><a onClick={() => console.warn('BAR CLICKED!')}>Bar</a></li>
                     </Dropdown>

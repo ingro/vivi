@@ -26,7 +26,6 @@
 #### Datepicker & DateRangePicker
 
 #### Dropdown
-- Usare `tether` al posto di `react-portal` per gestire posizionamento?
 
 #### LoadingButton
 - Valutare utilizzo animakit-rotator? https://animakit.github.io
