@@ -26,13 +26,13 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "react-highlighter": "^0.3.3",
-    "tether": "^1.3.7",
+    "tether": "^1.3.8",
     "uncontrollable": "^4.0.3"
   },
   "devDependencies": {
     "@kadira/react-storybook-addon-info": "^3.3.0",
-    "@kadira/storybook": "^2.32.1",
-    "@kadira/storybook-addon-knobs": "^1.6.0",
+    "@kadira/storybook": "^2.33.0",
+    "@kadira/storybook-addon-knobs": "^1.7.0",
     "@kadira/storybook-addon-options": "^1.0.1",
     "autoprefixer": "^6.5.2",
     "ava": "^0.17.0",
@@ -71,7 +71,7 @@
     "react": "^15.3.2",
     "react-addons-shallow-compare": "^15.3.2",
     "react-addons-test-utils": "^15.3.2",
-    "react-dates": "^4.0.2",
+    "react-dates": "^4.1.0",
     "react-dom": "^15.3.2",
     "react-json-pretty": "^1.2.1",
     "react-modal": "^1.5.2",

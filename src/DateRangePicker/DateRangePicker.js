@@ -19,6 +19,20 @@ export class DateRangePicker extends Component {
         this.endPickerId = uniqueId('endPicker');
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.startDate !== this.props.startDate) {
+            this.setState({
+                startDate: nextProps.startDate
+            });
+        }
+
+        if (nextProps.endDate !== this.props.endDate) {
+            this.setState({
+                endDate: nextProps.endDate
+            });
+        }
+    }
+
     onDatesChange = ({ startDate, endDate }) => {
         this.setState({ startDate, endDate });
 

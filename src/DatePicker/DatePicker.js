@@ -17,6 +17,14 @@ export class DatePicker extends Component {
         this.datepickerId = uniqueId('datepicker');
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.date !== this.props.date) {
+            this.setState({
+                date: nextProps.date
+            });
+        }
+    }
+
     onDateChange = (date) => {
         this.setState({ date });
 
