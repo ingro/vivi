@@ -40,7 +40,7 @@ export class DatePicker extends Component {
     }
 
     render() {
-        const { displayFormat, numberOfMonths, placeholder } = this.props;
+        const { displayFormat, numberOfMonths, placeholder, ...rest } = this.props;
         const { focused, date } = this.state;
 
         return (
@@ -54,6 +54,7 @@ export class DatePicker extends Component {
                 onDateChange={this.onDateChange}
                 onFocusChange={this.onFocusChange}
                 initialVisibleMonth={this.getInitialVisibleMonth}
+                {...rest}
             />
         );
     }
