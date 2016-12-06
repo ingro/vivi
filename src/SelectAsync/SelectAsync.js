@@ -7,13 +7,14 @@ import TranslatorHoc from '../TranslatorHoc';
 
 class SelectAsync extends Component {
     render() {
-        const { autoload, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey } = this.props;
+        const { autoload, clearable, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 
         return (
             <Component
                 ref={ref => this.select = ref}
+                clearable={clearable}
                 disabled={disabled}
                 loadingPlaceholder={loadingPlaceholder}
                 searchingText={searchingText}
@@ -46,6 +47,7 @@ class SelectAsync extends Component {
 
 SelectAsync.propTypes = {
     autoload: PropTypes.bool,
+    clearable: PropTypes.bool,
     create: PropTypes.bool,
     disabled: PropTypes.bool,
     labelKey: PropTypes.string,
@@ -67,6 +69,7 @@ SelectAsync.propTypes = {
 
 SelectAsync.defaultProps = {
     autoload: false,
+    clearable: true,
     create: false,
     disabled: false,
     labelKey: 'label',    
