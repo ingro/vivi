@@ -44,6 +44,16 @@ const cols = [
         width: 200,
         label: 'Name',
         dataKey: 'label'
+    }, {
+        width: 200,
+        label: 'Azioni',
+        dataKey: 'value',
+        cellRenderer: () => (
+            <span>
+                <button className="btn btn-info">Edit</button>
+            </span>
+        ),
+        flexGrow: 0
     }
 ];
 
@@ -299,9 +309,9 @@ class App extends Component {
                     bordered={true}
                     columns={cols}
                     height={400}
+                    rowHeight={50}
                     rowCount={list.length}
                     rowGetter={this.rowGetter}
-                    width={600}
                     selectable={true}
                     selectedRowsCount={this.state.selectedRows.length}
                     onRowCheckClick={this.onRowCheckClick}
