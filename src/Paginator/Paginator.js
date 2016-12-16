@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Pagination from 'rc-pagination';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 
 import Select from '../Select';
 import TranslatorHoc from '../TranslatorHoc';

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 import ReactSelect from 'react-select';
 import Highlight from 'react-highlighter';
 import classnames from 'classnames';

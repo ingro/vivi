@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 
 import Checkable from '../shared/Checkable';
 
 class Switch extends Component {
     render() {
         return <Checkable
-            inputClassName="Switch__tgl Switch__tgl-switch" 
+            inputClassName="Switch__tgl Switch__tgl-switch"
             labelClassName="Switch__tgl-btn"
-            {...this.props} 
+            {...this.props}
         />
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 
 class ClearableInput extends Component {
     componentDidMount() {
@@ -26,12 +26,12 @@ class ClearableInput extends Component {
                     ref={ref => this.input = ref}
                     {...rest}
                     onChange={this.changeInput}
-                    
+
                 />
                 {this.props.value && this.props.value !== '' &&
-                    <i 
-                        onClick={this.clearInput} 
-                        className="ClearableInput__trigger fa fa-times" 
+                    <i
+                        onClick={this.clearInput}
+                        className="ClearableInput__trigger fa fa-times"
                         style={{ color: clearButtonColor }}
                     />
                 }

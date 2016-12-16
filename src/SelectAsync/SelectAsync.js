@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 import Select from 'react-select';
 // import Highlight from 'react-highlighter';
 
@@ -72,7 +72,7 @@ SelectAsync.defaultProps = {
     clearable: true,
     create: false,
     disabled: false,
-    labelKey: 'label',    
+    labelKey: 'label',
     // minimumInput: 0,
     multi: false,
     placeholder: 'Select a value',

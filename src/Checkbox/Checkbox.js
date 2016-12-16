@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 
 import Checkable from '../shared/Checkable';
 
 class Checkbox extends Component {
     render() {
         return <Checkable
-            inputClassName="Checkbox__cmp-checkbox" 
+            inputClassName="Checkbox__cmp-checkbox"
             labelClassName="Checkbox__cmp-btn"
-            {...this.props} 
+            {...this.props}
         />
     }
 }

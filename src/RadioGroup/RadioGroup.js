@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import uncontrollable from 'uncontrollable/batching';
+import uncontrollable from 'uncontrollable';
 
 class RadioGroup extends Component {
 
