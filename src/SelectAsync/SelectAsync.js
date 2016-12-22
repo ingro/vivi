@@ -7,7 +7,7 @@ import TranslatorHoc from '../TranslatorHoc';
 
 class SelectAsync extends Component {
     render() {
-        const { autoload, clearable, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey } = this.props;
+        const { autoload, clearable, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey, ...rest } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 
@@ -40,6 +40,7 @@ class SelectAsync extends Component {
 
                     return <span>{option[labelKey]}</span>;
                 }}
+                {...rest}
             />
         );
     }

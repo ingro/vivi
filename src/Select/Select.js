@@ -8,7 +8,7 @@ import TranslatorHoc from '../TranslatorHoc';
 
 class Select extends Component {
     render() {
-        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, noResultsText, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey } = this.props;
+        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, noResultsText, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey, ...rest } = this.props;
 
         const Component = create ? ReactSelect.Creatable : ReactSelect;
 
@@ -40,6 +40,7 @@ class Select extends Component {
 
                     return <span>{option[labelKey]}</span>;
                 }}
+                {...rest}
             />
         );
     }
