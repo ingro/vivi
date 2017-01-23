@@ -13,6 +13,8 @@
 - Documentare ViviProvider
 - Pubblicare storybook su github pages
 - Usare import diretti componenti per evitare di importare intere librerie (vedere come esempio import di componenti da `react-virtualized` in Table, altri candidati sono `react-select` e `react-dates`)
+- Valutare passaggio a `flatpickr` al posto di `react-dates` in modo da droppare dipendenza da `moment`
+- Valutare passaggio a `react-widget` per `Select` e `SelectAsync`
 
 ## Componenti
 - A molti componenti vengono passati esplicitamente props come name, onChange, onFocus quando forse basterebbe usare lo spread operator per semplificarli e ridurre le propTypes
