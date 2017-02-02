@@ -4,10 +4,10 @@ import { storiesOf, action } from '@kadira/storybook';
 
 import SelectAsync from '../src/SelectAsync';
 
-function loadPosts(q) {
-    return axios.get(`https://jsonplaceholder.typicode.com/posts?_limit=10&q=${q}`)
+function loadData(q) {
+    return axios.get(`http://swapi.co/api/people?search=${q}`)
         .then(res => {
-            const options = res.data.map(post => ({ value: post.id, label: post.title }));
+            const options = res.data.results.map((item, id) => ({ value: id, label: item.name }));
 
             return { options };
         });
@@ -33,7 +33,7 @@ class Wrapper extends React.Component {
     render() {
         return <SelectAsync
             value={this.state.value}
-            loadOptions={loadPosts}
+            loadOptions={loadData}
             multi={this.props.multi}
             onChange={this.handleChange.bind(this)}
         />
@@ -43,13 +43,13 @@ class Wrapper extends React.Component {
 storiesOf('SelectAsync', module)
     .add('Default', () =>
         <SelectAsync
-            loadOptions={loadPosts}
+            loadOptions={loadData}
             onChange={action('Change')}
         />
     )
     .add('Disabled', () =>
         <SelectAsync
-            loadOptions={loadPosts}
+            loadOptions={loadData}
             onChange={action('Change')}
             value={3}
             disabled={true}
@@ -57,14 +57,13 @@ storiesOf('SelectAsync', module)
     )
     .add('Custom placeholder', () =>
         <SelectAsync
-            loadOptions={loadPosts}
-            placeholder="Scegli attentamente un articolo"
+            loadOptions={loadData}
+            placeholder="Select a character of the Star Wars saga"
         />
     )
     .add('Autoload', () =>
         <SelectAsync
-            loadOptions={loadPosts}
-            placeholder="Scegli attentamente un articolo"
+            loadOptions={loadData}
             autoload={true}
         />
     )

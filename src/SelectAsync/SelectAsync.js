@@ -1,13 +1,29 @@
 import React, { Component, PropTypes } from 'react';
 import uncontrollable from 'uncontrollable';
 import Select from 'react-select';
-// import Highlight from 'react-highlighter';
+import Highlight from 'react-highlighter';
 
 import TranslatorHoc from '../TranslatorHoc';
 
 class SelectAsync extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            inputValue: ''
+        };
+    }
+
+    handleInputChange = (value) => {
+        this.setState({
+            inputValue: value
+        });
+
+        this.props.onInputChange(value);
+    }
+
     render() {
-        const { autoload, clearable, create, disabled, labelKey, loadingPlaceholder, loadOptions, /*minimumInput,*/ multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey, ...rest } = this.props;
+        const { autoload, clearable, create, disabled, labelKey, loadingPlaceholder, loadOptions, multi, name, noResultsText, onBlur, onChange, onFocus, placeholder, searchPromptText, searchingText, value, valueKey, onInputChange, ...rest } = this.props;
 
         const Component = create ? Select.AsyncCreatable : Select.Async;
 
@@ -32,13 +48,9 @@ class SelectAsync extends Component {
                 valueKey={valueKey}
                 labelKey={labelKey}
                 backspaceRemoves={false}
+                onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    // Not working anymore with react-select@1.0.0-rc.2
-                    // if (this.select) {
-                    //     return <Highlight search={this.select._lastInput}>{option[labelKey]}</Highlight>;
-                    // }
-
-                    return <span>{option[labelKey]}</span>;
+                    return <Highlight search={this.state.inputValue}>{option[labelKey]}</Highlight>;
                 }}
                 {...rest}
             />
@@ -54,13 +66,13 @@ SelectAsync.propTypes = {
     labelKey: PropTypes.string,
     loadOptions: PropTypes.func.isRequired,
     loadingPlaceholder: PropTypes.string,
-    // minimumInput: PropTypes.number,
     multi: PropTypes.bool,
     name: PropTypes.string,
     noResultsText: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    onInputChange: PropTypes.func,
     placeholder: PropTypes.string,
     searchingText: PropTypes.string,
     searchPromptText: PropTypes.string,
@@ -74,8 +86,8 @@ SelectAsync.defaultProps = {
     create: false,
     disabled: false,
     labelKey: 'label',
-    // minimumInput: 0,
     multi: false,
+    onInputChange: () => {},
     placeholder: 'Select a value',
     searchingText: 'Searching...',
     valueKey: 'value'

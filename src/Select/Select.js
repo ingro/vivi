@@ -7,8 +7,24 @@ import classnames from 'classnames';
 import TranslatorHoc from '../TranslatorHoc';
 
 class Select extends Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            inputValue: ''
+        };
+    }
+
+    handleInputChange = (value) => {
+        this.setState({
+            inputValue: value
+        });
+
+        this.props.onInputChange(value);
+    }
+
     render() {
-        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, noResultsText, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey, ...rest } = this.props;
+        const { className, clearable, create, disabled, labelKey, minimumInput, multi, name, noResultsText, onBlur, onChange, onFocus, openUp, options, placeholder, value, valueKey, onInputChange, ...rest } = this.props;
 
         const Component = create ? ReactSelect.Creatable : ReactSelect;
 
@@ -31,14 +47,16 @@ class Select extends Component {
                 valueKey={valueKey}
                 labelKey={labelKey}
                 backspaceRemoves={false}
+                onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    if (create && this.select && this.select.inputValue) {
-                        return <Highlight search={this.select.inputValue}>{option[labelKey]}</Highlight>;
-                    } else if (! create && this.select) {
-                        return <Highlight search={this.select.state.inputValue}>{option[labelKey]}</Highlight>;
-                    }
+                    return <Highlight search={this.state.inputValue}>{option[labelKey]}</Highlight>;
+                    // if (create && this.select && this.select.inputValue) {
+                    //     return <Highlight search={this.select.inputValue}>{option[labelKey]}</Highlight>;
+                    // } else if (! create && this.select) {
+                    //     return <Highlight search={this.select.state.inputValue}>{option[labelKey]}</Highlight>;
+                    // }
 
-                    return <span>{option[labelKey]}</span>;
+                    // return <span>{option[labelKey]}</span>;
                 }}
                 {...rest}
             />
@@ -59,6 +77,7 @@ Select.propTypes = {
     onBlur: PropTypes.func,
     onChange: PropTypes.func.isRequired,
     onFocus: PropTypes.func,
+    onInputChange: PropTypes.func,
     openUp: PropTypes.bool,
     options: PropTypes.array.isRequired,
     placeholder: PropTypes.string,
@@ -73,6 +92,7 @@ Select.defaultProps = {
     labelKey: 'label',
     minimumInput: 0,
     multi: false,
+    onInputChange: () => {},
     openUp: false,
     placeholder: 'Select a value',
     valueKey: 'value'

@@ -4,12 +4,13 @@ import RcModal from 'react-modal';
 export default class Modal extends Component {
 
     render() {
-        const { children, isOpen, className, onClose, staticModal, style } = this.props;
+        const { children, contentLabel, isOpen, className, onClose, staticModal, style } = this.props;
 
         return (
             <RcModal
                 className={className}
                 style={style}
+                contentLabel={contentLabel}
                 isOpen={isOpen}
                 closeTimeoutMS={150}
                 onRequestClose={onClose}
@@ -24,6 +25,7 @@ export default class Modal extends Component {
 Modal.propTypes = {
     children: PropTypes.any.isRequired,
     className: PropTypes.string,
+    contentLabel: PropTypes.string,
     isOpen: PropTypes.bool,
     onClose: PropTypes.func,
     staticModal: PropTypes.bool,
@@ -31,6 +33,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
+    contentLabel: 'Modal',
     isOpen: false,
     onClose: () => {},
     staticModal: false,
