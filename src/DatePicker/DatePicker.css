@@ -1,7 +1,11 @@
-.CalendarMonth__caption {
-    text-align: center;
+.DatePicker__Wrapper {
+    position: relative;
+    width: 100%;
+    display: inline-block;
 }
 
-.DateInput {
-    width: auto;
+.DatePicker__Clear_Btn {
+    position: absolute;
+    right: 10px;
+    top: 5px;
 }

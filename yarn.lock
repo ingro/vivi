@@ -1727,14 +1727,7 @@ browserify-zlib@^0.1.4:
   dependencies:
     pako "~0.2.0"
 
-browserslist@^1.4.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-1.6.0.tgz#85fb7c993540d3fda31c282baf7f5aee698ac9ee"
-  dependencies:
-    caniuse-db "^1.0.30000613"
-    electron-to-chromium "^1.2.0"
-
-browserslist@^1.7.1:
+browserslist@^1.4.0, browserslist@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-1.7.1.tgz#cc9bd193979a2a4b09fdb3df6003fefe48ccefe1"
   dependencies:
@@ -1835,10 +1828,6 @@ camelcase@^2.0.0, camelcase@^2.1.0:
 camelcase@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/camelcase/-/camelcase-3.0.0.tgz#32fc4b9fcdaf845fcdf7e73bb97cac2261f0ab0a"
-
-caniuse-db@^1.0.30000613:
-  version "1.0.30000613"
-  resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000613.tgz#639133b7a5380c1416f9701d23d54d093dd68299"
 
 caniuse-db@^1.0.30000617, caniuse-db@^1.0.30000618:
   version "1.0.30000618"
@@ -2420,6 +2409,10 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
+date-fns@^1.27.2:
+  version "1.27.2"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.27.2.tgz#ce82f420bc028356cc661fc55c0494a56a990c9c"
+
 date-now@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
@@ -2612,10 +2605,6 @@ ecc-jsbn@~0.1.1:
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
-
-electron-to-chromium@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.2.0.tgz#3bd7761f85bd4163602259ae6c7ed338050b17e7"
 
 electron-to-chromium@^1.2.1:
   version "1.2.1"
@@ -3186,6 +3175,10 @@ flat-cache@^1.2.1:
     del "^2.0.2"
     graceful-fs "^4.1.2"
     write "^0.2.1"
+
+flatpickr@^2.3.5:
+  version "2.3.5"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.3.5.tgz#bde04999d8bb362b7f117e169224310868044194"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -4790,7 +4783,7 @@ mobx@^2.3.4:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/mobx/-/mobx-2.6.2.tgz#55722706e485b56d88be2ff1811267b1e6703f5a"
 
-moment@>=1.6.0, moment@^2.15.0, moment@^2.17.1:
+moment@^2.15.0, moment@^2.17.1:
   version "2.17.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
@@ -5873,15 +5866,6 @@ react-color@^2.4.3:
     reactcss "^1.0.6"
     tinycolor2 "^1.1.2"
 
-react-dates@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/react-dates/-/react-dates-6.0.0.tgz#539f2a89b5ef19fb70675ac4a387e273d384d548"
-  dependencies:
-    array-includes "^3.0.2"
-    classnames "^2.2.5"
-    react-moment-proptypes "^1.2.1"
-    react-portal "^3.0.0"
-
 react-datetime@^2.6.0:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/react-datetime/-/react-datetime-2.6.2.tgz#2cf01449dd8722b1d144bec427b7e1be7e52058e"
@@ -5973,21 +5957,11 @@ react-modal@^1.2.0, react-modal@^1.2.1, react-modal@^1.6.5:
     exenv "1.2.0"
     lodash.assign "^4.2.0"
 
-react-moment-proptypes@^1.2.1:
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/react-moment-proptypes/-/react-moment-proptypes-1.2.1.tgz#f672cb07e49f2a32c08f2c02ac30cb255850dc0a"
-  dependencies:
-    moment ">=1.6.0"
-
 react-onclickoutside@^4.1.0:
   version "4.9.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-4.9.0.tgz#2908c3136e244102bea5e5437a838a528d5d2995"
   dependencies:
     object-assign "^4.0.1"
-
-react-portal@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-portal/-/react-portal-3.0.0.tgz#9304fce836e8a3216b22588f8dc91b447728f0ae"
 
 react-proxy@^1.1.7:
   version "1.1.8"

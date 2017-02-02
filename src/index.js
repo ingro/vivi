@@ -1,7 +1,7 @@
 export { Checkbox } from './Checkbox';
 export { ClearableInput } from './ClearableInput';
 export { DatePicker } from './DatePicker';
-export { DateRangePicker } from './DateRangePicker';
+// export { DateRangePicker } from './DateRangePicker';
 export { Dropdown } from './Dropdown';
 export { LoadingButton } from './LoadingButton';
 export { Modal } from './Modal';

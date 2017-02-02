@@ -40,7 +40,6 @@
 #### RadioGroup
 
 #### Select & SelectAsync
-- Fixare highlight su SelectAsync (https://github.com/JedWatson/react-select/pull/1231)
 - Utilizzare debounce input per ricerca con Async?
 
 #### Switch

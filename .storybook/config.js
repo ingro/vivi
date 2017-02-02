@@ -3,6 +3,7 @@ import infoAddon from '@kadira/react-storybook-addon-info';
 import { setOptions } from '@kadira/storybook-addon-options';
 
 import '../src/style.css';
+import 'flatpickr/dist/themes/airbnb.css';
 
 setOptions({
     name: 'Vivi',
@@ -13,7 +14,7 @@ setOptions({
 const req = require.context('../stories', true, /.js$/)
 
 function loadStories() {
-	req.keys().forEach((filename) => req(filename));
+    req.keys().forEach((filename) => req(filename));
 }
 
 setAddon(infoAddon);

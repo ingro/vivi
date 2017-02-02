@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import RcTimeAgo from 'react-timeago';
 import itstrings from 'react-timeago/lib/language-strings/it';
 import buildFormatter from 'react-timeago/lib/formatters/buildFormatter';
-import moment from 'moment';
+import isDate from 'date-fns/is_date';
+import format from 'date-fns/format';
+import it from 'date-fns/locale/it';
+// import moment from 'moment';
 
 import Tooltip from '../Tooltip';
 
@@ -27,7 +30,7 @@ export default class TimeAgo extends Component {
         if (tooltip) {
             return (
                 <Tooltip
-                    content={moment.isMoment(date) ? date.format(tooltipDateFormat) : date}
+                    content={isDate(date) ? format(date, tooltipDateFormat, { locale: it }) : date}
                     position={tooltipPosition}
                 >
                     <a style={{ textDecoration: 'none' }}>
@@ -50,6 +53,6 @@ TimeAgo.propTypes = {
 
 TimeAgo.defaultProps = {
     tooltip: false,
-    tooltipDateFormat: 'lll',
+    tooltipDateFormat: 'DD/MM/YYYY',
     tooltipPosition: 'top'
 };

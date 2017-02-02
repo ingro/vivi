@@ -1,5 +1,5 @@
 /* External styles */
-@import 'react-dates/lib/css/_datepicker.css';
+/*@import 'react-dates/lib/css/_datepicker.css';*/
 @import 'react-select/dist/react-select.css';
 @import 'rc-tooltip/assets/bootstrap.css';
 /* @import 'react-selectize/themes/base.css';
@@ -30,4 +30,8 @@
 
 .has-error .Select-control {
     border-color: #a94442;
+}
+
+.flatpickr-input.form-control[readonly] {
+    background-color: #fff;
 }

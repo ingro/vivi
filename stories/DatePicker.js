@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text, number } from '@kadira/storybook-addon-knobs';
+import { withKnobs, text } from '@kadira/storybook-addon-knobs';
 import moment from 'moment';
 
 import DatePicker from '../src/DatePicker';
@@ -8,7 +8,7 @@ import DatePicker from '../src/DatePicker';
 const stories = storiesOf('DatePicker', module);
 
 stories.addDecorator(withKnobs);
-    
+
 stories
     .addWithInfo('Default', 'Component Info', () =>
         <DatePicker
@@ -17,22 +17,56 @@ stories
     )
     .add('With an existing date', () =>
         <DatePicker
-            date={moment().add(30, 'day')}
+            value={[moment().add(30, 'day').format('YYYY-MM-DD')]}
         />
     )
     .add('With custom format', () =>
         <DatePicker
-            date={moment().add(3, 'day')}
-            displayFormat="Do MMM Y"
+            value={moment().add(3, 'day').format('YYYY-MM-DD')}
+            displayFormat="F j, Y h:i K"
         />
     )
     .add('With custom placeholder', () =>
         <DatePicker
-            placeholder={text('Placeholder', 'Data')}
+            placeholder={text('Placeholder', 'Please insert a valid date')}
         />
     )
-    .add('With custom number of months', () =>
+    .add('Clearable', () =>
         <DatePicker
-            numberOfMonths={number('Number of Months', 2)}
+            value={moment().add(30, 'day').format('YYYY-MM-DD')}
+            clearable={true}
+        />
+    )
+    .add('Range Mode', () =>
+        <DatePicker
+            range={true}
+            onChange={action('Date changed')}
+        />
+    )
+    .add('Range mode with an existing range', () =>
+        <DatePicker
+            range={true}
+            value={[moment().add(60, 'day').format('YYYY-MM-DD'), moment().add(73, 'day').format('YYYY-MM-DD')]}
+        />
+    )
+    .add('Range mode With custom format', () =>
+        <DatePicker
+            range={true}
+            value={[moment().add(60, 'day').format('YYYY-MM-DD'), moment().add(73, 'day').format('YYYY-MM-DD')]}
+            displayFormat="F j, Y h:i K"
+        />
+    )
+    .add('Range mode with custom placeholders', () =>
+        <DatePicker
+            range={true}
+            value={[moment().add(60, 'day').format('YYYY-MM-DD'), moment().add(73, 'day').format('YYYY-MM-DD')]}
+            placeholder="Select a valid range of dates"
+        />
+    )
+    .add('Range mode with clearable option', () =>
+        <DatePicker
+            range={true}
+            value={[moment().add(60, 'day').format('YYYY-MM-DD'), moment().add(73, 'day').format('YYYY-MM-DD')]}
+            clearable={true}
         />
     );

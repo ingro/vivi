@@ -1,79 +1,76 @@
 import React, { Component, PropTypes } from 'react';
-import { SingleDatePicker } from 'react-dates';
-import moment from 'moment';
-import uniqueId from 'lodash/uniqueId';
+import Flatpickr from 'flatpickr';
 
-import TranslatorHoc from '../TranslatorHoc';
+export default class DatePicker extends Component {
+    componentWillReceiveProps(props) {
+        if (props.value) {
+            this.flatpickr.setDate(props.value);
+        }
 
-export class DatePicker extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            date: props.date,
-            focused: false
-        };
-
-        this.datepickerId = uniqueId('datepicker');
-    }
-
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.date !== this.props.date) {
-            this.setState({
-                date: nextProps.date
-            });
+        if (props.options.minDate) {
+            this.flatpickr.set('minDate', props.options.minDate);
         }
     }
 
-    onDateChange = (date) => {
-        this.setState({ date });
+    componentDidMount() {
+        const options = {
+            ...this.props.options,
+            onChange: (this.props.onChange)
+        };
 
-        this.props.onChange(date);
+        if (this.props.displayFormat) {
+            options.altInput = true;
+            options.altFormat = this.props.displayFormat;
+        }
+
+        if (this.props.range) {
+            options.mode = 'range';
+        }
+
+        this.flatpickr = new Flatpickr(this.node, options);
     }
 
-    onFocusChange = ({ focused }) => {
-        this.setState({ focused });
+    componentWillUnmount() {
+        this.flatpickr.destroy()
     }
 
-    getInitialVisibleMonth = () => {
-        return this.props.date || moment();
+    handleClear = () => {
+        if (this.flatpickr) {
+            this.flatpickr.clear();
+        }
     }
 
     render() {
-        const { displayFormat, numberOfMonths, placeholder, ...rest } = this.props;
-        const { focused, date } = this.state;
+        // eslint-disable-next-line no-unused-vars
+        const { onChange, options, defaultValue, value, clearable, displayFormat, range, ...props } = this.props;
 
         return (
-            <SingleDatePicker
-                id={this.datepickerId}
-                date={date}
-                focused={focused}
-                numberOfMonths={numberOfMonths}
-                displayFormat={displayFormat}
-                placeholder={placeholder}
-                onDateChange={this.onDateChange}
-                onFocusChange={this.onFocusChange}
-                initialVisibleMonth={this.getInitialVisibleMonth}
-                {...rest}
-            />
+            <span className="DatePicker__Wrapper">
+                <input {...props} defaultValue={defaultValue || value} ref={node => this.node = node} />
+                {clearable &&
+                    <span className="DatePicker__Clear_Btn text-danger">
+                        <i className="fa fa-times" onClick={this.handleClear}/>
+                    </span>
+                }
+            </span>
         );
     }
 }
 
 DatePicker.propTypes = {
-    date: PropTypes.any,
-    displayFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    numberOfMonths: PropTypes.number,
+    clearable: PropTypes.bool,
+    defaultValue: PropTypes.any,
+    displayFormat: PropTypes.string,
     onChange: PropTypes.func,
-    placeholder: PropTypes.string
+    options: PropTypes.object,
+    range: PropTypes.bool,
+    value: PropTypes.any
 };
 
 DatePicker.defaultProps = {
-    displayFormat: 'DD/MM/YYYY',
-    numberOfMonths: 1,
-    onChange: () => {}
+    clearable: false,
+    displayFormat: 'd/m/Y',
+    onChange: () => {},
+    options: {},
+    range: false
 };
-
-export default TranslatorHoc(DatePicker, {
-    placeholder: 'DatePicker.placeholder'
-});

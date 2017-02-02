@@ -38,8 +38,7 @@ Vivi requires external dependencies in order to work, some globally and some opt
 
 **Optional dependencies:**
 
-- moment: >= 2.0.0 (required for Datepicker, DateRangePicker and TimeAgo)
-- react-dates: >= 6.0.0 (required for DatePicker and DateRangePicker)
+- flatpickr: >= 2.3.0 (required for DatePicker)
 - react-modal: >= 1.0.0 (required for Modal)
 - react-virtualized: >= 8.11.0 (required for Table)
 - rc-pagination: >= 1.0.0 (required for Paginator)

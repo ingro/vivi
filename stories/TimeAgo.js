@@ -14,15 +14,15 @@ stories.addWithInfo('Default', 'ComponentInfo', () =>
             date={"2016-08-29 05:01:37"}
         />
     )
-    .add('From a moment object', () =>
+    .add('From a date object', () =>
         <TimeAgo
-            date={moment().subtract(3, 'day')}
+            date={moment().subtract(3, 'day').toDate()}
         />
     )
     .add('With tooltip', () =>
         <div style={{ margin: 100 }}>
             <TimeAgo
-                date={moment().subtract(3, 'day')}
+                date={moment().subtract(3, 'day').toDate()}
                 tooltip={true}
             />
         </div>
@@ -30,10 +30,10 @@ stories.addWithInfo('Default', 'ComponentInfo', () =>
     .add('With custom tooltip content and position', () =>
         <div style={{ margin: 100 }}>
             <TimeAgo
-                date={moment().subtract(3, 'day')}
+                date={moment().subtract(3, 'day').toDate()}
                 tooltip={true}
                 tooltipPosition={select('Tooltip position', ['top', 'right', 'bottom', 'left'], 'right')}
-                tooltipDateFormat="DD/MM/Y"
+                tooltipDateFormat="dddd DD MMMM YYYY"
             />
         </div>
     );
