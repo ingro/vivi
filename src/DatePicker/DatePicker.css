@@ -1,11 +1,18 @@
 .DatePicker__Wrapper {
     position: relative;
-    width: 100%;
-    display: inline-block;
+    display: block;
 }
 
 .DatePicker__Clear_Btn {
     position: absolute;
     right: 10px;
-    top: 5px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.DatePicker__Icon_Holder {
+    position: absolute;
+    right: 6px;
+    top: 8px;
+    cursor: pointer;
 }

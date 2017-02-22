@@ -37,6 +37,12 @@ stories
             clearable={true}
         />
     )
+    .add('With icon', () =>
+        <DatePicker
+            value={moment().add(30, 'day').format('YYYY-MM-DD')}
+            showIcon={true}
+        />
+    )
     .add('Range Mode', () =>
         <DatePicker
             range={true}

@@ -4,7 +4,7 @@ import Flatpickr from 'flatpickr';
 export default class DatePicker extends Component {
     componentWillReceiveProps(props) {
         if (props.value) {
-            this.flatpickr.setDate(props.value);
+            this.flatpickr.setDate(props.value, false);
         }
 
         if (props.options.minDate) {
@@ -40,19 +40,33 @@ export default class DatePicker extends Component {
         }
     }
 
+    handleToggle = () => {
+        if (this.flatpickr) {
+            // TODO: now working without setTimeout???
+            setTimeout(() => {
+                this.flatpickr.toggle();
+            }, 0);
+        }
+    }
+
     render() {
         // eslint-disable-next-line no-unused-vars
-        const { onChange, options, defaultValue, value, clearable, displayFormat, range, ...props } = this.props;
+        const { onChange, options, defaultValue, value, clearable, displayFormat, range, showIcon, ...props } = this.props;
 
         return (
-            <span className="DatePicker__Wrapper">
+            <div className="DatePicker__Wrapper">
                 <input {...props} defaultValue={defaultValue || value} ref={node => this.node = node} />
-                {clearable &&
+                {clearable && value &&
                     <span className="DatePicker__Clear_Btn text-danger">
                         <i className="fa fa-times" onClick={this.handleClear}/>
                     </span>
                 }
-            </span>
+                {showIcon &&
+                    <span className="DatePicker__Icon_Holder text-muted">
+                        <i className="fa fa-calendar" onClick={this.handleToggle}/>
+                    </span>
+                }
+            </div>
         );
     }
 }
@@ -64,6 +78,7 @@ DatePicker.propTypes = {
     onChange: PropTypes.func,
     options: PropTypes.object,
     range: PropTypes.bool,
+    showIcon: PropTypes.bool,
     value: PropTypes.any
 };
 
@@ -72,5 +87,6 @@ DatePicker.defaultProps = {
     displayFormat: 'd/m/Y',
     onChange: () => {},
     options: {},
-    range: false
+    range: false,
+    showIcon: false
 };
