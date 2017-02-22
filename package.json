@@ -89,7 +89,6 @@
   "peerDependencies": {
     "flatpickr": "^2.4.0",
     "lodash": "^4.0.0",
-    "moment": "^2.0.0",
     "rc-pagination": "^1.0.0",
     "rc-tooltip": "^3.0.0",
     "react": "^0.14.0 || ^15.0.0",
