@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Flatpickr from 'flatpickr';
+import classnames from 'classnames';
 
 export default class DatePicker extends Component {
     componentWillReceiveProps(props) {
@@ -51,10 +52,12 @@ export default class DatePicker extends Component {
 
     render() {
         // eslint-disable-next-line no-unused-vars
-        const { onChange, options, defaultValue, value, clearable, displayFormat, range, showIcon, ...props } = this.props;
+        const { onChange, options, defaultValue, value, clearable, displayFormat, range, showIcon, wrapperClass, ...props } = this.props;
+
+        const finalWrapperClass = classnames('DatePicker__Wrapper', wrapperClass);
 
         return (
-            <div className="DatePicker__Wrapper">
+            <div className={finalWrapperClass}>
                 <input {...props} defaultValue={defaultValue || value} ref={node => this.node = node} />
                 {clearable && value &&
                     <span className="DatePicker__Clear_Btn text-danger">
@@ -79,7 +82,8 @@ DatePicker.propTypes = {
     options: PropTypes.object,
     range: PropTypes.bool,
     showIcon: PropTypes.bool,
-    value: PropTypes.any
+    value: PropTypes.any,
+    wrapperClass: PropTypes.string
 };
 
 DatePicker.defaultProps = {
@@ -88,5 +92,6 @@ DatePicker.defaultProps = {
     onChange: () => {},
     options: {},
     range: false,
-    showIcon: false
+    showIcon: false,
+    wrapperClass: null
 };

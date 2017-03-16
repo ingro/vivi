@@ -13,7 +13,7 @@ import TranslatorProvider from '../TranslatorProvider';
 import Checkbox from '../Checkbox';
 import ClearableInput from '../ClearableInput';
 import DatePicker from '../DatePicker';
-import DateRangePicker from '../DateRangePicker';
+// import DateRangePicker from '../DateRangePicker';
 import Dropdown from '../Dropdown';
 import LoadingButton from '../LoadingButton';
 import Modal from '../Modal';
@@ -27,6 +27,8 @@ import TimeAgo from '../TimeAgo';
 import Tooltip from '../Tooltip';
 
 import messages from '../messages/it';
+
+import 'flatpickr/dist/themes/airbnb.css';
 
 // Fixtures
 import { dogs as list, colors, loadPosts } from './fixtures';
@@ -263,10 +265,6 @@ class App extends Component {
                 <h3>Here is a DatePicker</h3>
                 <DatePicker
                     onChange={(date) => console.warn('New date!', date)}
-                />
-                <h3>Here is a DateRangePicker</h3>
-                <DateRangePicker
-                    onChange={(range) => console.warn('New range!', range)}
                 />
                 <h3>Here is a LoadingButton</h3>
                 <LoadingButton
