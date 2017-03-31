@@ -26,6 +26,8 @@
 #### ClearableInput
 
 #### Datepicker
+- Se passo l'attributo `value` come array passarlo nelle options di flatpickr come `defaultDate`
+- Valutare utilzzo di `react-flatpickr` al posto di componente custom
 
 #### Dropdown
 
