@@ -1,5 +1,6 @@
 // Inspired by https://github.com/reactstrap/reactstrap/blob/master/src/TetherContent.js
-import React, { Component, PropTypes} from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom';
 import Tether from 'tether';
 import isFunction from 'lodash/isFunction';

@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import RcTooltip from 'rc-tooltip';
 
 export default class Select extends Component {

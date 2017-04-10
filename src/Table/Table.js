@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AutoSizer from 'react-virtualized/dist/commonjs/AutoSizer';
 import Column from 'react-virtualized/dist/commonjs/Table/Column';
 import RVTable from 'react-virtualized/dist/commonjs/Table/Table';
@@ -120,7 +121,7 @@ Table.propTypes = {
     onSort: PropTypes.func,
     rowCount: PropTypes.number.isRequired,
     rowGetter: PropTypes.func.isRequired,
-    rowHeight: React.PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
+    rowHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),
     selectable: PropTypes.bool,
     selectedRowsCount: PropTypes.number,
     sortBy: PropTypes.string,
