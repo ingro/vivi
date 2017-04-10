@@ -1,4 +1,5 @@
 import { Component, Children } from 'react';
+import PropTypes from 'prop-types';
 import get from 'lodash/get';
 
 export default class TranslatorProvider extends Component {
