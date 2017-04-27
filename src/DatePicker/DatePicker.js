@@ -16,6 +16,7 @@ export default class DatePicker extends Component {
 
     componentDidMount() {
         const options = {
+            positionElement: this.wrapper,
             ...this.props.options,
             onChange: (this.props.onChange)
         };
@@ -58,7 +59,7 @@ export default class DatePicker extends Component {
         const finalWrapperClass = classnames('DatePicker__Wrapper', wrapperClass);
 
         return (
-            <div className={finalWrapperClass}>
+            <div className={finalWrapperClass} ref={ref => this.wrapper = ref}>
                 <input {...props} defaultValue={defaultValue || value} ref={node => this.node = node} />
                 {clearable && value &&
                     <span className="DatePicker__Clear_Btn text-danger">

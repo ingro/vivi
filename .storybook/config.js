@@ -3,6 +3,7 @@ import infoAddon from '@kadira/react-storybook-addon-info';
 import { setOptions } from '@kadira/storybook-addon-options';
 
 import '../src/style.css';
+import 'flatpickr/dist/flatpickr.css';
 import 'flatpickr/dist/themes/airbnb.css';
 
 setOptions({

@@ -2389,9 +2389,9 @@ dashdash@^1.12.0:
   dependencies:
     assert-plus "^1.0.0"
 
-date-fns@^1.28.3:
-  version "1.28.3"
-  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.3.tgz#145d87adc3f5a82c6bda668de97eee1132c97ea1"
+date-fns@^1.28.4:
+  version "1.28.4"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.28.4.tgz#7938aec34ba31fc8bd134d2344bc2e0bbfd95165"
 
 date-now@^0.1.4:
   version "0.1.4"
@@ -3195,9 +3195,9 @@ flat-cache@^1.2.1:
     graceful-fs "^4.1.2"
     write "^0.2.1"
 
-flatpickr@^2.5.8:
-  version "2.5.8"
-  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.5.8.tgz#e9a0eb73c6e95573fcdcd378c8487e22902c3eac"
+flatpickr@^2.6.0:
+  version "2.6.0"
+  resolved "https://registry.yarnpkg.com/flatpickr/-/flatpickr-2.6.0.tgz#70018e596f94a2556424cf6ea24862eb008eab32"
 
 flatten@^1.0.2:
   version "1.0.2"
@@ -5904,9 +5904,9 @@ rc-animate@2.x:
   dependencies:
     css-animation "^1.3.0"
 
-rc-pagination@^1.8.6:
-  version "1.8.6"
-  resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-1.8.6.tgz#953a07491d657b14042f3fb80d697a4c2cb8db5b"
+rc-pagination@^1.8.7:
+  version "1.8.7"
+  resolved "https://registry.yarnpkg.com/rc-pagination/-/rc-pagination-1.8.7.tgz#029ad1b8d8650e8cf286b11076dc9ce12a194cfb"
   dependencies:
     prop-types "^15.5.7"
 
