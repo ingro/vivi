@@ -8,41 +8,57 @@ module.exports = {
         vivi: './src/index.js'
     },
     output: {
-        path: 'lib',
+        path: path.join(__dirname, 'lib'),
         filename: '[name].js'
     },
-    // externals: {
-    //     'react': 'React',
-    //     'react-dom': 'ReactDOM',
-    //     'react-addons-shallow-compare': 'var React.addons.shallowCompare'
-    // },
     plugins: [
-        new ExtractTextPlugin('vivi.css', {
+        new webpack.LoaderOptionsPlugin({
+            // Necessario per utilizzare i loaders in minimize mode
+            minimize: true,
+            options: {
+                // Necessario per plugin che non supportano ancora Webpack 2
+                context: __dirname,
+                // Necessario per resolve-url-loader che non supporta ancora Webpack 2
+                output: {
+                    path: path.join(__dirname, 'public')
+                }
+            }
+        }),
+        new ExtractTextPlugin({
+            filename: 'vivi.css',
             allChunks: false,
             beautify: true,
             mangle: false
         }),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                screw_ie8: true,
+                warnings: false
+            },
+            mangle: {
+                screw_ie8: true
+            },
+            output: {
+                comments: false,
+                screw_ie8: true
+            }
+        })
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
-            loaders: ['babel'],
+            use: 'babel-loader',
             include: path.join(__dirname, 'src')
         },
         {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('css-loader'),
+            use: ExtractTextPlugin.extract({
+                fallback: 'style-loader',
+                use: [{
+                    loader: 'css-loader'
+                }]
+            }),
             include: path.join(__dirname, 'src')
-        }
-        /*, {
-            test: /\.css$/,
-            loaders: ['style', 'css?modules&importLoaders=1', 'postcss'],
-            include: path.join(__dirname, 'source')
-        }, {
-            test: /\.css$/,
-            loaders: ['style', 'css?importLoaders=1'],
-            include: path.join(__dirname, 'styles.css')
-        }*/]
+        }]
     }
 }

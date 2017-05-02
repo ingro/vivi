@@ -38,9 +38,9 @@ Vivi requires external dependencies in order to work, some globally and some opt
 
 **Optional dependencies:**
 
-- flatpickr: >= 2.3.0 (required for DatePicker)
+- flatpickr: >= 2.6.0 (required for DatePicker)
 - react-modal: >= 1.0.0 (required for Modal)
-- react-virtualized: >= 8.11.0 (required for Table)
+- react-virtualized: >= 9.0.0 (required for Table)
 - rc-pagination: >= 1.0.0 (required for Paginator)
 - rc-tooltip: >= 3.0.0 (required for Tooltip)
 - react-select: 1.0.0-rc.3 (required for Select, SelectAsync and Paginator)

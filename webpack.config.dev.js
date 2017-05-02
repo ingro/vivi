@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const postssImport = require('postcss-import');
 // const autoprefixer = require('autoprefixer')
 const path = require('path');
-// const webpack = require('webpack')
+const webpack = require('webpack')
 
 module.exports = {
     devtool: 'eval',
@@ -11,44 +11,59 @@ module.exports = {
         style: './src/style.css'
     },
     output: {
-        path: 'build',
-        filename: '/static/[name].js'
+        path: path.join(__dirname, 'build'),
+        filename: '[name].js',
+        // publicPath: 'http://localhost:3001/build/'
     },
     plugins: [
+        new webpack.LoaderOptionsPlugin({
+            // Necessario per utilizzare i loaders in minimize mode
+            debug: true,
+            minimize: true,
+            options: {
+                // Necessario per plugin che non supportano ancora Webpack 2
+                context: __dirname,
+                // Necessario per resolve-url-loader che non supporta ancora Webpack 2
+                output: {
+                    path: path.join(__dirname, 'public')
+                }
+            }
+        }),
+        new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: true,
-            template: './index.html'
+            template: './demo.html'
         }),
         // new webpack.NoErrorsPlugin(),
         // new webpack.optimize.UglifyJsPlugin()
     ],
     module: {
-        loaders: [{
+        rules: [{
             test: /\.js$/,
-            loaders: ['babel'],
+            use: 'babel-loader',
             include: path.join(__dirname, 'src')
         },
         {
             test: /\.css$/,
-            loaders: ['style', 'css', 'postcss'],
-            include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')]
-        }
-        /*, {
-            test: /\.css$/,
-            loaders: ['style', 'css?modules&importLoaders=1', 'postcss'],
-            include: path.join(__dirname, 'source')
-        }, {
-            test: /\.css$/,
-            loaders: ['style', 'css?importLoaders=1'],
-            include: path.join(__dirname, 'styles.css')
-        }*/]
-    },
-    postcss: function() {
-        return [postssImport]
+            include: [path.join(__dirname, 'src'), path.join(__dirname, 'node_modules')],
+            use: [{
+                loader: 'style-loader'
+            }, {
+                loader: 'css-loader'
+            }, {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: function() {
+                        return [postssImport]
+                    }
+                }
+            }]
+        }]
     },
     devServer: {
-        contentBase: 'build',
+        contentBase: path.join(__dirname, 'build'),
+        compress: true,
         port: 3001
     }
 }
