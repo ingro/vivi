@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uncontrollable from 'uncontrollable';
 import Select from 'react-select';
-import Highlight from 'react-highlighter';
+import Highlight from 'react-highlight-words';
 
 import TranslatorHoc from '../TranslatorHoc';
 
@@ -51,7 +51,7 @@ class SelectAsync extends Component {
                 backspaceRemoves={false}
                 onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    return <Highlight search={this.state.inputValue}>{option[labelKey]}</Highlight>;
+                    return <Highlight searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
                 }}
                 {...rest}
             />

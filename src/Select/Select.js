@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import uncontrollable from 'uncontrollable';
 import ReactSelect from 'react-select';
-import Highlight from 'react-highlighter';
+import Highlight from 'react-highlight-words';
 import classnames from 'classnames';
 
 import TranslatorHoc from '../TranslatorHoc';
@@ -50,7 +50,7 @@ class Select extends Component {
                 backspaceRemoves={false}
                 onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    return <Highlight search={this.state.inputValue}>{option[labelKey]}</Highlight>;
+                    return <Highlight searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
                     // if (create && this.select && this.select.inputValue) {
                     //     return <Highlight search={this.select.inputValue}>{option[labelKey]}</Highlight>;
                     // } else if (! create && this.select) {
