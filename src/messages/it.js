@@ -18,8 +18,8 @@ export default {
             last_page: 'Ultima pagina',
             prev_page: 'Pagina precedente',
             next_page: 'Pagina successiva',
-            prev_5: '5 Pagine avanti',
-            next_5: '5 Pagine indietro'
+            prev_5: '5 Pagine indietro',
+            next_5: '5 Pagine avanti'
         }
     },
     Select: {

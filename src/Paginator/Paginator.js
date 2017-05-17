@@ -19,8 +19,8 @@ const localeDefault = {
     // Pagination.jsx
     prev_page: 'Previous page',
     next_page: 'Next page',
-    prev_5: '5 pages ahead',
-    next_5: '5 pages behind'
+    prev_5: '5 pages behind',
+    next_5: '5 pages ahead'
 };
 
 class Paginator extends Component {
