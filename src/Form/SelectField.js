@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import InputGroupHoc from './InputGroupHoc';
@@ -12,11 +11,13 @@ function SelectComponent(props) {
         options={props.options}
         {...props.input}
         {...props.selectOptions}
+        disabled={props.disabled}
         onBlur={() => props.input.onBlur()}
     />;
 }
 
 SelectComponent.propTypes = {
+    disabled: PropTypes.bool,
     input: PropTypes.object.isRequired,
     options: PropTypes.array.isRequired,
     placeholder: PropTypes.string,

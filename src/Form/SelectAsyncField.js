@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PropTypes from 'prop-types';
 
 import InputGroupHoc from './InputGroupHoc';
@@ -12,11 +11,13 @@ function SelectAsyncComponent(props) {
         loadOptions={props.loadOptions}
         {...props.input}
         {...props.selectOptions}
+        disabled={props.disabled}
         onBlur={() => props.input.onBlur()}
     />;
 }
 
 SelectAsyncComponent.propTypes = {
+    disabled: PropTypes.bool,
     loadOptions: PropTypes.func.isRequired,
     initialLabel: PropTypes.string,
     input: PropTypes.object.isRequired,

@@ -56,6 +56,7 @@ export class Form extends Component {
                             placeholder="Name"
                             label="Nome"
                             component={InputField}
+                            disabled={true}
                         />
                         <div>Here is a password field</div>
                         <Field
