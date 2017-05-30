@@ -1,4 +1,9 @@
-.Select-drop-up .Select-menu-outer { 
-  top: auto !important; 
-  bottom: 100%; 
+.Select-drop-up .Select-menu-outer {
+  top: auto !important;
+  bottom: 100%;
+}
+
+.Select.is-disabled > .Select-control {
+    background-color: #eeeeee;
+    cursor: not-allowed;
 }
