@@ -1,6 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@kadira/storybook';
-import { withKnobs, text } from '@kadira/storybook-addon-knobs';
+import { storiesOf, action } from '@storybook/react';
+import { withKnobs, text } from '@storybook/addon-knobs';
 import moment from 'moment';
 
 import DatePicker from '../src/DatePicker';

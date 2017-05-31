@@ -4,15 +4,24 @@ const postssImport = require('postcss-import');
 
 module.exports = {
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.css?$/,
-                loaders: ['style', 'css', 'postcss'],
+                use: [{
+                        loader: 'style-loader'
+                    }, {
+                        loader: 'css-loader'
+                    }, {
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins() {
+                                return [autoprefixer, postssImport]
+                            }
+                        }
+                    }
+                ],
                 include: path.resolve(__dirname, '../')
             }
         ]
-    },
-    postcss() {
-        return [autoprefixer, postssImport]
     }
 };
