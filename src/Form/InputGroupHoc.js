@@ -11,8 +11,8 @@ const InputGroup = (props) => {
     }
 
     const groupClass = classnames('form-group', { 'has-error': props.meta.touched && props.meta.error });
-    const labelClass = classnames('control-label', { 'col-sm-2': props.horizontal});
-    const inputWrapperClass = classnames({ 'col-sm-10': props.horizontal });
+    const labelClass = classnames('control-label', { 'col-sm-2': props.horizontal, 'col-sm-12': !props.horizontal });
+    const inputWrapperClass = classnames({ 'col-sm-10': props.horizontal, 'col-sm-12': !props.horizontal });
 
     return (
         <div className={groupClass}>
