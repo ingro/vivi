@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import SelectAsync from '../src/SelectAsync';
 

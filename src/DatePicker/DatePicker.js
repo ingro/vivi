@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Flatpickr from 'flatpickr';
+import flatpickr from 'flatpickr';
 import classnames from 'classnames';
 
 export default class DatePicker extends Component {
@@ -16,7 +16,7 @@ export default class DatePicker extends Component {
 
     componentDidMount() {
         const options = {
-            positionElement: this.wrapper,
+            // positionElement: this.wrapper,
             ...this.props.options,
             onChange: (this.props.onChange)
         };
@@ -30,7 +30,11 @@ export default class DatePicker extends Component {
             options.mode = 'range';
         }
 
-        this.flatpickr = new Flatpickr(this.node, options);
+        if (this.props.value) {
+            options.defaultDate = this.props.value;
+        }
+
+        this.flatpickr = new flatpickr(this.node, options);
     }
 
     componentWillUnmount() {
@@ -57,6 +61,9 @@ export default class DatePicker extends Component {
         const { onChange, options, defaultValue, value, clearable, displayFormat, range, showIcon, wrapperClass, ...props } = this.props;
 
         const finalWrapperClass = classnames('DatePicker__Wrapper', wrapperClass);
+
+        // console.warn('DefaultValues', defaultValue);
+        // console.warn('Value', value);
 
         return (
             <div className={finalWrapperClass} ref={ref => this.wrapper = ref}>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
+import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 
 import Checkbox from '../src/Checkbox';
 
@@ -13,11 +14,11 @@ class Wrapper extends React.Component {
     }
 
     handleClick() {
-        action('Click')();
-
         this.setState({
             isChecked: ! this.state.isChecked
         });
+
+        action('Click')(! this.state.isChecked);
     }
 
     render() {

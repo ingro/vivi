@@ -1,18 +1,23 @@
 import React from 'react';
-import { storiesOf, action } from '@storybook/react';
-import { withKnobs, text } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
+import { decorateAction } from '@storybook/addon-actions';
 import moment from 'moment';
 
 import DatePicker from '../src/DatePicker';
 
 const stories = storiesOf('DatePicker', module);
 
-stories.addDecorator(withKnobs);
+const actionDate = decorateAction([
+    args => {
+        // console.warn(args);
+        return args[0];
+    }
+]);
 
 stories
     .addWithInfo('Default', 'Component Info', () =>
         <DatePicker
-            onChange={action('Date changed')}
+            onChange={actionDate('Date changed')}
         />
     )
     .add('With an existing date', () =>
@@ -28,7 +33,7 @@ stories
     )
     .add('With custom placeholder', () =>
         <DatePicker
-            placeholder={text('Placeholder', 'Please insert a valid date')}
+            placeholder="Please insert your birthday date"
         />
     )
     .add('Clearable', () =>
@@ -46,7 +51,7 @@ stories
     .add('Range Mode', () =>
         <DatePicker
             range={true}
-            onChange={action('Date changed')}
+            onChange={actionDate('Range changed')}
         />
     )
     .add('Range mode with an existing range', () =>
