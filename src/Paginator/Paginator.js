@@ -36,7 +36,7 @@ class Paginator extends Component {
             <div>
                 <Select
                     value={pageSize}
-                    options={sizeOptions.map(size => ({ value: size, label: size }))}
+                    options={sizeOptions.map(size => ({ value: size, label: ''+size }))}
                     onChange={this.onSizeChange}
                     valueKey="value"
                     labelKey="label"
