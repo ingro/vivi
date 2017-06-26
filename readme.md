@@ -32,16 +32,16 @@ Vivi requires external dependencies in order to work, some globally and some opt
 **Required dependencies:**
 
 - lodash: >= 4.0.0
-- react: >= 0.14.0
-- react-addons-shallow-compare: >= 0.14.0
-- react-dom: >= 0.14.0
+- react: >= 15.x
+- react-addons-shallow-compare: >= 15.x
+- react-dom: >= 15.x
 
 **Optional dependencies:**
 
-- flatpickr: >= 2.6.0 (required for DatePicker)
-- react-modal: >= 1.0.0 (required for Modal)
+- flatpickr: >= 3.0.0 (required for DatePicker)
+- react-modal: >= 2.0.0 (required for Modal)
 - react-virtualized: >= 9.0.0 (required for Table)
 - rc-pagination: >= 1.0.0 (required for Paginator)
 - rc-tooltip: >= 3.0.0 (required for Tooltip)
-- react-select: 1.0.0-rc.3 (required for Select, SelectAsync and Paginator)
+- react-select: 1.0.0-rc.5 (required for Select, SelectAsync and Paginator)
 - react-timeago: >= 3.0.0 (required for TimeAgo)
