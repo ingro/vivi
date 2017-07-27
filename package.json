@@ -58,7 +58,7 @@
     "cross-env": "^5.0.1",
     "css-loader": "^0.28.4",
     "enzyme": "^2.9.1",
-    "eslint": "^4.2.0",
+    "eslint": "^4.3.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.1.0",
@@ -70,7 +70,7 @@
     "moment": "^2.18.1",
     "postcss-cli": "^4.1.0",
     "postcss-import": "^10.0.0",
-    "rc-pagination": "^1.10.0",
+    "rc-pagination": "^1.10.1",
     "rc-tooltip": "^3.4.7",
     "react": "^15.6.1",
     "react-addons-shallow-compare": "^15.6.0",
@@ -83,10 +83,10 @@
     "react-timeago": "^3.3.0",
     "react-virtualized": "^9.9.0",
     "redux": "^3.7.2",
-    "redux-form": "^7.0.1",
+    "redux-form": "^7.0.3",
     "style-loader": "^0.18.2",
-    "webpack": "^3.3.0",
-    "webpack-dev-server": "^2.5.1"
+    "webpack": "^3.4.1",
+    "webpack-dev-server": "^2.6.1"
   },
   "peerDependencies": {
     "flatpickr": "^3.0.0",
