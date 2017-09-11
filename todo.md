@@ -52,6 +52,7 @@
 #### TimeAgo
 
 #### Tooltip
+- Valutare switch a https://github.com/slmgc/react-hint
 
 ### Form Components
 - Meglio Component regolare o functional component per InputGroupHoc?

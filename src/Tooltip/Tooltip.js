@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import RcTooltip from 'rc-tooltip';
 
-export default class Select extends Component {
+export default class Tooltip extends Component {
     render() {
         const { children, content,  enterDelay, leaveDelay, position, trigger } = this.props;
 
@@ -20,7 +20,7 @@ export default class Select extends Component {
     }
 }
 
-Select.propTypes = {
+Tooltip.propTypes = {
     children: PropTypes.any.isRequired,
     content: PropTypes.any.isRequired,
     enterDelay: PropTypes.number,
@@ -29,7 +29,7 @@ Select.propTypes = {
     trigger: PropTypes.array
 };
 
-Select.defaultProps = {
+Tooltip.defaultProps = {
     enterDelay: 0,
     leaveDelay: 0.1,
     position: 'top',
