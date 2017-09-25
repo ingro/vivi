@@ -1,65 +1,65 @@
 .rc-pagination-disabled {
-	cursor: not-allowed;
+    cursor: not-allowed;
 }
 
 .rc-pagination-disabled a {
-	color: #ccc !important;
+    color: #ccc;
 }
 
 .rc-pagination-item-active {
-	background-color: #5bc0de;
-	color: #fff;
-	border-color: #337ab7;
+    background-color: #5bc0de;
+    color: #fff;
+    border-color: #337ab7;
 }
 
 .rc-pagination-item-active a {
-	background-color: #337ab7 !important;
-	color: #fff !important;
+    background-color: #337ab7;
+    color: #fff;
 }
 
 .rc-pagination-item {
-	cursor: pointer;
-	border-color: #337ab7;
+    cursor: pointer;
+    border-color: #337ab7;
 }
 
 .rc-pagination-item:hover {
-	border-color: #337ab7;
+    border-color: #337ab7;
 }
 
 .rc-pagination-item:hover a {
-	color: #5bc0de;
+    color: #5bc0de;
 }
 
 .rc-pagination-prev a:after {
-	content: '\f104';
-	font-family: FontAwesome;
-	display: block;
+    content: '\f104';
+    font-family: FontAwesome;
+    display: block;
 }
 
 .rc-pagination-next a:after {
-	content: '\f105';
-	font-family: FontAwesome;
-	display: block;
+    content: '\f105';
+    font-family: FontAwesome;
+    display: block;
 }
 
 .rc-pagination-jump-next a, .rc-pagination-jump-prev a {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .rc-pagination-jump-next a:after, .rc-pagination-jump-prev a:after {
-	content: '\f142';
-	font-family: FontAwesome;
-	width: 20px;
-	display: block;
-	text-align: center;
+    content: '\f142';
+    font-family: FontAwesome;
+    width: 20px;
+    display: block;
+    text-align: center;
 }
 
 .rc-pagination-jump-next:hover a:after {
-	content: '\f101';
-	font-family: FontAwesome;
+    content: '\f101';
+    font-family: FontAwesome;
 }
 
 .rc-pagination-jump-prev:hover a:after {
-	content: '\f100';
-	font-family: FontAwesome;
+    content: '\f100';
+    font-family: FontAwesome;
 }
