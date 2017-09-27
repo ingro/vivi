@@ -5,9 +5,10 @@ import classnames from 'classnames';
 const InputGroup = (props) => {
     const inputProps = {...props, InputComponent: null };
 
+    const { InputComponent } = props;
+
     if (props.onlyInput) {
-        // TODO: passare tutte le props eccetto InputComponent
-        return React.createElement(props.InputComponent, inputProps);
+        return <InputComponent {...inputProps} />;
     }
 
     const groupClass = classnames('form-group', { 'has-error': props.meta.touched && props.meta.error });
@@ -18,8 +19,8 @@ const InputGroup = (props) => {
         <div className={groupClass}>
             <label className={labelClass}>{props.label || props.input.name}</label>
             <div className={inputWrapperClass}>
-                {React.createElement(props.InputComponent, inputProps)}
-                {props.meta.touched && props.meta.error &&
+                <InputComponent {...inputProps} />
+                {(props.meta.touched && props.meta.error) &&
                     <span className="help-block">{props.meta.error}</span>
                 }
             </div>
@@ -29,7 +30,7 @@ const InputGroup = (props) => {
 
 const InputGroupHoc = (InputComponent) => {
     return function InputGroupWrapper(props) {
-        return React.createElement(InputGroup, {...props, InputComponent});
+        return <InputGroup {...props} InputComponent={InputComponent} />;
     }
 }
 

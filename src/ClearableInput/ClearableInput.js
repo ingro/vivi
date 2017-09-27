@@ -29,7 +29,7 @@ class ClearableInput extends Component {
                     onChange={this.changeInput}
 
                 />
-                {this.props.value && this.props.value !== '' &&
+                {(this.props.value && this.props.value !== '') &&
                     <i
                         onClick={this.clearInput}
                         className="ClearableInput__trigger fa fa-times"
