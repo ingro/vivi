@@ -79,11 +79,15 @@ class Dropdown extends Component {
     }
 
     getContainer() {
+        // TODO: find a better solution?
         return ReactDOM.findDOMNode(this);
     }
 
     handleDocumentClick = (e) => {
-        if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) return;
+        if (e && (e.which === 3 || (e.type === 'keyup' && e.which !== keyCodes.tab))) {
+            return;
+        }
+
         const container = this.getContainer();
 
         if (container.contains(e.target) && container !== e.target && (e.type !== 'keyup' || e.which === keyCodes.tab)) {
@@ -101,8 +105,6 @@ class Dropdown extends Component {
             }, () => {
                 this.props.toggle(this.state.isOpen);
             });
-            // this.isOpen = ! this.isOpen;
-            // this.props.toggle(this.isOpen);
         });
     }
 
@@ -149,38 +151,22 @@ class Dropdown extends Component {
     renderNavbarDropdown() {
         const elClass = classnames('dropdown', { active: this.state.isOpen });
 
-        const placement = this.getPopperPlacement();
-
         return (
-            <Manager>
-                <Target>
-                    {({ targetProps }) => {
-                        return (
-                            <li
-                                className={elClass}
-                                {...targetProps}
-                                onClick={this.toggle}
-                                aria-expanded={this.state.isOpen}
-                                // ref={this.attachRef}
-                            >
-                                <a className="dropdown-toggle">
-                                    {this.props.text} <span className="caret" />
-                                </a>
-                            </li>
-                        );
-                    }}
+            <Manager
+                tag="li"
+                className={elClass}
+                style={{ cursor: 'pointer' }}
+                ref={node => this.node = node}
+            >
+                <Target
+                    component="a"
+                    className="dropdown-toggle"
+                    onClick={this.toggle}
+                    aria-expanded={this.state.isOpen}
+                >
+                    {this.props.text}<span className="caret" />
                 </Target>
-                {this.state.isOpen &&
-                    <Popper placement={placement}>
-                        {({ popperProps }) => {
-                            return (
-                                <ul onClick={this.toggle} className="dropdown-menu Dropdown__dropdown-menu" {...popperProps}>
-                                    {this.props.children}
-                                </ul>
-                            );
-                        }}
-                    </Popper>
-                }
+                {this.renderMenu()}
             </Manager>
         );
     }
@@ -188,37 +174,49 @@ class Dropdown extends Component {
     renderButtonDropdown() {
         const elClass = classnames('btn', 'dropdown-toggle', this.props.btnClassName);
 
+        return (
+            <Manager
+                tag="span"
+                ref={node => this.node = node}
+            >
+                <Target
+                    component="button"
+                    className={elClass}
+                    onClick={this.toggle}
+                    aria-expanded={this.state.isOpen}
+                >
+                    {this.props.text} <span className="caret" />
+                </Target>
+                {this.renderMenu()}
+            </Manager>
+        );
+    }
+
+    renderMenu() {
+        if (!this.state.isOpen) {
+            return null;
+        }
+
+        const contentClass = classnames(
+            'dropdown-menu',
+            'Dropdown__dropdown-menu',
+            { open: this.state.isOpen }
+        );
+
         const placement = this.getPopperPlacement();
 
         return (
-            <Manager>
-                <Target>
-                    {({ targetProps }) => {
-                        return (
-                            <button
-                                className={elClass}
-                                {...targetProps}
-                                onClick={this.toggle}
-                                aria-expanded={this.state.isOpen}
-                                // ref={this.attachRef}
-                            >
-                                {this.props.text} <span className="caret" />
-                            </button>
-                        );
-                    }}
-                </Target>
-                {this.state.isOpen &&
-                    <Popper placement={placement}>
-                        {({ popperProps }) => {
-                            return (
-                                <ul onClick={this.toggle} className="dropdown-menu Dropdown__dropdown-menu" {...popperProps}>
-                                    {this.props.children}
-                                </ul>
-                            );
-                        }}
-                    </Popper>
-                }
-            </Manager>
+            <Popper
+                component="ul"
+                className={contentClass}
+                onClick={this.toggle}
+                placement={placement}
+                tabIndex="-1"
+                role="menu"
+                aria-hidden={!this.state.isOpen}
+            >
+                {this.props.children}
+            </Popper>
         );
     }
 
@@ -243,7 +241,7 @@ Dropdown.propTypes = {
     dropup: PropTypes.bool,
     isOpen: PropTypes.bool,
     right: PropTypes.bool,
-    text: PropTypes.string.isRequired,
+    text: PropTypes.any.isRequired,
     toggle: PropTypes.func,
     type: PropTypes.oneOf(['navbar', 'button']).isRequired
 };

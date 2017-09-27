@@ -18,7 +18,7 @@ export default function TranslatorHoc(WrappedComponent, propsMap) {
             return {
                 ...this.props,
                 ...translatedProps
-            }
+            };
         }
 
         getWrappedInstance() {
@@ -28,7 +28,8 @@ export default function TranslatorHoc(WrappedComponent, propsMap) {
         render() {
             let props = this.context.translator ? this.getTranslatedProps() : {...this.props};
 
-            props.ref = (c) => { this.wrappedInstance = c };
+            // TODO: investigare warning
+            // props.ref = (c) => { this.wrappedInstance = c };
 
             return <WrappedComponent {...props} />;
         }

@@ -77,6 +77,4 @@
 - Form/Dropzone, vedi [esempio](https://github.com/BBB/dropzone-redux-form-example)
 
 ### Bug da risolvere con React 16.0
-- Dropdown non funziona
-- TranslatorHoc non permette di impostare ref perche componente stateless
-- Cliccando su qualsiasi checkbox di una tabella si selezionano tutte le righe
+- Usare react-popper anche per tooltip?
