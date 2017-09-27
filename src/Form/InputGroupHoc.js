@@ -16,7 +16,7 @@ const InputGroup = (props) => {
 
     return (
         <div className={groupClass}>
-            <label className={labelClass}>{props.label || props.name}</label>
+            <label className={labelClass}>{props.label || props.input.name}</label>
             <div className={inputWrapperClass}>
                 {React.createElement(props.InputComponent, inputProps)}
                 {props.meta.touched && props.meta.error &&
@@ -42,7 +42,6 @@ InputGroup.propTypes = {
         PropTypes.bool
     ]),
     meta: PropTypes.object,
-    name: PropTypes.string.isRequired,
     onlyInput: PropTypes.bool,
     placeholder: PropTypes.string
 };

@@ -97,7 +97,7 @@ export default class TetherContent extends Component {
         this._tether = new Tether(this.getTetherConfig());
         this.props.tetherRef(this._tether);
         this._tether.position();
-        this._element.childNodes[0].focus();
+        // this._element.childNodes[0].focus();
     }
 
     toggle = (e) => {
@@ -109,8 +109,8 @@ export default class TetherContent extends Component {
     }
 
     renderIntoSubtree() {
-        ReactDOM.unstable_renderSubtreeIntoContainer(
-            this,
+        ReactDOM.createPortal(
+            // this._element,
             this.renderChildren(),
             this._element
         );
