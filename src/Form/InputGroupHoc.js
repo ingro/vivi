@@ -5,15 +5,15 @@ import classnames from 'classnames';
 const InputGroup = (props) => {
     const inputProps = {...props, InputComponent: null };
 
-    const { InputComponent } = props;
+    const { InputComponent, inputHorizontalSizeClass, labelHorizontalSizeClass } = props;
 
     if (props.onlyInput) {
         return <InputComponent {...inputProps} />;
     }
 
     const groupClass = classnames('form-group', { 'has-error': props.meta.touched && props.meta.error });
-    const labelClass = classnames('control-label', { 'col-sm-2': props.horizontal, 'col-sm-12': !props.horizontal });
-    const inputWrapperClass = classnames({ 'col-sm-10': props.horizontal, 'col-sm-12': !props.horizontal });
+    const labelClass = classnames('control-label', { [labelHorizontalSizeClass]: props.horizontal, 'col-sm-12': !props.horizontal, 'text-left': !props.horizontal });
+    const inputWrapperClass = classnames({ [inputHorizontalSizeClass]: props.horizontal, 'col-sm-12': !props.horizontal });
 
     return (
         <div className={groupClass}>
@@ -37,11 +37,13 @@ const InputGroupHoc = (InputComponent) => {
 InputGroup.propTypes = {
     horizontal: PropTypes.bool,
     input: PropTypes.object,
+    inputHorizontalSizeClass: PropTypes.string,
     InputComponent: PropTypes.func.isRequired,
     label: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.bool
     ]),
+    labelHorizontalSizeClass: PropTypes.string,
     meta: PropTypes.object,
     onlyInput: PropTypes.bool,
     placeholder: PropTypes.string
@@ -49,6 +51,8 @@ InputGroup.propTypes = {
 
 InputGroup.defaultProps = {
     horizontal: true,
+    inputHorizontalSizeClass: 'col-sm-10',
+    labelHorizontalSizeClass: 'col-sm-2',
     onlyInput: false
 };
 
