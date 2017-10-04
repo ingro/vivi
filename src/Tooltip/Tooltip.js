@@ -4,15 +4,23 @@ import RcTooltip from 'rc-tooltip';
 
 export default class Tooltip extends Component {
     render() {
-        const { children, content,  enterDelay, leaveDelay, position, trigger } = this.props;
+        const { children, content,  enterDelay, leaveDelay, position, trigger, visible } = this.props;
+
+        const props = {
+            overlay: content,
+            placement: position,
+            trigger,
+            mouseEnterDelay: enterDelay,
+            mouseLeaveDelay: leaveDelay
+        };
+
+        if (typeof visible != 'undefined') {
+            props.visible = visible;
+        }
 
         return (
             <RcTooltip
-                overlay={content}
-                placement={position}
-                trigger={trigger}
-                mouseEnterDelay={enterDelay}
-                mouseLeaveDelay={leaveDelay}
+                {...props}
             >
                 {children}
             </RcTooltip>
@@ -26,7 +34,8 @@ Tooltip.propTypes = {
     enterDelay: PropTypes.number,
     leaveDelay: PropTypes.number,
     position: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
-    trigger: PropTypes.array
+    trigger: PropTypes.array,
+    visible: PropTypes.bool
 };
 
 Tooltip.defaultProps = {

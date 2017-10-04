@@ -149,7 +149,7 @@ class Dropdown extends Component {
     }
 
     renderNavbarDropdown() {
-        const elClass = classnames('dropdown', { active: this.state.isOpen });
+        const elClass = classnames('dropdown', { active: this.state.isOpen }, this.props.navClassName);
 
         return (
             <Manager
@@ -209,7 +209,7 @@ class Dropdown extends Component {
             <Popper
                 component="ul"
                 className={contentClass}
-                onClick={this.toggle}
+                onClick={this.props.closeOnClick ? this.toggle : () => {}}
                 placement={placement}
                 tabIndex="-1"
                 role="menu"
@@ -240,6 +240,8 @@ Dropdown.propTypes = {
     disabled: PropTypes.bool,
     dropup: PropTypes.bool,
     isOpen: PropTypes.bool,
+    menuClassName: PropTypes.string,
+    navClassName: PropTypes.string,
     right: PropTypes.bool,
     text: PropTypes.any.isRequired,
     toggle: PropTypes.func,
@@ -251,6 +253,8 @@ Dropdown.defaultProps = {
     closeOnClick: true,
     dropup: false,
     isOpen: false,
+    menuClassName: '',
+    navClassName: '',
     right: false
 };
 

@@ -42,4 +42,12 @@ storiesOf('Tooltip', module)
         >
             <span className="btn btn-danger">Delete</span>
         </Tooltip>
+    )
+    .add('Always visible', () =>
+        <Tooltip
+            content={'Im a tooltip!'}
+            visible={true}
+        >
+            <span className="btn btn-danger">Delete</span>
+        </Tooltip>
     );
