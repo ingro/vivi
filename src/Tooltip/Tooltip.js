@@ -4,7 +4,7 @@ import RcTooltip from 'rc-tooltip';
 
 export default class Tooltip extends Component {
     render() {
-        const { children, content,  enterDelay, leaveDelay, position, trigger, visible } = this.props;
+        const { children, content, enterDelay, leaveDelay, overlayClassName, position, trigger, visible } = this.props;
 
         const props = {
             overlay: content,
@@ -16,6 +16,10 @@ export default class Tooltip extends Component {
 
         if (typeof visible != 'undefined') {
             props.visible = visible;
+        }
+
+        if (typeof overlayClassName != 'undefined') {
+            props.overlayClassName = overlayClassName;
         }
 
         return (
@@ -33,6 +37,7 @@ Tooltip.propTypes = {
     content: PropTypes.any.isRequired,
     enterDelay: PropTypes.number,
     leaveDelay: PropTypes.number,
+    overlayClassName: PropTypes.string,
     position: PropTypes.oneOf(['left', 'right', 'top', 'bottom']),
     trigger: PropTypes.array,
     visible: PropTypes.bool

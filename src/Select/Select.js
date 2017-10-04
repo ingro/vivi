@@ -50,7 +50,7 @@ class Select extends Component {
                 backspaceRemoves={false}
                 onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    return <Highlight searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
+                    return <Highlight autoEscape={true} searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
                     // if (create && this.select && this.select.inputValue) {
                     //     return <Highlight search={this.select.inputValue}>{option[labelKey]}</Highlight>;
                     // } else if (! create && this.select) {

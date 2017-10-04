@@ -51,7 +51,7 @@ class SelectAsync extends Component {
                 backspaceRemoves={false}
                 onInputChange={this.handleInputChange}
                 optionRenderer={option => {
-                    return <Highlight searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
+                    return <Highlight autoEscape={true} searchWords={[this.state.inputValue]} textToHighlight={option[labelKey]}/>;
                 }}
                 {...rest}
             />
