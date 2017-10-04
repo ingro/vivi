@@ -20,7 +20,7 @@ const InputGroup = (props) => {
         return (
             <div className={groupClass}>
                 <Tooltip
-                    overlay={props.meta.error || ''}
+                    content={props.meta.error || ''}
                     position={props.errorTooltipPosition}
                     visible={Boolean((props.meta.touched && props.meta.error))}
                     overlayClassName="rc-tooltip-error"
