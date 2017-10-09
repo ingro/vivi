@@ -2,6 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Tooltip from '../Tooltip';
+import isArray from 'lodash/isArray';
+
+function gerError(error) {
+    if (isArray(error)) {
+        return error[0];
+    }
+
+    return error;
+}
 
 const InputGroup = (props) => {
     const inputProps = {...props, InputComponent: null };
@@ -20,7 +29,7 @@ const InputGroup = (props) => {
         return (
             <div className={groupClass}>
                 <Tooltip
-                    content={props.meta.error || ''}
+                    content={gerError(props.meta.error) || ''}
                     position={props.errorTooltipPosition}
                     visible={Boolean((props.meta.touched && props.meta.error))}
                     overlayClassName="rc-tooltip-error"
@@ -37,7 +46,7 @@ const InputGroup = (props) => {
             <div className={inputWrapperClass}>
                 <InputComponent {...inputProps} />
                 {(props.meta.touched && props.meta.error) &&
-                    <span className="help-block">{props.meta.error}</span>
+                    <span className="help-block">{gerError(props.meta.error)}</span>
                 }
             </div>
         </div>
