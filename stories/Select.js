@@ -93,10 +93,15 @@ class Wrapper extends React.Component {
             value={this.state.value}
             options={list}
             multi={this.props.multi}
+            create={this.props.create}
             onChange={this.handleChange.bind(this)}
         />
     }
 }
+
+Wrapper.defaultProps = {
+    create: false
+};
 
 storiesOf('Select', module)
     .add('Default', () =>
@@ -127,7 +132,7 @@ storiesOf('Select', module)
             />
         </div>
     )
-    .add('Creable options', () =>
+    .add('Create options', () =>
         <Select
             options={list}
             multi={true}

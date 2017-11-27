@@ -1,5 +1,5 @@
-import { configure, setAddon } from '@storybook/react';
-import infoAddon from '@storybook/addon-info';
+import { configure } from '@storybook/react';
+// import infoAddon from '@storybook/addon-info';
 import { setOptions } from '@storybook/addon-options';
 
 import '../src/style.css';
@@ -18,6 +18,6 @@ function loadStories() {
     req.keys().forEach((filename) => req(filename));
 }
 
-setAddon(infoAddon);
+// setAddon(infoAddon);
 
 configure(loadStories, module);

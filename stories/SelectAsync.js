@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions';
 import SelectAsync from '../src/SelectAsync';
 
 function loadData(q) {
-    return axios.get(`http://swapi.co/api/people?search=${q}`)
+    return axios.get(`https://swapi.co/api/people?search=${q}`)
         .then(res => {
             const options = res.data.results.map((item, id) => ({ value: id, label: item.name }));
 

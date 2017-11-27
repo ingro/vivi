@@ -22,6 +22,8 @@ class Select extends Component {
         });
 
         this.props.onInputChange(value);
+
+        return value;
     }
 
     render() {
@@ -31,7 +33,7 @@ class Select extends Component {
 
         return (
             <Component
-                ref={ref => this.select = ref}
+                // ref={ref => this.select = ref}
                 className={classnames(className, { 'Select-drop-up': openUp })}
                 disabled={disabled}
                 clearable={clearable}

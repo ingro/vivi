@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 
 import LoadingButton from '../src/LoadingButton';
 
@@ -33,9 +34,9 @@ class Wrapper extends React.Component {
 }
 
 storiesOf('LoadingButton', module)
-    .addWithInfo(
+    .add(
         'Normal',
-        'Button in normal state',
+        withInfo('Button in normal state'),
         () =>
             <LoadingButton
                 onClick={action('Change')}
@@ -51,9 +52,9 @@ storiesOf('LoadingButton', module)
             Disabled :(
         </LoadingButton>
     )
-    .addWithInfo(
+    .add(
         'Customized',
-        'Button in normal state with some bootstrap classes applied',
+        withInfo('Button in normal state with some bootstrap classes applied'),
         () =>
             <LoadingButton
                 className="btn-warning btn-lg"
@@ -62,9 +63,9 @@ storiesOf('LoadingButton', module)
                 Save
             </LoadingButton>
     )
-    .addWithInfo(
+    .add(
         'Loading',
-        'Button in loading state',
+        withInfo('Button in loading state'),
         () =>
             <LoadingButton
                 loading={true}
@@ -73,9 +74,9 @@ storiesOf('LoadingButton', module)
                 Save
             </LoadingButton>
     )
-    .addWithInfo(
+    .add(
         'Custom loading message',
-        'Button in loading state with custom message',
+        withInfo('Button in loading state with custom message'),
         () =>
             <LoadingButton
                 loading={true}

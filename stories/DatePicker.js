@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { decorateAction } from '@storybook/addon-actions';
+import { withInfo } from '@storybook/addon-info';
 import moment from 'moment';
 
 import DatePicker from '../src/DatePicker';
@@ -15,7 +16,7 @@ const actionDate = decorateAction([
 ]);
 
 stories
-    .addWithInfo('Default', 'Component Info', () =>
+    .add('Default', withInfo('Component Info'), () =>
         <DatePicker
             onChange={actionDate('Date changed')}
         />

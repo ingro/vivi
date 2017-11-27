@@ -1,6 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
+import { withInfo } from '@storybook/addon-info';
 import moment from 'moment';
 
 import TimeAgo from '../src/TimeAgo';
@@ -9,7 +10,7 @@ const stories = storiesOf('TimeAgo', module);
 
 stories.addDecorator(withKnobs);
 
-stories.addWithInfo('Default', 'ComponentInfo', () =>
+stories.add('Default', withInfo('ComponentInfo'), () =>
         <TimeAgo
             date={"2016-08-29 05:01:37"}
         />
