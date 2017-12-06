@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import Tooltip from '../Tooltip';
 import isArray from 'lodash/isArray';
 
+import Aux from './AuxWrapper';
+
 function gerError(error) {
     if (isArray(error)) {
         return error[0];
@@ -44,10 +46,12 @@ const InputGroup = (props) => {
         <div className={groupClass}>
             <label className={labelClass}>{props.label || props.input.name}</label>
             <div className={inputWrapperClass}>
-                <InputComponent {...inputProps} />
-                {(props.meta.touched && props.meta.error) &&
-                    <span className="help-block">{gerError(props.meta.error)}</span>
-                }
+                <Aux>
+                    <InputComponent {...inputProps} />
+                    {(props.meta.touched && props.meta.error) &&
+                        <span className="help-block">{gerError(props.meta.error)}</span>
+                    }
+                </Aux>
             </div>
         </div>
     );
