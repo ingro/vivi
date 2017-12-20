@@ -1,7 +1,7 @@
 {
   "name": "vivi",
   "version": "0.6.10",
-  "description": "Ui Components for Dashboards",
+  "description": "React powered Ui Components for Dashboards",
   "main": "lib/index.js",
   "scripts": {
     "build": "npm run build:js && npm run build:css",
@@ -15,8 +15,18 @@
     "storybook": "start-storybook -p 9001 ",
     "build:storybook": "build-storybook -o .out"
   },
-  "author": "Emanuele Ingrosso <ingro85@gmail.com>",
+  "author": {
+    "name": "Emanuele Ingrosso",
+    "email": "ingro85@gmail.com"
+  },
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ingro/vivi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ingro/vivi/issues"
+  },
   "ava": {
     "require": [
       "babel-register"
