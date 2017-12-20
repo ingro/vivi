@@ -10,16 +10,16 @@ Install vivi with npm: `$ npm install vivi --save`
 
 Vivi requires to be used with a bundler like [webpack](https://webpack.github.io/) or [browserify](http://browserify.org/). Using es6 syntax you could require components in two ways:
 
-- `import { Select } from 'vivi'`;
-- `import Select from 'vivi/lib/Select'`;
+* `import { Select } from 'vivi'`;
+* `import Select from 'vivi/lib/Select'`;
 
 Please not that requiring `vivi` will pull the whole package (also requiring all the optional dependencies), so you can save a lot of space importing the single components directly.
 
 ## Development
 
-- Clone the repository;
-- Install dependencies with `npm install`;
-- Type `npm start` to compile the source code and watch for changes;
+* Clone the repository;
+* Install dependencies with `npm install`;
+* Type `npm start` to compile the source code and watch for changes;
 
 A demo page where you can see in action all the components could be found at [http://localhost:3001/](http://localhost:3001/).
 Alternatively you could use [storybook](https://github.com/kadirahq/react-storybook) to work with components in many different scenarios.
@@ -31,17 +31,17 @@ Vivi requires external dependencies in order to work, some globally and some opt
 
 **Required dependencies:**
 
-- lodash: >= 4.0.0
-- react: >= 15.x
-- react-addons-shallow-compare: >= 15.x
-- react-dom: >= 15.x
+* lodash: >= 4.0.0
+* react: >= 16.x
+* react-dom: >= 16.x
+* react-addons-shallow-compare: >= 15.x
 
 **Optional dependencies:**
 
-- flatpickr: >= 3.0.0 (required for DatePicker)
-- react-modal: >= 2.0.0 (required for Modal)
-- react-virtualized: >= 9.0.0 (required for Table)
-- rc-pagination: >= 1.0.0 (required for Paginator)
-- rc-tooltip: >= 3.0.0 (required for Tooltip)
-- react-select: 1.0.0-rc.5 (required for Select, SelectAsync and Paginator)
-- react-timeago: >= 3.0.0 (required for TimeAgo)
+* flatpickr: >= 3.0.0 (required for DatePicker)
+* react-modal: >= 2.0.0 (required for Modal)
+* react-virtualized: >= 9.0.0 (required for Table)
+* rc-pagination: >= 1.0.0 (required for Paginator)
+* rc-tooltip: >= 3.0.0 (required for Tooltip)
+* react-select: 1.0.0 (required for Select, SelectAsync and Paginator)
+* react-timeago: >= 3.0.0 (required for TimeAgo)
