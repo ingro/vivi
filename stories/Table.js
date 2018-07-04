@@ -159,7 +159,8 @@ class Wrapper extends React.Component {
 }
 
 storiesOf('Table', module)
-    .add('Simple example', withInfo('Component Info'),() =>
+    // .addDecorator(withInfo)
+    .add('Simple example',() =>
         <Table
             columns={cols}
             height={400}
@@ -194,6 +195,7 @@ storiesOf('Table', module)
             height={400}
             rowCount={list.length}
             rowGetter={({ index }) => list[index]}
+            rowClassName={({ index }) => 'Foo Bar'}
         />
     )
     .add('Selectable rows', () =>

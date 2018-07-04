@@ -30,10 +30,18 @@ export class Table extends Component {
     getRowClassName = ({ index }) => {
         const checked = this.props.selectable && this.props.isSelected(index);
 
-        return classnames({
+        let className = '';
+
+        if (typeof this.props.rowClassName === 'function') {
+            className = this.props.rowClassName({ index });
+        }
+
+        const defaultClassName = classnames({
             'ReactVirtualized__Table__row__selected': checked,
             'ReactVirtualized__Table__row__striped': ! (index % 2)
         });
+
+        return `${className} ${defaultClassName}`;
     }
 
     renderCheckColumn = (data) => {
@@ -119,6 +127,7 @@ Table.propTypes = {
     onHeaderCheckClick: PropTypes.func,
     onRowCheckClick: PropTypes.func,
     onSort: PropTypes.func,
+    rowClassName: PropTypes.func,
     rowCount: PropTypes.number.isRequired,
     rowGetter: PropTypes.func.isRequired,
     rowHeight: PropTypes.oneOfType([PropTypes.number, PropTypes.func]),

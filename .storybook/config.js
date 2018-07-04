@@ -9,7 +9,7 @@ import 'flatpickr/dist/themes/airbnb.css';
 setOptions({
     name: 'Vivi',
     url: 'https://www.npmjs.com/package/vivi',
-    downPanelInRight: true
+    addonPanelInRight: true
 });
 
 const req = require.context('../stories', true, /.js$/)
