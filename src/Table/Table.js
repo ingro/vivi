@@ -63,7 +63,7 @@ export class Table extends Component {
     }
 
     render() {
-        const { bordered, columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width } = this.props;
+        const { bordered, columns, headerHeight, height, noRowsRenderer, onSort, rowCount, rowGetter, rowHeight, selectable, sortBy, sortDirection, width, tableClassName } = this.props;
 
         let tableHeight = height;
 
@@ -78,7 +78,7 @@ export class Table extends Component {
             <AutoSizer>
                 {(auto) => (
                     <RVTable
-                        className={classnames({'ReactVirtualized__Table__bordered': bordered})}
+                        className={classnames(tableClassName, {'ReactVirtualized__Table__bordered': bordered})}
                         headerHeight={headerHeight}
                         height={height ? tableHeight : auto.height}
                         rowCount={rowCount}
@@ -135,6 +135,7 @@ Table.propTypes = {
     selectedRowsCount: PropTypes.number,
     sortBy: PropTypes.string,
     sortDirection: PropTypes.string,
+    tableClassName: PropTypes.string,
     width: PropTypes.number
 };
 
@@ -143,7 +144,8 @@ Table.defaultProps = {
     headerHeight: 40,
     noRowsText: 'No items to show',
     rowHeight: 40,
-    selectable: false
+    selectable: false,
+    tableClassName: ''
 };
 
 export default TranslatorHoc(Table, {
