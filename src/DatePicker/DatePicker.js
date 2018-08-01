@@ -4,13 +4,13 @@ import flatpickr from 'flatpickr';
 import classnames from 'classnames';
 
 export default class DatePicker extends Component {
-    componentWillReceiveProps(props) {
-        if (props.value) {
-            this.flatpickr.setDate(props.value, false);
+    componentDidUpdate() {
+        if (this.props.value) {
+            this.flatpickr.setDate(this.props.value, false);
         }
 
-        if (props.options.minDate) {
-            this.flatpickr.set('minDate', props.options.minDate);
+        if (this.props.options.minDate) {
+            this.flatpickr.set('minDate', this.props.options.minDate);
         }
     }
 

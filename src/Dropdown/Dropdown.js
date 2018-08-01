@@ -1,8 +1,8 @@
 // See https://github.com/reactstrap/reactstrap/blob/v5/src/Dropdown.js per ispirazione
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import { Manager, Target, Popper } from 'react-popper'
+import { Manager, Popper, Reference } from 'react-popper'
 import classnames from 'classnames';
 import uncontrollable from 'uncontrollable';
 
@@ -153,20 +153,34 @@ class Dropdown extends Component {
 
         return (
             <Manager
-                tag="li"
-                className={elClass}
-                style={{ cursor: 'pointer' }}
-                ref={node => this.node = node}
+                // tag="li"
+                // className={elClass}
+                // style={{ cursor: 'pointer' }}
+                // ref={node => this.node = node}
             >
-                <Target
-                    component="a"
-                    className="dropdown-toggle"
-                    onClick={this.toggle}
-                    aria-expanded={this.state.isOpen}
+                <li
+                    className={elClass}
+                    style={{ cursor: 'pointer' }}
                 >
-                    {this.props.text}<span className="caret" />
-                </Target>
-                {this.renderMenu()}
+                    <Reference
+                        // component="a"
+                        // className="dropdown-toggle"
+                        // onClick={this.toggle}
+                        // aria-expanded={this.state.isOpen}
+                    >
+                        {({ ref }) => (
+                            <a
+                                className="dropdown-toggle"
+                                ref={ref}
+                                onClick={this.toggle}
+                                aria-expanded={this.state.isOpen}
+                            >
+                                {this.props.text}<span className="caret" />
+                            </a>
+                        )}
+                    </Reference>
+                    {this.renderMenu()}
+                </li>
             </Manager>
         );
     }
@@ -176,18 +190,29 @@ class Dropdown extends Component {
 
         return (
             <Manager
-                tag="span"
-                ref={node => this.node = node}
+                // tag="span"
+                // ref={node => this.node = node}
             >
-                <Target
-                    component="button"
-                    className={elClass}
-                    onClick={this.toggle}
-                    aria-expanded={this.state.isOpen}
-                >
-                    {this.props.text} <span className="caret" />
-                </Target>
-                {this.renderMenu()}
+                <span style={{ position: 'relative', display: 'inline-block' }}>
+                    <Reference
+                        // component="button"
+                        // className={elClass}
+                        // onClick={this.toggle}
+                        // aria-expanded={this.state.isOpen}
+                    >
+                        {({ ref }) => (
+                            <button
+                                className={elClass}
+                                ref={ref}
+                                onClick={this.toggle}
+                                aria-expanded={this.state.isOpen}
+                            >
+                                {this.props.text} <span className="caret" />
+                            </button>
+                        )}
+                    </Reference>
+                    {this.renderMenu()}
+                </span>
             </Manager>
         );
     }
@@ -203,19 +228,38 @@ class Dropdown extends Component {
             { open: this.state.isOpen }
         );
 
-        const placement = this.getPopperPlacement();
+        // const placement = this.getPopperPlacement();
 
         return (
             <Popper
-                component="ul"
-                className={contentClass}
-                onClick={this.props.closeOnClick ? this.toggle : () => {}}
-                placement={placement}
-                tabIndex="-1"
-                role="menu"
-                aria-hidden={!this.state.isOpen}
+                // component="ul"
+                // className={contentClass}
+                // onClick={this.props.closeOnClick ? this.toggle : () => {}}
+                placement={this.getPopperPlacement()}
+                // tabIndex="-1"
+                // role="menu"
+                // aria-hidden={!this.state.isOpen}
             >
-                {this.props.children}
+                {({ ref, style, placement }) => {
+                    // console.warn(style);
+
+                    return (
+                        <span style={style}>
+                            <ul
+                                className={contentClass}
+                                // style={style}
+                                data-placement={placement}
+                                ref={ref}
+                                onClick={this.props.closeOnClick ? this.toggle : () => { }}
+                                tabIndex="-1"
+                                role="menu"
+                                aria-hidden={!this.state.isOpen}
+                            >
+                                {this.props.children}
+                            </ul>
+                        </span>
+                    );
+                }}
             </Popper>
         );
     }
