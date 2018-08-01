@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import { withInfo } from '@storybook/addon-info';
+// import { withInfo } from '@storybook/addon-info';
 
 import Dropdown from '../src/Dropdown';
 
@@ -9,7 +9,7 @@ const stories = storiesOf('Dropdown', module);
 
 stories.addDecorator(withKnobs);
 
-stories.add('Button', withInfo('ComponentInfo'), () =>
+stories.add('Button', () =>
         <Dropdown
             type="button"
             text={text('Handler text', 'Click me!')}
@@ -22,13 +22,14 @@ stories.add('Button', withInfo('ComponentInfo'), () =>
             </li>
         </Dropdown>
     )
-    .add('Navbar', withInfo('ComponentInfo'), () =>
+    .add('Navbar', () =>
         <div className="navbar navbar-default">
             <div className="container-fluid">
                 <ul className="nav navbar-nav navbar-right">
                     <Dropdown
                         type="navbar"
                         text={text('Handler text', 'Click me!')}
+                        right={true}
                     >
                         <li>
                             <a>Foo</a>
