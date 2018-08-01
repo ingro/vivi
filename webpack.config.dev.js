@@ -2,10 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const postssImport = require('postcss-import');
 // const autoprefixer = require('autoprefixer')
 const path = require('path');
-const webpack = require('webpack')
+// const webpack = require('webpack');
 
 module.exports = {
-    devtool: 'eval',
+    mode: 'development',
+    // devtool: 'eval',
     entry: {
         demo: './src/demo/app',
         style: './src/style.css'
@@ -16,20 +17,20 @@ module.exports = {
         // publicPath: 'http://localhost:3001/build/'
     },
     plugins: [
-        new webpack.LoaderOptionsPlugin({
-            // Necessario per utilizzare i loaders in minimize mode
-            debug: true,
-            minimize: true,
-            options: {
-                // Necessario per plugin che non supportano ancora Webpack 2
-                context: __dirname,
-                // Necessario per resolve-url-loader che non supporta ancora Webpack 2
-                output: {
-                    path: path.join(__dirname, 'public')
-                }
-            }
-        }),
-        new webpack.NoEmitOnErrorsPlugin(),
+        // new webpack.LoaderOptionsPlugin({
+        //     // Necessario per utilizzare i loaders in minimize mode
+        //     debug: true,
+        //     minimize: true,
+        //     options: {
+        //         // Necessario per plugin che non supportano ancora Webpack 2
+        //         context: __dirname,
+        //         // Necessario per resolve-url-loader che non supporta ancora Webpack 2
+        //         output: {
+        //             path: path.join(__dirname, 'public')
+        //         }
+        //     }
+        // }),
+        // new webpack.NoEmitOnErrorsPlugin(),
         new HtmlWebpackPlugin({
             filename: 'index.html',
             inject: true,
